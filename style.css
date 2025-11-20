@@ -1,0 +1,212 @@
+
+    @font-face {
+      font-family: 'fabfont';
+      src: url('/font/DejaVuSansMono.woff2');
+      font-display: block;
+    }
+
+    @font-face {
+      font-family: 'fabfont';
+      src: url('/font/DejaVuSansMono-Bold.woff2');
+      font-weight: bold;
+      font-display: block;
+    }
+
+    * {
+       font-size: 16px;
+    }
+
+    html {
+      font-family: fabfont,  monospace;
+      max-width: 900px;  /* For Desktop PC (see @media for Tablets/Phones) */
+      padding-left: 2%;
+      padding-right: 3%;
+      margin: 0 auto;
+      background: #f6f0eb;
+  	} 
+    
+
+
+  	a {
+      color: black;
+      font-weight: bold;
+    }
+
+    footer {
+        text-align: center;
+    }
+
+  img {
+    overflow-clip-margin: content-box;
+    overflow: clip;
+    width: 100%; 
+    height: auto; 
+    margin-bottom:2ch;
+    border: 1px black solid;
+    }
+
+    blockquote {
+    background-color: #f3f3f3;
+    border: dashed 1px grey;
+    width: 97.5%;
+    font-style: italic;
+    text-align: justify;
+    padding: 1ch;
+    padding-top: 2ch;
+    padding-bottom: 2ch;
+    margin: 0ch;
+    margin-bottom: 2ch;
+    margin-top: 0ch;
+}
+
+    p {
+      margin-top: 0px;
+      text-align: justify;
+    }
+    sup {
+      vertical-align: 0.3em;
+      font-size: 0.65em;
+    }
+    
+    center {
+    display: block;
+    text-align: -webkit-center;
+    unicode-bidi: isolate;
+    }
+
+    pre {
+      font-family: fabfont, monospace;
+      background-color: white; 
+      border: 1px solid Black; 
+      padding-left: 2%;
+      padding-top: 1ch;
+      padding-bottom: 1ch;
+      /* Only take care of X overflow since this is the only part that can be too wide.
+         The Y axis will never overflow.
+      */
+      overflow: hidden;
+    }
+
+    div {
+    display: block;
+    unicode-bidi: isolate;
+}
+
+    h1,h2,h3{
+      font-weight:bold ;      
+      text-transform: uppercase;
+      margin-top: 5ch;
+    }
+
+    code {
+    font-weight: bold;
+    background-color: #e1e1e1;
+    border-radius: 0.5ch;
+    padding-left: 0.3ch;
+    padding-right: 0.3ch;
+}
+
+table {
+    display: table;
+    border-collapse: separate;
+    text-indent: initial;
+    line-height: normal;
+    font-weight: normal;
+    font-size: medium;
+    font-style: normal;
+    color: -internal-quirk-inherit;
+    text-align: start;
+    border-spacing: 2px;
+    white-space: normal;
+    font-variant: normal;
+}
+
+table.tbody {
+    display: table-row-group;
+    vertical-align: top;
+    unicode-bidi: isolate;
+    border-color: inherit;
+}
+
+@m
+
+    /** {
+      font-size: 16px;
+    }*/
+    @media (max-width: 500px) { /* For small screen decices */
+      * {
+        font-size: 12px; 
+      }
+    }   
+    .title {
+      text-decoration: none;
+    }
+
+    img.pixel, canvas.pixel {
+      image-rendering: pixelated;
+      image-rendering: -moz-crisp-edges;
+      image-rendering: crisp-edges;
+    }
+
+    blockquote { 
+    background-color: #f3f3f3;
+    border: dashed 1px grey; 
+    width: 97.5%; 
+    font-style: italic; 
+    text-align: justify;
+
+    padding: 1ch; 
+    padding-top: 2ch; 
+    padding-bottom: 2ch;     
+    
+    margin : 0ch; 
+    margin-bottom: 2ch; 
+    margin-top: 0ch;
+  }
+
+  blockquote div {
+    text-transform: none;
+    text-align: right;
+    width: 100%;
+  }
+
+  code {
+    /*font-size: 110%;*/
+    font-weight:normal ;
+    background-color: #e1e1e1;
+    border-radius: 0.5ch;
+    padding-left: 0.3ch;
+    padding-right: 0.3ch;
+  }
+
+  .trivia {
+    border-left: 1px black solid;
+    padding-left: 1ch;
+  }
+
+  .trivia::before {
+  font-weight: bold;
+  text-decoration: underline;
+  padding-right: 1ch;
+  content: "Trivia:";
+
+  
+table.hard , table.hard th, table.hard td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+table.hard  td {
+  padding-right: 1ch;
+  padding-top: 0.8ch;
+  padding-bottom: 0.8ch;
+  text-align: right;
+}
+
+table.hard th {
+  font-weight: bold;
+  background-color: #BBB;
+}
+
+
+
+  

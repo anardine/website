@@ -1,0 +1,224 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=12.0, minimum-scale=1.0, user-scalable=yes" />
+		<link rel="stylesheet" href="../style.css" />
+		<title>Design & Build of a FPV Drone F722 Flight Controller</title>
+	</head>
+	<body>
+		<div class="container">
+			<center>
+				<div style="display: inline-block; vertical-align:middle;">
+					<a href="/" class="title"><b>ALESSANDRO NARDINELLI'S WEBSITE</b></a>
+					<br />
+					<hr />
+					<a class="title" href="mailto:anardine@hotmail.com">CONTACT</a>
+					&nbsp;&nbsp;&nbsp;
+					<a class="title" href="#">RSS</a>
+					&nbsp;&nbsp;&nbsp;&nbsp;
+					<a class="title" href="#">DONATE</a>
+				</div>
+			</center>
+			<div style="margin-bottom:6ch; text-transform: none;"></div>
+            <div style="margin-bottom: 2ch;text-transform: none;">Mar 21, 2024 &middot; 9 min read<br>Updated: May 25</div>
+			<h1>Design & Build of a FPV Drone F722 Flight Controller</h1>
+            <hr>
+			<img src="https://static.wixstatic.com/media/23b67f_0c879fd15d5b45398bb725070a6ec31f~mv2.jpg/v1/fill/w_1280,h_899,al_c,q_85,enc_avif,quality_auto/23b67f_0c879fd15d5b45398bb725070a6ec31f~mv2.jpg" alt="ThunderF722 Flight Controller" style="max-width:100%;height:auto;" />
+			<blockquote>
+				DISCLAIMER 2025:<br><br>
+				While I cannot control what people will use it for, I AM NOT INVOLVED, AND I CONDEMN ANY APPLICATIONS OF MY KNOWLEDGE IN BUILDING WEAPONS FOR WARS OR CONFLICTS.<br><br>
+				This article is for educational and academic purposes ONLY. Please read the license before forking. This project is still under development and major testing. This hardware is considered unstable.
+			</blockquote>
+			<p>
+				Last year I tackled an almost impossible challenge: To develop, alone, a flight controller from zero, to be the core processing power for an FPV drone. Since it requires a lot of different skills, I've immersed myself in the journey of understanding the bottom line of complex hardware to bring the open-source community a reliable flight controller for any peaceful FPV application.
+			</p>
+			<p>
+				You can find the latest project files and details here: <a href="https://oshwlab.com/anardine.ef/thunder-f722-drone-flight-contro">https://oshwlab.com/anardine.ef/thunder-f722-drone-flight-contro</a>
+			</p>
+			<h2>What is a Flight Controller (FC) and what is it for?</h2>
+            <hr />
+			<p>
+				A Flight Controller is the core component of an FPV Drone because it hosts the sensors, software, and calculations so it can be stable and interpret signals while in the air. Long story short, it is the brain of a drone. Without it, it simply cannot fly.
+			</p>
+			<h3>Objectives of This Project</h3>
+            <hr />
+			<ol>
+				<li>Learn how to better develop hardware. It was a personal goal since lots of times I questioned what was behind all those small parts (the microchips) and how they act together orchestrating electricity. I've seen them inside my computers, inside my drones, and during my entire life. While being able to admire them working by checking if LEDs were blinking somewhere, now I felt I truly had the skills needed to develop them, so I began this learning journey.</li>
+				<li>To develop a completely open-source flight controller, so smarter people than me can perfect it so it becomes state of the art. The FPV community, mainly in Brazil, needs cheaper hardware because the import restrictions simply make everything way too costly and slow, which impacts the hobby and learning curve of those who want to develop the machines of the future.</li>
+			</ol>
+			<h3>The Overall Capabilities of this Flight Controller</h3>
+            <hr />
+			<p>
+				This is a <a href="https://www.st.com/resource/en/datasheet/stm32f722ic.pdf">STM32F722RET6</a> Cortex-based flight controller that uses an <a href="https://invensense.tdk.com/download-pdf/icm-20689-datasheet/">ICM-20689</a> and operates using <a href="https://github.com/betaflight/betaflight/releases/tag/4.4.3">Betaflight 4.4.3</a>. It also has a <a href="https://www.winbond.com/hq/product/code-storage-flash-memory/serial-nor-flash/?__locale=en&partNo=W25Q128JV">W25Q128JVSIQTR</a>, providing enough space for BlackBox storage (you can also use it to transfer files if you are more of the homing pigeon style). I chose the STM32F722RET6 since it provides enough UARTs for the normal pilots and it's way faster than the F405, while the layout and routing are not that hardcore to do in a 6-layer board.
+			</p>
+			<p>
+				It does not include an OSD chip because I really feel you don't need one since most of the alarms you can set in your radio using EdgeTX or whatever, and it also keeps the layout one-sided only (so assembly does not cost a kidney, but more on that later).
+			</p>
+			<p>
+				It also has two power rails (LIPO to 9V and 5V) using the MP9943GQ-Z with 10uH inductors and a bunch of filtering caps.
+			</p>
+			<h3>Selecting the Cortex (And Why I Chose the STM32F722RET6)</h3>
+            <hr />
+			<p>
+				I had to stick with the STMFXX family because I did not want to adapt Betaflight's code and capabilities (too much of a challenge). Since now there is also support for some STMHXX chips, those come out too costly and in my opinion are not worth it, since most pilots do not require tons of UARTs and core CPU use rarely passes the 50% mark on an F722.
+			</p>
+			<p>
+				Using an F4XX was an option but is slowly getting out of the pilot's dictionary because of limited UART ports and also being a past for Betaflight. Those good days of F4s and F3s are long gone!
+			</p>
+			<p>
+				Talking about cost, the difference between an F4 and an F7 was only $5, and was not relevant at all to the overall cost.
+			</p>
+			<img src="https://static.wixstatic.com/media/23b67f_aa9ccf27c3c2401ba235609ad8af3b1e~mv2.png/v1/fill/w_78,h_65,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/23b67f_aa9ccf27c3c2401ba235609ad8af3b1e~mv2.png" alt="STM32F722 Schematic" style="max-width:100%;height:auto;" />
+			<p>The STM32F722RET6 offers design simplicity and also plenty of UARTs available.</p>
+			<h3>The Gyroscope and Accelerometer</h3>
+            <hr />
+			<p>
+				Oh Boy (or Girl). This was a tough choice. I LOVE the MPUs and I simply cannot explain why. I cannot look away, however, from the fact that it has been discontinued for new builds. Betaflight offers support for the Bosch BMI270 but I saw that a lot of Issues were being raised, and it does get some confusion while handling frequencies updates. To be honest, I didn't research much here: Issues on the BMI270 and the MPU6000 going out, one guy came into the scene: the ICM-20689.
+			</p>
+			<p>
+				The ICM-20689 connects using SPI (as both MPU6000 and the BMI270 do) so it's great that it does not consume a UART that I can freely use for DJI or RX later. The connection is pretty simple and available on the datasheet:
+			</p>
+			<img src="https://static.wixstatic.com/media/23b67f_112c7b7cf737449a9fd0412dd4c17aea~mv2.png/v1/fill/w_49,h_27,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/23b67f_112c7b7cf737449a9fd0412dd4c17aea~mv2.png" alt="ICM-20689 Schematic" style="max-width:100%;height:auto;" />
+			<p>Make sure to use the right caps and filter power to the VDD and VDDIO pins.</p>
+			<h3>Power Management & Filtering</h3>
+            <hr />
+			<p>
+				It was a long journey to select the Switching regulators. I wanted to use more commercial and cheaper options such as the TPSXXXX and the LMRXXXXX from Texas Instruments but most of them required external diodes. Since my design needed to be on one side only, I had HUGE size constraints.
+			</p>
+			<p>
+				Because of that, I used the MP9943GQ-Z from <a href="https://www.monolithicpower.com/">Monolithic Power Systems</a> since it is a small 36V regulated DC-DC buck-down converter that requires few components. It is also flexible enough to use on the LIPO regulator (safely up to 6S voltage coming filtered from the ESC) and also on the LIPO-5V line by changing only one resistor.
+			</p>
+			<img src="https://static.wixstatic.com/media/23b67f_e71f598b6b3f4b749a6d0b860b840b56~mv2.png/v1/fill/w_68,h_56,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/23b67f_e71f598b6b3f4b749a6d0b860b840b56~mv2.png" alt="Power Regulator Schematic" style="max-width:100%;height:auto;" />
+			<p>The same regulator model MP9943GQ-Z can be used for LIPO-9V and LIPO-5V changing only one of the divider resistors (R1 to R30), making the assembly even cheaper.</p>
+			<p>
+				One important thing I forgot to include in my first design (which burst into flames the first time) was the BAT54C,215. A simple diode that only allows one 5V power to the components (because you can have +5VBAT coming from the battery and +5VBUS coming from the USB at the same time powered on!).
+			</p>
+			<img src="https://static.wixstatic.com/media/23b67f_15a03de410254270a943a37e431f2e3f~mv2.png/v1/fill/w_59,h_34,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/23b67f_15a03de410254270a943a37e431f2e3f~mv2.png" alt="BAT54C Schematic" style="max-width:100%;height:auto;" />
+			<p>Essential to the design, this BAT54C Power Diode helps the final 5V rail to be stable when connecting power to different resources.</p>
+			<p>
+				For the 3.3V power, an LDO on the 5V line does the task well. For this design, I've used the RICHTEK RT9013-33GB.
+			</p>
+			<img src="https://static.wixstatic.com/media/23b67f_0229a6845f524fffb83c725c23887477~mv2.png/v1/fill/w_66,h_46,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/23b67f_0229a6845f524fffb83c725c23887477~mv2.png" alt="LDO Schematic" style="max-width:100%;height:auto;" />
+			<p>3.3V LDO after the +5V rail to power the F7, ICM and Flash.</p>
+			<p>
+				It's also important to filter everything well. It is key to power design and is not in the scope of this article, but you should be extremely careful when deciding the caps and filters for your design.
+			</p>
+			<img src="https://static.wixstatic.com/media/23b67f_3c54ba9a8bac480fb382aeecaf452185~mv2.png/v1/fill/w_90,h_34,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/23b67f_3c54ba9a8bac480fb382aeecaf452185~mv2.png" alt="Decoupling Capacitors Schematic" style="max-width:100%;height:auto;" />
+			<p>Filter your power well!</p>
+			<h3>USB Connection</h3>
+            <hr />
+			<p>
+				USB (Type C. We are in 2024) connection is required for the configuration, boot, and flash of the FC. It enables us to communicate with the external world with ease. Betaflight accepts USB communication in MSP1 by default and the rails should be connected to the STM32F722 USB D+ and D- ports.
+			</p>
+			<p>
+				It is key for the stability of the F7 two resistors of 5.1kΩ (R19 and R13) directed on the CC1 and CC2 lines and two 22Ω (R8 and R9) on the USB_D- and USB_D+ lines. I've also included a USBLC6-2P6 protective diode on the data lines, just because.
+			</p>
+			<img src="https://static.wixstatic.com/media/23b67f_87e8fa45297e4e40901a79cfcfd2b42d~mv2.png/v1/fill/w_58,h_52,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/23b67f_87e8fa45297e4e40901a79cfcfd2b42d~mv2.png" alt="USB-C Schematic" style="max-width:100%;height:auto;" />
+			<p>USB-C required for external data transfer and FC configuration in Betaflight.</p>
+			<h3>Memory and Flash Storage for Blackbox (and Pidgeon Carriers).</h3>
+            <hr />
+			<p>
+				Since the W25Q128JVSIQ also uses the SPI communication protocol, why not? I've added one to register tunning and other files into the drone. It's pretty simple to wire it up and also provides significant benefits at a low cost. You can play correspondence chess or add a *.mp3 song and fly it to your buddy!
+			</p>
+			<img src="https://static.wixstatic.com/media/23b67f_87eb5da4fa5f4ef1a27a98806026422a~mv2.png/v1/fill/w_87,h_59,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/23b67f_87eb5da4fa5f4ef1a27a98806026422a~mv2.png" alt="Flash Schematic" style="max-width:100%;height:auto;" />
+			<p>Using flash on the FC allows for data storage and Blackbox logging.</p>
+			<h3>Wiring Everything Up</h3>
+            <hr />
+			<p>
+				For simplicity, you can check the files and the entire diagram on the <a href="https://github.com/tropicalfpv/thunderFC">GitHub link for the thunderFC</a>
+			</p>
+			<img src="https://static.wixstatic.com/media/23b67f_5481110502c542cabb81817e94a21371~mv2.png/v1/fill/w_89,h_64,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/23b67f_5481110502c542cabb81817e94a21371~mv2.png" alt="Entire Schematic Diagram" style="max-width:100%;height:auto;" />
+			<p>The Entire Schematic Diagram</p>
+			<h3>Board Layout, Size, and Placement</h3>
+            <hr />
+			<p>
+				While dimensioning everything, wiring up, and labeling is a lot of work, it is only 30%. Since in this board I had to make the magic of fitting it all on one side, the task of laying it out was insanely difficult, and took most of my development hours.
+			</p>
+			<p>
+				The size should not be outside of the boundaries of the frame and also should have a 30.5x30.5 4-hole mounting configuration.
+			</p>
+			<img src="https://static.wixstatic.com/media/23b67f_099c8efef32b4e7fa6a024d92c51bc0b~mv2.png/v1/fill/w_49,h_35,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/23b67f_099c8efef32b4e7fa6a024d92c51bc0b~mv2.png" alt="FPV Drone Build" style="max-width:100%;height:auto;" />
+			<p>Maximum size of 50x50 to fit most drones without being out too much. Please do not judge the cleanness of my build ;)</p>
+			<p>
+				The number of layers to fit all traces, don't compromise the performance and minimize cross-talk had to be 6. This was the layer distribution across the board:
+			</p>
+			<img src="https://static.wixstatic.com/media/23b67f_085c00058616404a864621b02f83481f~mv2.png/v1/fill/w_51,h_21,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/23b67f_085c00058616404a864621b02f83481f~mv2.png" alt="Layer Stackup" style="max-width:100%;height:auto;" />
+			<p>The Layer Stackup: Top and Bot to SIG, middle layers for GND and PWR.</p>
+			<img src="https://static.wixstatic.com/media/23b67f_d4c3474165974acba748450484de79c7~mv2.png/v1/fill/w_72,h_72,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/23b67f_d4c3474165974acba748450484de79c7~mv2.png" alt="Signal 1 Layer" style="max-width:100%;height:auto;" />
+			<img src="https://static.wixstatic.com/media/23b67f_ce249fe05a434e9e913d883fe3d3e834~mv2.png/v1/fill/w_71,h_71,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/23b67f_ce249fe05a434e9e913d883fe3d3e834~mv2.png" alt="PCB Ground Layer" style="max-width:100%;height:auto;" />
+			<img src="https://static.wixstatic.com/media/23b67f_fecf129dd76a4c09bb43230d682ec4f7~mv2.png/v1/fill/w_72,h_71,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/23b67f_fecf129dd76a4c09bb43230d682ec4f7~mv2.png" alt="PCB Power Rail Setup" style="max-width:100%;height:auto;" />
+			<img src="https://static.wixstatic.com/media/23b67f_9e809a6804e94f8ca1bce923e27abefe~mv2.png/v1/fill/w_71,h_71,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/23b67f_9e809a6804e94f8ca1bce923e27abefe~mv2.png" alt="PCB Power Routing 2" style="max-width:100%;height:auto;" />
+			<img src="https://static.wixstatic.com/media/23b67f_89aa31085b964c49ae8f20c138e13642~mv2.png/v1/fill/w_73,h_72,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/23b67f_89aa31085b964c49ae8f20c138e13642~mv2.png" alt="PCB Ground Layer 2" style="max-width:100%;height:auto;" />
+			<img src="https://static.wixstatic.com/media/23b67f_69c98ba07f2f432c809ce7685646e786~mv2.png/v1/fill/w_74,h_72,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/23b67f_69c98ba07f2f432c809ce7685646e786~mv2.png" alt="PCB Signal 2 Layer" style="max-width:100%;height:auto;" />
+			<h3>Optimizing for Cost</h3>
+            <hr />
+			<p>
+				Optimizing for cost was the rest 30% of all the effort because I had to manage Extend Components assembly fees. Using only Basic Parts was a challenge, and sometimes not possible. By removing items in the assembly process, such as connectors (I don't fly digital so I didn't need the DJI Conn).
+			</p>
+			<p>
+				Exposed PADs are a must, as well as Basic components such as resistors, capacitors, and inductors that actually have to be classified as "Basic Components" in JLCPCB assembly line so you don't have to pay the extended fee to load up the machines, which comes pretty costly in the end.
+			</p>
+			<p>
+				Also, using the basic assembly (and not the Standard) allows for WAY CHEAPER manufacturing. 8 Layer boards and two-sided assembly complicate things and make them cost way more than the simple process. This was also a constraint in this project and design.
+			</p>
+			<p>
+				Below is the cost comparison between the first iteration of my design and the latest one, with the same capabilities. I just had to solder the Inductors myself and short the boot mode button to DFU.
+			</p>
+			<img src="https://static.wixstatic.com/media/23b67f_ec260ee8c5d34e18b6baad04333e6750~mv2.png/v1/fill/w_49,h_36,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/23b67f_ec260ee8c5d34e18b6baad04333e6750~mv2.png" alt="Cost Comparison" style="max-width:100%;height:auto;" />
+			<p>The first iteration went almost to $130, while the last was below $50 which was the target for Brazil. Price for 5 units.</p>
+			<p>
+				The price point below $50 was critical due to restrictions on importing to Brazil. Hitting this goal was insanely hard, but possible.
+			</p>
+			<h3>Manufacturing in JLCPCB</h3>
+            <hr />
+			<p>
+				It's easy to manufacture and order a board to JLCPCB using the <a href="https://easyeda.com/">EasyEDA software</a>, all you have to do is to make sure that all the components and NETs are done and validated, and all the components are marked correctly on the Schematic Sheet. Once that is done, you can just select "Fabrication" -> "One-click Order PCB/SMT" from the PCB view.
+			</p>
+			<img src="https://static.wixstatic.com/media/23b67f_237d9bb7d21546d9a9cd49cf144e61ee~mv2.png/v1/fill/w_99,h_78,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/23b67f_237d9bb7d21546d9a9cd49cf144e61ee~mv2.png" alt="JLCPCB Fast Quote" style="max-width:100%;height:auto;" />
+			<p>Select this option for fast quote on your prototype in JLCPCB</p>
+			<p>
+				Manufacturing was on the limits of what was possible. The first 2 units of 5 came with solder mask problems, but not placement ones. Although it was possible to do it, for my upcoming iterations I'll try to manage the spacing to be more manufacturable than the ones on this build. On this subject, the team at JLCPCB was super knowledgeable of the facts and took the subject internally. They also came clean by giving me a coupon for the next orders, so no problems there.
+			</p>
+			<img src="https://static.wixstatic.com/media/23b67f_4230672d6170489fbe1d2b1f6274fb43~mv2.png/v1/fill/w_49,h_31,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/23b67f_4230672d6170489fbe1d2b1f6274fb43~mv2.png" alt="PCB Solder Mask Comparison" style="max-width:100%;height:auto;" />
+			<p>A comparison between the bad solder mask with the good one. JLCPCB was right on target and solved the issue.</p>
+			<h2>Target & Configurations</h2>
+            <hr />
+			<p>
+				To build the target I've mapped the pins on the schematics with the pins on the .config file that is flashed in DFU mode. Also, it is important that you download from source in betaflight the firmware that you are going to use (in this case betaflight 4.4.3) to load together with the file there.
+			</p>
+			<p>
+				The main challenge here was to correctly map the Timers and DMAs to the pins and UARTs required. If you are going to change this project, make sure you know how to remap using the tables provided in the documentation of the STM32F7XX Cortex. If you get it wrong, timers and DMAs are going to behave differently and Betaflight will not be able to map the UARTs and SPIs correctly.
+			</p>
+			<p>
+				If you have any doubts about creating a target, the <a href="https://betaflight.com/docs/development/manufacturer/creating-an-unified-target">Betaflight documentation</a> can help to get you started.
+			</p>
+			<img src="https://static.wixstatic.com/media/23b67f_c10b9909145545e4a3b9a029bfbad278~mv2.png/v1/fill/w_123,h_194,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/23b67f_c10b9909145545e4a3b9a029bfbad278~mv2.png" alt="Betaflight Config File" style="max-width:100%;height:auto;" />
+			<p>Set the timers and DMAs to the channels and Streams according to the STM32F7XX datasheet. Also, set the resources to the correct pins inside the Betaflight .config file.</p>
+			<h2>Conclusion & Next Steps</h2>
+            <hr />
+			<p>
+				This project is far from over. It requires additional testing and also tuning in hardware performance & stability. Following the path to share the knowledge and leave the world better than how I find it is the true objective of this article.
+			</p>
+			<p>
+				If you found this project interesting, consider a donation so I can keep funding the comes-and-goes of testing and manufacturing the boards here.
+			</p>
+			<p>
+				<a href="https://github.com/tropicalfpv/thunderFC">ThunderF722</a> © 2023 by <a href="https://www.linkedin.com/in/alessandro-m-nardinelli/">Alessandro M Nardinelli</a> is licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/?ref=chooser-v1">CC BY-SA 4.0</a>
+			</p>
+			<!-- <h2>About the Author</h2>
+			<img src="https://static.wixstatic.com/media/23b67f_3dc10952ef694ec2b86e58be8f849abf%7Emv2.jpg/v1/fill/w_45,h_45,al_c,lg_1,q_80,enc_avif,quality_auto/23b67f_3dc10952ef694ec2b86e58be8f849abf%7Emv2.jpg" alt="Alessandro Nardinelli" style="border-radius:50%;width:45px;height:45px;" />
+			<p><b>Alessandro M. Nardinelli</b></p>
+			<p>Data Manager and Spark Lead @ Databricks.<br>FPV Fanatic.</p>
+			<p>Email: <a href="mailto:anardine@hotmail.com">anardine@hotmail.com</a></p>
+			<p>
+				<a href="https://www.linkedin.com/in/alessandro-m-nardinelli/">LinkedIn</a> |
+				<a href="https://www.facebook.com/alessandro.nardinelli">Facebook</a>
+			</p> -->
+			<footer>
+				© 2025 Alessandro Nardinelli
+			</footer>
+		</div>
+	</body>
+</html>
