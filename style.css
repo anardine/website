@@ -1,13 +1,13 @@
 
     @font-face {
       font-family: 'fabfont';
-      src: url('/font/DejaVuSansMono.woff2');
+      src: url('./font/DejaVuSansMono.ttf');
       font-display: block;
     }
 
     @font-face {
       font-family: 'fabfont';
-      src: url('/font/DejaVuSansMono-Bold.woff2');
+      src: url('./font/DejaVuSansMono-Bold.ttf');
       font-weight: bold;
       font-display: block;
     }
