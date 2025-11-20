@@ -1,13 +1,13 @@
 
     @font-face {
-      font-family: 'fabfont';
-      src: url('./font/DejaVuSansMono.ttf');
+      font-family: 'alefont';
+      src: url('./font/IBMPlexMono-Regular.ttf');
       font-display: block;
     }
 
     @font-face {
-      font-family: 'fabfont';
-      src: url('./font/DejaVuSansMono-Bold.ttf');
+      font-family: 'alefont';
+      src: url('./font/IBMPlexMono-Bold.ttf');
       font-weight: bold;
       font-display: block;
     }
@@ -17,7 +17,7 @@
     }
 
     html {
-      font-family: fabfont,  monospace;
+      font-family: alefont,  monospace;
       max-width: 900px;  /* For Desktop PC (see @media for Tablets/Phones) */
       padding-left: 2%;
       padding-right: 3%;
@@ -75,7 +75,7 @@
     }
 
     pre {
-      font-family: fabfont, monospace;
+      font-family: alefont, monospace;
       background-color: white; 
       border: 1px solid Black; 
       padding-left: 2%;
