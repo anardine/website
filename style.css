@@ -145,10 +145,10 @@ table.usb td {
 }
 
 table.usb th {
-    padding-top: 0.8ch;
-    padding-bottom: 0.8ch;
+    padding-top: 0.4ch;
+    padding-bottom: 0.4ch;
     font-weight: bold;
-    background-color: #97afcfBB;
+    background-color: #4a7a9791;
     text-align: center;
     text-transform: uppercase;
 }
