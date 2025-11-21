@@ -109,7 +109,9 @@
 table {
     display: table;
     border-collapse: separate;
+    box-sizing: border-box;
     text-indent: initial;
+    unicode-bidi: isolate;
     line-height: normal;
     font-weight: normal;
     font-size: medium;
@@ -117,6 +119,7 @@ table {
     color: -internal-quirk-inherit;
     text-align: start;
     border-spacing: 2px;
+    border-color: gray;
     white-space: normal;
     font-variant: normal;
 }
@@ -126,6 +129,28 @@ table.tbody {
     vertical-align: top;
     unicode-bidi: isolate;
     border-color: inherit;
+}
+
+table.usb, table.usb th, table.usb td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+table.usb td {
+    padding-right: 0.5ch;
+    padding-top: 0.8ch;
+    padding-left:1ch;
+    padding-bottom: 0.8ch;
+    text-align: left;
+}
+
+table.usb th {
+    padding-top: 0.8ch;
+    padding-bottom: 0.8ch;
+    font-weight: bold;
+    background-color: #97afcfBB;
+    text-align: center;
+    text-transform: uppercase;
 }
 
 @m
