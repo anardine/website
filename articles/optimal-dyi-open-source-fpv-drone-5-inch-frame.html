@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=12.0, minimum-scale=1.0, user-scalable=yes" />
+		<link rel="stylesheet" href="../style.css" />
+		<title>Why I Went Against the Trend Towards Py+AI and Learned Bare-Metal C</title>
+	</head>
+	<body>
+		<div class="container">
+      <br><br>
+      <center>
+        <nav>
+        <div style="display: inline-block; vertical-align:middle;">
+          <a href="../index.html" class="title"><b>ALESSANDRO NARDINELLI'S WEBSITE</b></a>
+          <br />
+          <hr />
+          <a class="title" href="mailto:anardine@hotmail.com">CONTACT</a>
+          &nbsp;&nbsp;&nbsp;
+          <a class="title" href="#">RSS</a>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <a class="title" href="https://www.paypal.com/donate/?hosted_button_id=7U77WSQ5WNW8E">DONATE</a>
+        </div>
+        </nav>
+      </center>
+			<div style="margin-bottom:6ch; text-transform: none;"></div>
+            <div style="margin-bottom: 2ch;text-transform: none;">Feb 17, 2025; 4 min read<br></div>
+			<h1>Optimal Open Source FPV Drone 5 Inch Frame</h1>
+            <hr>
+            <br>
+            <div style="display: flex; justify-content: center;"><img src="./img/optimal-dyi-open-source-fpv-drone-5-inch-frame/4.avif" alt="the tropicalist frame" style="max-width:80%;height:auto;" /></div>
+			<blockquote>
+            	I've developed this frame through 3 years of constant iterations and development, intending to create a cheap, reliable, strong, and mainly, filter-optimized frame for freestyle.
+			
+				Check the GitHub page with all the details <a href="https://github.com/tropicalfpv/the-tropicalist">here</a>
+			</blockquote>
+            <p>
+                I called it <b>The Tropicalist.</b>
+            </p>
+            <h2>Main features and why's</h2>
+            <hr />
+			<p>
+					It does not include any fancy stuff, only carbon plates, screws, and standoffs. It's easy for machines to cut and is only based on pure, geometrical engineering for stability.
+			</p>
+			<p>
+				I consider this fpv drone frame project successful when we compare the following frequency logs on unfiltered gyro (GYRO_SCALED - 2k). For example, the below image is from the BlackBox of a flight on an Iflight XL5. Here is the frequency log (unfiltered gyro):
+			</p>
+            <div style="display: flex; justify-content: center;"><img src="./img/optimal-dyi-open-source-fpv-drone-5-inch-frame/1.avif" alt="Iflight XL5 frequency log (unfiltered gyro)" style="max-width:80%;height:auto;" /></div>
+			<p>
+				This next one is from the flight using the Tropicalist frame:
+			</p>
+            <div style="display: flex; justify-content: center;"><img src="./img/optimal-dyi-open-source-fpv-drone-5-inch-frame/2.avif" alt="The Tropicalist frequency log (unfiltered gyro)" style="max-width:80%;height:auto;" /></div>
+			<p>
+				The design successfully of this fpv drone frame clears almost all frequencies without the need for much filtering. Applying just a normal LPF on the gyro and the RPM filter, we achieve clean performance and incredible handling. This design was developed to be compared with the AOS5 with more room for internals, and a simpler building process. It also uses less material and has a comparable performance.		
+			</p>
+			<p>
+				It was mainly designed as it is because we needed to have a design in Brazil that could easily be manufactured, while cheap and strong since we have limited reach on importing goods from China (sometimes taking 30+ days to arrive and subject to loads of import taxes).
+			</p>
+			<p>
+					This fpv drone frame is based on scientific research to approach a feasible, less resonant frame. It was also tested in Structural FEA Analysis Software (such as Ansys Mechanical) before being released.
+			</p>
+			<p>
+                    The results for the frequency modes are the following (Result for P (Pitch), R (Roll) and Y (Yaw) in multiple Frequency Modes):
+			</p>
+            <div style="display: flex; justify-content: center;"><img src="./img/optimal-dyi-open-source-fpv-drone-5-inch-frame/3.avif" alt="Result for P (Pitch), R (Roll) and Y (Yaw) in multiple Frequency Modes" style="max-width:100%;height:auto;" /></div>
+			<p>
+					Here, the lower we get to high frequency (especially those of the motors), the better. This indicates that the drone has frequency modes that do not operate in amplifying harmonics when subjected to external inputs (again, such as the motors). 
+			</p>
+			<p>
+					This is key when dimensioning the frame so it can perform well with less filtering, which gives faster and sharper responses. This also helps when props get damaged, which tends to change the frequencies and can cause the motors to burn given the response needed from the FC and ESC to control and maintain stability.
+			</p>
+			<p>
+					This fpv drone frame itself has passed some "field testing" from some pilots and was also reported stable even after major crashes. Below, you can find reviews and flights using it (in Portuguese)
+			</p>
+			<h3>Reviews</h3>
+            <hr />
+			<p>
+				Review by WolskiFPV
+			</p>
+            <div style="display: flex; justify-content: center;"><iframe height="450" width="800" src="https://www.youtube.com/embed/nlKS5rNqplA" frameborder="0"></iframe></div>
+            <br>
+			<p>
+				Flow flight using the frame by energyFPV
+			</p>
+            <div style="display: flex; justify-content: center;"><iframe height="450" width="800" src="https://www.youtube.com/embed/Hf24SVBLPmc" frameborder="0"></iframe></div>
+            <br>
+			<p>
+            	Since I still fly analog, the build is shaped for that flight style, although some recent changes were done to accomodate Digital systems. To this date, the HDZero Freestyle V2 VTX, and the O3 are the most popular flying in them. It does not fit a classic DJI Air Unit (the bulky one), so please bear in mind this limitation.
+			</p>
+            <div style="display: flex; justify-content: center;"><img src="./img/optimal-dyi-open-source-fpv-drone-5-inch-frame/0.avif" alt="Result for P (Pitch), R (Roll) and Y (Yaw) in multiple Frequency Modes" style="max-width:70%;height:auto;" /></div>
+			<br>
+            <p>	After all this work, I've also made it open-source so people could benefit from a nice, robust,t and optimal frame for a cheaper and margin-free frame. You can find all the files, and some contacts to have them cut for you at the official GitHub page <a href="https://github.com/tropicalfpv/the-tropicalist">here</a></p>
+            <p>
+                There are also a ton of resources, such as 3D prints, motor guards, cam holders, antenna holders, and others on the resource page.
+            </p>
+            <p>I
+                f you have any issues or want to contribute and adapt, feel free to engage on the GitHub page, or drop me a message here so I can help
+            </p>
+			<footer>
+				<br><br>*<br>
+				© 2025 Alessandro Nardinelli
+				<br><br>
+			</footer>
+		</div>
+	</body>
+</html>

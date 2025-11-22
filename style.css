@@ -31,16 +31,19 @@
       margin: 0 auto;
       background: #f6f0eb;
   	} 
-    
-
 
   	a {
-      color: black;
-      font-weight: bold;
+      color: rgb(50, 53, 223);
+      /* font-weight: bold; */
     }
 
     footer {
         text-align: center;
+    }
+
+    nav a {
+      color: black;
+      font-weight: bold;
     }
 
   img {
