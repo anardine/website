@@ -12,6 +12,13 @@
       font-display: block;
     }
 
+    @font-face {
+      font-family: 'code';
+      src: url('./font/DejaVuSansMono-Bold.ttf');
+      font-weight: bold;
+      font-display: block;
+    }
+
     * {
        font-size: 15px;
     }
@@ -99,11 +106,11 @@
     }
 
     code {
-    font-weight: bold;
-    background-color: #e1e1e1;
+      font-family: code, monospace;
+    background-color: #d1d1d1;
     border-radius: 0.5ch;
-    padding-left: 0.3ch;
-    padding-right: 0.3ch;
+    padding-left: 1ch;
+    padding-right: 1ch;
 }
 
 table {
