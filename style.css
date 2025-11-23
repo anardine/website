@@ -18,6 +18,11 @@
       font-weight: bold;
       font-display: block;
     }
+        @font-face {
+      font-family: 'code_block';
+      src: url('./font/DejaVuSansMono.ttf');
+      font-display: block;
+    }
 
     * {
        font-size: 15px;
@@ -70,12 +75,17 @@
 }
 
     p {
-      margin-top: 0px;
+      margin-top: 2ch;
       text-align: justify;
     }
     sup {
       vertical-align: 0.3em;
       font-size: 0.65em;
+    }
+
+    li {
+      text-align: justify;
+      margin-top: 1ch;
     }
     
     center {
@@ -85,15 +95,13 @@
     }
 
     pre {
-      font-family: alefont, monospace;
+      font-family: code_block, monospace;
       background-color: white; 
-      border: 1px solid Black; 
+      border: 1px solid Black;
       padding-left: 2%;
-      padding-top: 1ch;
-      padding-bottom: 1ch;
-      /* Only take care of X overflow since this is the only part that can be too wide.
-         The Y axis will never overflow.
-      */
+      padding-right: 2%;
+      padding-top: 3ch;
+      padding-bottom: 2ch;
       overflow: hidden;
     }
 

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=12.0, minimum-scale=1.0, user-scalable=yes" />
+		<link rel="stylesheet" href="../style.css" />
+		<title>Why I Went Against the Trend Towards Py+AI and Learned Bare-Metal C</title>
+	</head>
+	<body>
+		<div class="container">
+      <br><br>
+      <center>
+        <nav>
+        <div style="display: inline-block; vertical-align:middle;">
+          <a href="../index.html" class="title"><b>ALESSANDRO NARDINELLI'S WEBSITE</b></a>
+          <br />
+          <hr />
+          <a class="title" href="mailto:anardine@hotmail.com">CONTACT</a>
+          &nbsp;&nbsp;&nbsp;
+          <a class="title" href="#">RSS</a>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <a class="title" href="https://www.paypal.com/donate/?hosted_button_id=7U77WSQ5WNW8E">DONATE</a>
+        </div>
+        </nav>
+      </center>
+			<div style="margin-bottom:6ch; text-transform: none;"></div>
+            <div style="margin-bottom: 2ch;text-transform: none;">May 14, 2024; 5 min read<br></div>
+			<h1>Identifying Counts Using the DAG inside SparkUI - Apache Spark | Databricks</h1>
+            <hr>
+            <p>Recently I've come across a curious situation: While printing two counts that were equal right before an if statement, the if statement comparing both of these counts was returning false. How can that be if both counts were printing the same value on the console right before going in?</p>
+
+            <p>After diagnosing them better using the <code>SparkUI</code>, I've figured out that inside the if statement, the counts were different. So, if you need to understand (and debug) your counts, you don't need to keep printing them (because they can lead to misunderstanding), you can find them inside a DAG visualization inside <code>SparkUI</code></p>
+            <h2>How does Spark evaluate a count?</h2>
+            <hr>
+            <p>The first thing you need to understand is that Spark is <a href="https://docs.databricks.com/aws/en/pyspark#dataframes-transformations-and-lazy-evaluation">lazy</a>. Every time you run a <code>df.count()</code> it triggers an action, which leads to a job. A count() gets evaluated every time it runs. It does not matter if the count that you print says 1 because triggering the <code>df.count()</code> again can give you 2 right after it. Confusing right? </p>
+            <p><b>This can happen when the data frame you're operating has data from underlying queries on tables that can be updated between <code>df.count()</code> runs.</b> Since Spark evaluates every <code>df.count()</code> statement, it will go back and read the underlying data every time of that data frame and count it.</p>
+            <p>Take a look at the example below:</p>
+            <pre>
+df1.count()
+df2.count()
+
+if( df1.count() == df2.count()):
+    print("count matches, proceeding further")
+else:
+    print("count does not match!")
+            </pre>
+            <p>Let's evaluate this code:</p>
+            <pre>
+df1.count() # returns 100
+df2.count() # also returns 100
+
+if( df1.count() == df2.count()): # should return true right? But it was returning false some of the times
+    print("count matches, proceeding further")
+else:
+    print("count does not match!")
+            </pre>
+            <p>What happens, in sequence is this:</p>
+            <ol>
+				<li> Spark triggers a job (or multiple ones)  for the first <code>df1.count()</code> function, which heads back to the data frame itself and recompiles it.</li>
+				<li> It also triggers another job for the second <code>df2.count()</code> operation.</li>
+                <li>Inside the if comparison clause, it repeats processes 1 and 2.</li>
+			</ol>
+            <p>Let's imagine that this is the underlying query on this data frame:</p>
+            <pre>
+df1 = spark.sql("SELECT * FROM catalog1.schema1.table1 where column1 = 'SPARK'")
+            </pre>
+            <p>The important thing is that if the data of <code>catalog1.schema1.table1</code> is constantly being updated, it can return different results every time a Spark action is called (such as <code>df.count()</code>). This is the scenario when, for example, the table <code>catalog1.schema1.table1</code> is being processed by a <a href="https://www.databricks.com/spark/getting-started-with-apache-spark/streaming">streaming.</a> "But I'm not running a streaming and the counts sometimes don't match!". Well, your data is still being updated, so take a look at possible joins with tables that are being written over jobs or CDC processes.</p>
+            <h2>And how do I check for the <code>.count()</code> statement evaluation inside <code>SparkUI</code>?</h2>
+            <p>We are not covering here any tutorial on the <code>SparkUI</code> itself. I'm going to jump straight to the point on how to identify your counts. If you need to better understand the <code>SparkUI</code>, please refer to <a href="https://spark.apache.org/docs/latest/web-ui.html">this link.</a></p>
+            <ol>
+                <li>The first step is to understand how many actions it will be triggered by your count. You can do this by analyzing how many other actions will be needed to compute your initial df.count(). Is your data frame related to a lot of different underlying tables? Do they have lots of joins, merges, and/or unions followed by grouping data? Or is it plain and simple, straight to the table itself? You don't need to know the exact amount but have an idea. You will use this "idea" when you're searching for queries/data frames on the last tab of the <code>SparkUI</code>, and relate them to the triggered jobs</li>
+                <li>Were they the last thing to be triggered on your notebook/job? if so, did the <code>df.count()</code> command took a long time? This is especially useful in Databricks since you can separate these operations on specific commands and check the time it takes to run them on the top of the cell.</li>
+            </ol>
+            <p>Now it's time to go to the UI -> SQL/Dataframe tab and search for your operation:</p>
+            <img src="./img/identifying-counts-using-the-dag-inside-sparkui-apache-spark-databricks/1.avif" alt="sparkui ui with the sql/dataframe tab">
+            <p>	This next step might take a while for you to find, but if the <code>.count()</code> operations were intensive, they're probably the most lasting command, so you can filter by duration. If they aren't, you need to double-check the latest commands filtering by time and go from there. </p>
+            <p>	That's why running those counts on a separate cell of your notebook is a good idea. You can check the exact job ID that ran for that specific query, and relate to it on the side, in the "Job IDs" column.</p>
+            <img src="./img/identifying-counts-using-the-dag-inside-sparkui-apache-spark-databricks/2.avif" alt="dataframe details">
+            <p>	You can click the description of the command (highlighted in blue) to check the DAG for that Query/Dataframe.</p>
+            <p>Now you can directly see that the last <code>WholeStageCodegen</code> returns only one object (that count number) and that the Scan reads all the lines (since a <code>.count()</code> needs to read all the lines). There, you've finally found your number. This can change from plan to plan, but following from the top (that 1 row) downwards can help you navigate the transformations that were made to reach that single line, and get your number from there.</p>
+            <img src="./img/identifying-counts-using-the-dag-inside-sparkui-apache-spark-databricks/3.avif" alt="details of query plan">
+            <h2>Optimizing your code</h2>
+            <hr>
+            <p>Besides all this <code>.count()</code> thing, running the above command is not the most optimized solution. I can understand that you need to compare, but you should save those results saved into two new variables (Scala users would hate it to be variables, tho).</p>
+            <p>The most optimized setting, in this case, is saving both and comparing after, like this:</p>
+            <pre>
+count_df1 = df1.count()
+count_df2 = df2.count()
+
+if count_df1 == count_df2: # comparison happens with the variables, and does not trigger new actions
+    print("count matches, proceeding further")
+else:
+    print("count does not match!")                
+            </pre>
+            <p>With that in mind, let me know if this article helped you somehow and if you also had the experience of debugging actions with more actions, that led to different results afterward.</p>
+            <p>All the best!</p>
+            
+            <footer>
+				<br><br>*<br>
+				© 2025 Alessandro Nardinelli
+				<br><br>
+			</footer>
+		</div>
+	</body>
+</html>
