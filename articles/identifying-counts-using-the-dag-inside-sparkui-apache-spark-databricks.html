@@ -5,7 +5,21 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=12.0, minimum-scale=1.0, user-scalable=yes" />
 		<link rel="stylesheet" href="../style.css" />
 		<title>Why I Went Against the Trend Towards Py+AI and Learned Bare-Metal C</title>
+        <meta name="description" content="In this article I describe the process to help users of spark identify counts using the SparkUI">
 	</head>
+
+
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MPBB9NY5KG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-MPBB9NY5KG');
+</script>
+
+
 	<body>
 		<div class="container">
       <br><br>
@@ -32,8 +46,8 @@
             <p>After diagnosing them better using the <code>SparkUI</code>, I've figured out that inside the if statement, the counts were different. So, if you need to understand (and debug) your counts, you don't need to keep printing them (because they can lead to misunderstanding), you can find them inside a DAG visualization inside <code>SparkUI</code></p>
             <h2>How does Spark evaluate a count?</h2>
             <hr>
-            <p>The first thing you need to understand is that Spark is <a href="https://docs.databricks.com/aws/en/pyspark#dataframes-transformations-and-lazy-evaluation">lazy</a>. Every time you run a <code>df.count()</code> it triggers an action, which leads to a job. A count() gets evaluated every time it runs. It does not matter if the count that you print says 1 because triggering the <code>df.count()</code> again can give you 2 right after it. Confusing right? </p>
-            <p><b>This can happen when the data frame you're operating has data from underlying queries on tables that can be updated between <code>df.count()</code> runs.</b> Since Spark evaluates every <code>df.count()</code> statement, it will go back and read the underlying data every time of that data frame and count it.</p>
+            <p>The first thing you need to understand is that Spark is <a href="https://docs.databricks.com/aws/en/pyspark#dataframes-transformations-and-lazy-evaluation">lazy</a>. Every time you run a <code>df.count()</code> it triggers an action, which leads to a job. A <code>.count()</code> evaluates the entire dataframe every time it runs. It does not matter if the count that you print says 1 because triggering the <code>df.count()</code> again can give you 2 right after it. Confusing right? </p>
+            <p><b>This can happen when the dataframe you're operating has data from underlying queries on tables that can be updated between <code>df.count()</code> runs.</b> Since Spark evaluates the entire dataframe logical plan every <code>df.count()</code> statement, it will go back and read the underlying data every time of that data frame and count it.</p>
             <p>Take a look at the example below:</p>
             <pre>
 df1.count()
@@ -68,7 +82,7 @@ df1 = spark.sql("SELECT * FROM catalog1.schema1.table1 where column1 = 'SPARK'")
             <h2>And how do I check for the <code>.count()</code> statement evaluation inside <code>SparkUI</code>?</h2>
             <p>We are not covering here any tutorial on the <code>SparkUI</code> itself. I'm going to jump straight to the point on how to identify your counts. If you need to better understand the <code>SparkUI</code>, please refer to <a href="https://spark.apache.org/docs/latest/web-ui.html">this link.</a></p>
             <ol>
-                <li>The first step is to understand how many actions it will be triggered by your count. You can do this by analyzing how many other actions will be needed to compute your initial df.count(). Is your data frame related to a lot of different underlying tables? Do they have lots of joins, merges, and/or unions followed by grouping data? Or is it plain and simple, straight to the table itself? You don't need to know the exact amount but have an idea. You will use this "idea" when you're searching for queries/data frames on the last tab of the <code>SparkUI</code>, and relate them to the triggered jobs</li>
+                <li>The first step is to understand how many actions it will be triggered by your count. You can do this by analyzing how many other actions will be needed to compute your initial <code>df.count()</code>. Is your data frame related to a lot of different underlying tables? Do they have lots of joins, merges, and/or unions followed by grouping data? Or is it plain and simple, straight to the table itself? You don't need to know the exact amount but have an idea. You will use this "idea" when you're searching for queries/data frames on the last tab of the <code>SparkUI</code>, and relate them to the triggered jobs</li>
                 <li>Were they the last thing to be triggered on your notebook/job? if so, did the <code>df.count()</code> command took a long time? This is especially useful in Databricks since you can separate these operations on specific commands and check the time it takes to run them on the top of the cell.</li>
             </ol>
             <p>Now it's time to go to the UI -> SQL/Dataframe tab and search for your operation:</p>
