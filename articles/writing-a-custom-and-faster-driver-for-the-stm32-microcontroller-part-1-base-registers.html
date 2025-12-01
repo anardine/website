@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=12.0, minimum-scale=1.0, user-scalable=yes" />
+		<link rel="stylesheet" href="../style.css" />
+		<title>Writing a Custom and Faster Driver for the STM32 Family of Microcontrollers - Part 1 - Initial Setup</title>
+        <meta name="description" content="In this article I describe the motivations and the inital process for developing a custom driver for the STM32 based microcontroller">
+	</head>
+
+
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MPBB9NY5KG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-MPBB9NY5KG');
+</script>
+
+
+	<body>
+		<div class="container">
+      <br><br>
+      <center>
+        <nav>
+        <div style="display: inline-block; vertical-align:middle;">
+          <a href="../index.html" class="title"><b>ALESSANDRO NARDINELLI'S WEBSITE</b></a>
+          <br />
+          <hr />
+          <a class="title" href="mailto:anardine@hotmail.com">CONTACT</a>
+          &nbsp;&nbsp;&nbsp;
+          <a class="title" href="#">RSS</a>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <a class="title" href="https://www.paypal.com/donate/?hosted_button_id=7U77WSQ5WNW8E">DONATE</a>
+        </div>
+        </nav>
+      </center>
+			<div style="margin-bottom:6ch; text-transform: none;"></div>
+            <div style="margin-bottom: 2ch;text-transform: none;">Dec 1st, 2025; - min read<br></div>
+			<h1>Writing a Custom and Faster Driver for the STM32 Family of Microcontrollers</h1>
+            <h2>Part 1 - Initial Setup</h2>
+            <br>
+            <h2>Motivations</h2>
+            <hr>
+            <p>
+                To keep short, doing this makes you end up with cleaner code, faster compilaton time, more memory available for you to use as you want and less buggy-prone code. Here's a complete list:
+            </p>
+            <ol>
+                <li>
+                    Have only the code needed on your application. I'll talk more about this on the next chapters and how this is critical for faster, lighter and optimized applications.
+                </li>
+                <li>
+                    The more you understand about the low-level register set-clear process, the better you can debug and understand what is happening under the hood.
+                </li>
+                <li>
+                    Be closer to the design aspects of the microcontroller, where you grasp why design choises were made and how it influences hardware performance.                    
+                </li>
+                <li>
+                    If you're cost constrained, you can select a smaller flash size and have even more space for application data than selecting a bigger one and storing lots of unnused compiled library code.
+                </li>
+                <li>
+                    Simply because it's fun! You can say to your friends that you now live between sanity border when programming.
+                </li>
+            </ol>
+            <p>
+                As mentioned on book <i>Bare-Metal Embedded C Programming</i><a name="back_1" style="text-decoration: none;" href="#footnote_1"><sup>[1]</sup></a>:
+            </p>
+            <blockquote>
+                <p>
+                    Bare-metal programming is all about working directly with the registers in the microcontroller without going through a library [...]. This approach enables us to optimize our firmware for speed and efficiency, which are two very important parameters in embedded systems where resources are limited.
+                </p>
+                <p style="text-align: right;">
+                    - Israel Gbati<a name="back_1" style="text-decoration: none;" href="#footnote_1"><sup>[1]</sup></a>
+                </p>
+            </blockquote>
+            <p>
+                There are multiple layers companies like ST make available for progammers that need to develop a Microcontroller application. This is done so that developers with multiple experience levels can program to the target, which makes the microcontrollers more "accessible". Of course, that comes with a cost.  
+            </p>
+            <p>
+                The table below showcases the different levels available and their main characteristics:
+            </p>
+            <table class="usb" style="width: 100%;">
+                <tbody>
+                    <tr>
+                        <th>Layer</th>
+                        <th>Complexity Level</th>
+                        <th>Optimization Level</th>
+                        <th>Suitable for</th>
+                    </tr>
+                    <tr>
+                        <td><b>MAINSTREAM FRAMEWORKS (ex ARDUINO)</b></td>
+                        <td>Easiest</td>
+                        <td>Lowest</td>
+                        <td>Suitable for Students, Hobbists, Quick Prototyping</td>
+                    </tr>
+                    <tr>
+                        <td><b>HARDWARE ABSTRACTION LAYER (HAL)</b></td>
+                        <td>Easy</td>
+                        <td>Average</td>
+                        <td>Firmware Developers (Beginners), Highly Verbose</td>
+                    </tr>
+                    <tr>
+                        <td><b>LOW LEVEL LAYER (LL)</b></td>
+                        <td>Average</td>
+                        <td>Good</td>
+                        <td>Used for a mix of portability and optimizaiton. More advanced controlls.</td>
+                    </tr>
+                    <tr>
+                        <td><b>BARE-METAL C</b></td>
+                        <td>Hard</td>
+                        <td>Great</td>
+                        <td>Granular controll and memory optimized. Used on final product lines.</td>
+                    </tr>
+                    <tr>
+                        <td><b>ASSEMBLY</b></td>
+                        <td>Hardest</td>
+                        <td>Great, but dangerous</td>
+                        <td>Not very used since it is extremely time-consuming to implement and have limited portability</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>Requirements</h2>
+            <hr>
+            <p>
+                The below list is a what I consider a must. It's important to state that learning Bare-metal C using a micrcontroller can be a plesant experience or just hell depending on the tools you have. 
+            </p>
+            <ul>
+                <li>
+                    An IDE that have an interface for exploring memory, and tools to help debug microcontrollers. ST themselves have an IDE that's called <code><a href="https://www.st.com/en/development-tools/stm32cubeide.html" target="_blank">STMCubeIDE</a></code>. Since most developers have one that they already code, <code><a href="https://www.jetbrains.com/clion/" target="_blank">CLion</a></code>, which is free at the of this writting and will be the tool used, or even <code>Visual Studio Code</code> can be used with some extensions. If you're in doubt, pick <code>STMCubeIDE</code> which is the safest option.
+                </li>
+                <li>
+                    An NUCLEO or DISCOVERY ST board. Tutorials often follow one, so I'll use the<code><a href="https://www.st.com/en/evaluation-tools/nucleo-wb55rg.html" target="_blank">NUCLEO-WB55RG</a></code>. You can pick whatever, as long an <code>STM32</code> microcontroller is present, and includes the <code>ST-Link</code> debug interface embedded accessible via USB.
+                </li>
+            </ul>
+            
+
+
+
+
+
+            <h2>references</h2>
+            <hr>
+            <p id="paperbox" style="text-align:left;">
+                <table>
+                    <tbody style="vertical-align: top;">
+                        <tr>
+                            <td class="ref" style="width:1ch;">
+                                <a name="footnote_1"></a>
+                                <a href="#back_1">^</a>
+                            </td>
+                            <td class="ref" style="width:4ch;"> <sup>[1]</sup></td>
+                            <td style="width:100%;text-align:left;" class="ref">
+                                Gbati, I. (2024). <i>Bare-Metal Embedded C Programming: Develop high-performance embedded systems with C for Arm microcontrollers</i>. Packt Publishing Ltd.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+
+            <footer>
+				<br><br>*<br>
+				© 2025 Alessandro Nardinelli
+				<br><br>
+			</footer>
+		</div>
+	</body>
+</html>
