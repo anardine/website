@@ -34,7 +34,7 @@
       padding-left: 2%;
       padding-right: 3%;
       margin: 0 auto;
-      background: #f6f0eb;
+      background: linen;
   	} 
 
   	a {
@@ -61,12 +61,13 @@
     }
 
     blockquote {
-    background-color: #f3f3f3;
+    background-color: mintcream;
     border: dashed 1px grey;
     width: 97.5%;
     font-style: italic;
     text-align: justify;
-    padding: 1ch;
+    padding-left: 2ch;
+    padding-right: 1ch;
     padding-top: 2ch;
     padding-bottom: 2ch;
     margin: 0ch;
@@ -120,8 +121,8 @@
       font-family: code, monospace;
     background-color: #d1d1d1;
     border-radius: 0.5ch;
-    padding-left: 1ch;
-    padding-right: 1ch;
+    padding-left: 0.5ch;
+    padding-right: 0.5ch;
 }
 
 table {
@@ -156,17 +157,18 @@ table.usb, table.usb th, table.usb td {
 
 table.usb td {
     padding-right: 0.5ch;
-    padding-top: 0.8ch;
+    padding-top: 0.5ch;
     padding-left:1ch;
-    padding-bottom: 0.8ch;
+    padding-bottom: 0.5ch;
     text-align: left;
+    background-color: floralwhite;
 }
 
 table.usb th {
-    padding-top: 0.4ch;
-    padding-bottom: 0.4ch;
+    padding-top: 0.6ch;
+    padding-bottom: 0.6ch;
     font-weight: bold;
-    background-color: #eee5b8;
+    background-color: cornsilk;
     text-align: center;
     text-transform: uppercase;
 }
@@ -190,37 +192,6 @@ table.usb th {
       image-rendering: -moz-crisp-edges;
       image-rendering: crisp-edges;
     }
-
-    blockquote { 
-    background-color: #f3f3f3;
-    border: dashed 1px grey; 
-    width: 97.5%; 
-    font-style: italic; 
-    text-align: justify;
-
-    padding: 1ch; 
-    padding-top: 2ch; 
-    padding-bottom: 2ch;     
-    
-    margin : 0ch; 
-    margin-bottom: 2ch; 
-    margin-top: 0ch;
-  }
-
-  blockquote div {
-    text-transform: none;
-    text-align: right;
-    width: 100%;
-  }
-
-  code {
-    /*font-size: 110%;*/
-    font-weight:normal ;
-    background-color: #e1e1e1;
-    border-radius: 0.5ch;
-    padding-left: 0.3ch;
-    padding-right: 0.3ch;
-  }
 
   .trivia {
     border-left: 1px black solid;
