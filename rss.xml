@@ -1,0 +1,173 @@
+<rss version="2.0">
+    <channel>
+
+        <!-- overall rss details -->
+        <title>Alessandro Nardinelli's News</title>
+        <link>http://amnardinelli.com</link>
+        <description>Ale's Website Feed</description>
+        <language>en-us</language>
+        <pubDate>Thr, 04 Dec 2025 22:00:00 GMT</pubDate>
+        <lastBuildDate>Thr, 04 Dec 2025 22:00:00 GMT</lastBuildDate>
+
+
+        <!-- articles -->
+        <item>
+            <title>Writing a Custom and Faster Driver for the STM32 Family of Microcontrollers - Part 1 - Initial Setup</title>
+            <link>http://amnardinelli.com/articles/writing-a-custom-and-faster-driver-for-the-stm32-microcontroller-part-1-base-registers.html</link>
+            <description>In this article I describe the motivations and the inital process for developing a custom driver for the STM32 based microcontroller</description>
+            <pubDate>Mon, 01 Dec 2025 00:00:00 GMT</pubDate>
+            <guid>http://amnardinelli.com/articles/writing-a-custom-and-faster-driver-for-the-stm32-microcontroller-part-1-base-registers.html</guid>
+        </item>
+        <item>
+            <title>Why I Went Against the Trend Towards Py+AI and Learned Bare-Metal C</title>
+            <link>http://amnardinelli.com/articles/why-i-went-against-the-trend-towards-py-ai-and-learned-bare-metal-c.html</link>
+            <description>Why I Went Against the Trend Towards Py+AI and Learned Bare-Metal C</description>
+            <pubDate>Sun, 29 Jun 2025 00:00:00 GMT</pubDate>
+            <guid>http://amnardinelli.com/articles/why-i-went-against-the-trend-towards-py-ai-and-learned-bare-metal-c.html</guid>
+        </item>
+        <item>
+            <title>Optimal Open Source FPV Drone 5 Inch Frame</title>
+            <link>http://amnardinelli.com/articles/optimal-dyi-open-source-fpv-drone-5-inch-frame.html</link>
+            <description>Development of an optimal fpv 5 inch fpv drone frame</description>
+            <pubDate>Mon, 17 Feb 2025 00:00:00 GMT</pubDate>
+            <guid>http://amnardinelli.com/articles/optimal-dyi-open-source-fpv-drone-5-inch-frame.html</guid>
+        </item>
+        <item>
+            <title>Identifying Counts Using the DAG inside SparkUI | Spark</title>
+            <link>http://amnardinelli.com/articles/identifying-counts-using-the-dag-inside-sparkui-apache-spark-databricks.html</link>
+            <description>In this article I describe the process to help users of spark identify counts using the SparkUI</description>
+            <pubDate>Sun, 12 May 2024 00:00:00 GMT</pubDate>
+            <guid>http://amnardinelli.com/articles/identifying-counts-using-the-dag-inside-sparkui-apache-spark-databricks.html</guid>
+        </item>
+        <item>
+            <title>Design &amp; Build of a FPV Drone F722 Flight Controller</title>
+            <link>http://amnardinelli.com/articles/design-and-build-of-a-fpv-drone-f722-flight-controller.html</link>
+            <description>In this article I describe the process to develop an one-sided, cheap, F722 betaflight-ready flight controller</description>
+            <pubDate>Thu, 21 Mar 2024 00:00:00 GMT</pubDate>
+            <guid>http://amnardinelli.com/articles/design-and-build-of-a-fpv-drone-f722-flight-controller.html</guid>
+        </item>
+
+
+        
+        <!-- book recomendations -->
+        <item>
+            <title>Assembly Language Step by Step</title>
+            <link>https://a.co/d/7d6uVjX</link>
+            <description>Book recommendation for December 2025</description>
+            <pubDate>Mon, 01 Dec 2025 00:00:00 GMT</pubDate>
+            <guid>https://a.co/d/7d6uVjX</guid>
+        </item>
+        <item>
+            <title>Parallel and High Performance Computing</title>
+            <link>https://a.co/d/74rc380</link>
+            <description>Book recommendation for November 2025</description>
+            <pubDate>Sun, 01 Nov 2025 00:00:00 GMT</pubDate>
+            <guid>https://a.co/d/74rc380</guid>
+        </item>
+        <item>
+            <title>How Large Language Models Work</title>
+            <link>https://a.co/d/b99Yqkm</link>
+            <description>Book recommendation for October 2025</description>
+            <pubDate>Wed, 01 Oct 2025 00:00:00 GMT</pubDate>
+            <guid>https://a.co/d/b99Yqkm</guid>
+        </item>
+        <item>
+            <title>Bare-Metal Embedded C Programming</title>
+            <link>https://a.co/d/20jL7hA</link>
+            <description>Book recommendation for September 2025</description>
+            <pubDate>Mon, 01 Sep 2025 00:00:00 GMT</pubDate>
+            <guid>https://a.co/d/20jL7hA</guid>
+        </item>
+        <item>
+            <title>Musashi</title>
+            <link>https://a.co/d/3s4qEup</link>
+            <description>Book recommendation for August 2025</description>
+            <pubDate>Fri, 01 Aug 2025 00:00:00 GMT</pubDate>
+            <guid>https://a.co/d/3s4qEup</guid>
+        </item>
+        <item>
+            <title>The Travelling Cat Chronicles</title>
+            <link>https://a.co/d/3s4qEup</link>
+            <description>Book recommendation for July 2025</description>
+            <pubDate>Tue, 01 Jul 2025 00:00:00 GMT</pubDate>
+            <guid>https://a.co/d/3s4qEup</guid>
+        </item>
+        <item>
+            <title>Red Famine: Stalin's War on Ukraine</title>
+            <link>https://a.co/d/b4uYBwJ</link>
+            <description>Book recommendation for June 2025</description>
+            <pubDate>Sun, 01 Jun 2025 00:00:00 GMT</pubDate>
+            <guid>https://a.co/d/b4uYBwJ</guid>
+        </item>
+        <item>
+            <title>Voices from Chernobil</title>
+            <link>https://a.co/d/aaHFU4i</link>
+            <description>Book recommendation for May 2025</description>
+            <pubDate>Thu, 01 May 2025 00:00:00 GMT</pubDate>
+            <guid>https://a.co/d/aaHFU4i</guid>
+        </item>
+        <item>
+            <title>Iron Coffins</title>
+            <link>https://a.co/d/31B5U9d</link>
+            <description>Book recommendation for April 2025</description>
+            <pubDate>Tue, 01 Apr 2025 00:00:00 GMT</pubDate>
+            <guid>https://a.co/d/31B5U9d</guid>
+        </item>
+        <item>
+            <title>Endurance: Shackleton's Incredible Voyage</title>
+            <link>https://a.co/d/hnVcGSm</link>
+            <description>Book recommendation for March 2025</description>
+            <pubDate>Sat, 01 Mar 2025 00:00:00 GMT</pubDate>
+            <guid>https://a.co/d/hnVcGSm</guid>
+        </item>
+        <item>
+            <title>White Chrysanthemum</title>
+            <link>https://a.co/d/aEpCIm8</link>
+            <description>Book recommendation for February 2025</description>
+            <pubDate>Thu, 01 Feb 2025 00:00:00 GMT</pubDate>
+            <guid>https://a.co/d/aEpCIm8</guid>
+        </item>
+        <item>
+            <title>Sushi Made Simple</title>
+            <link>https://a.co/d/7irVDO7</link>
+            <description>Book recommendation for January 2025</description>
+            <pubDate>Wed, 01 Jan 2025 00:00:00 GMT</pubDate>
+            <guid>https://a.co/d/7irVDO7</guid>
+        </item>
+        <item>
+            <title>Son of Hamas</title>
+            <link>https://a.co/d/2skQInW</link>
+            <description>Book recommendation for December 2024</description>
+            <pubDate>Mon, 01 Dec 2024 00:00:00 GMT</pubDate>
+            <guid>https://a.co/d/2skQInW</guid>
+        </item>
+        <item>
+            <title>Poor People</title>
+            <link>https://a.co/d/aC4eduX</link>
+            <description>Book recommendation for November 2024</description>
+            <pubDate>Fri, 01 Nov 2024 00:00:00 GMT</pubDate>
+            <guid>https://a.co/d/aC4eduX</guid>
+        </item>
+        <item>
+            <title>El Faro Del Fin Del Mundo</title>
+            <link>https://a.co/d/1DGpThb</link>
+            <description>Book recommendation for October 2024</description>
+            <pubDate>Tue, 01 Oct 2024 00:00:00 GMT</pubDate>
+            <guid>https://a.co/d/1DGpThb</guid>
+        </item>
+        <item>
+            <title>Spark Definitive Guide</title>
+            <link>https://a.co/d/118mFsG</link>
+            <description>Book recommendation for September 2024</description>
+            <pubDate>Sun, 01 Sep 2024 00:00:00 GMT</pubDate>
+            <guid>https://a.co/d/118mFsG</guid>
+        </item>
+        <item>
+            <title>Bad Blood</title>
+            <link>https://a.co/d/aqxfIHC</link>
+            <description>Book recommendation for August 2024</description>
+            <pubDate>Thu, 01 Aug 2024 00:00:00 GMT</pubDate>
+            <guid>https://a.co/d/aqxfIHC</guid>
+        </item>
+    </channel>
+</rss>
