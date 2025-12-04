@@ -1,4 +1,5 @@
-<rss version="2.0">
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    
     <channel>
 
         <!-- overall rss details -->
@@ -8,7 +9,7 @@
         <language>en-us</language>
         <pubDate>Thr, 04 Dec 2025 22:00:00 GMT</pubDate>
         <lastBuildDate>Thr, 04 Dec 2025 22:00:00 GMT</lastBuildDate>
-
+        <atom:link href="https://amnardinelli.com/rss.xml" rel="self" type="application/rss+xml"/>
 
         <!-- articles -->
         <item>
@@ -171,6 +172,6 @@
         </item>
 
 
-        
+
     </channel>
 </rss>
