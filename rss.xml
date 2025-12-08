@@ -14,38 +14,38 @@
         <!-- articles -->
         <item>
             <title>Writing a Custom and Faster Driver for the STM32 Family of Microcontrollers - Part 1 - Initial Setup</title>
-            <link>https://amnardinelli.com/articles/writing-a-custom-and-faster-driver-for-the-stm32-microcontroller-part-1-base-registers.html</link>
+            <link>https://amnardinelli.com/post/writing-a-custom-and-faster-driver-for-the-stm32-microcontroller-part-1-base-registers.html</link>
             <description>In this article I describe the motivations and the inital process for developing a custom driver for the STM32 based microcontroller</description>
             <pubDate>Mon, 01 Dec 2025 00:00:00 GMT</pubDate>
-            <guid>https://amnardinelli.com/articles/writing-a-custom-and-faster-driver-for-the-stm32-microcontroller-part-1-base-registers.html</guid>
+            <guid>https://amnardinelli.com/post/writing-a-custom-and-faster-driver-for-the-stm32-microcontroller-part-1-base-registers.html</guid>
         </item>
         <item>
             <title>Why I Went Against the Trend Towards Py+AI and Learned Bare-Metal C</title>
-            <link>https://amnardinelli.com/articles/why-i-went-against-the-trend-towards-py-ai-and-learned-bare-metal-c.html</link>
+            <link>https://amnardinelli.com/post/why-i-went-against-the-trend-towards-py-ai-and-learned-bare-metal-c.html</link>
             <description>Why I Went Against the Trend Towards Py+AI and Learned Bare-Metal C</description>
             <pubDate>Sun, 29 Jun 2025 00:00:00 GMT</pubDate>
-            <guid>https://amnardinelli.com/articles/why-i-went-against-the-trend-towards-py-ai-and-learned-bare-metal-c.html</guid>
+            <guid>https://amnardinelli.com/post/why-i-went-against-the-trend-towards-py-ai-and-learned-bare-metal-c.html</guid>
         </item>
         <item>
             <title>Optimal Open Source FPV Drone 5 Inch Frame</title>
-            <link>https://amnardinelli.com/articles/optimal-dyi-open-source-fpv-drone-5-inch-frame.html</link>
+            <link>https://amnardinelli.com/post/optimal-dyi-open-source-fpv-drone-5-inch-frame.html</link>
             <description>Development of an optimal fpv 5 inch fpv drone frame</description>
             <pubDate>Mon, 17 Feb 2025 00:00:00 GMT</pubDate>
-            <guid>https://amnardinelli.com/articles/optimal-dyi-open-source-fpv-drone-5-inch-frame.html</guid>
+            <guid>https://amnardinelli.com/post/optimal-dyi-open-source-fpv-drone-5-inch-frame.html</guid>
         </item>
         <item>
             <title>Identifying Counts Using the DAG inside SparkUI | Spark</title>
-            <link>https://amnardinelli.com/articles/identifying-counts-using-the-dag-inside-sparkui-apache-spark-databricks.html</link>
+            <link>https://amnardinelli.com/post/identifying-counts-using-the-dag-inside-sparkui-apache-spark-databricks.html</link>
             <description>In this article I describe the process to help users of spark identify counts using the SparkUI</description>
             <pubDate>Sun, 12 May 2024 00:00:00 GMT</pubDate>
-            <guid>https://amnardinelli.com/articles/identifying-counts-using-the-dag-inside-sparkui-apache-spark-databricks.html</guid>
+            <guid>https://amnardinelli.com/post/identifying-counts-using-the-dag-inside-sparkui-apache-spark-databricks.html</guid>
         </item>
         <item>
             <title>Design &amp; Build of a FPV Drone F722 Flight Controller</title>
-            <link>https://amnardinelli.com/articles/design-and-build-of-a-fpv-drone-f722-flight-controller.html</link>
+            <link>https://amnardinelli.com/post/design-and-build-of-a-fpv-drone-f722-flight-controller.html</link>
             <description>In this article I describe the process to develop an one-sided, cheap, F722 betaflight-ready flight controller</description>
             <pubDate>Thu, 21 Mar 2024 00:00:00 GMT</pubDate>
-            <guid>https://amnardinelli.com/articles/design-and-build-of-a-fpv-drone-f722-flight-controller.html</guid>
+            <guid>https://amnardinelli.com/post/design-and-build-of-a-fpv-drone-f722-flight-controller.html</guid>
         </item>
 
 
