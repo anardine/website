@@ -34,7 +34,15 @@
       padding-left: 2%;
       padding-right: 3%;
       margin: 0 auto;
-      background: linen;
+      background:
+        radial-gradient(linen 1px, transparent 4px),
+        radial-gradient(linen, 1px, transparent 4px),
+        linear-gradient(linen, 5px, transparent 0),
+        /* linear-gradient(45deg, transparent 74px, transparent 75px, #a4a4a4 75px, #a4a4a4 76px, transparent 77px, transparent 109px), */
+        /* linear-gradient(-45deg, transparent 75px, transparent 76px, #a4a4a4 76px, #a4a4a4 77px, transparent 78px, transparent 109px), */
+        rgb(255, 255, 255);
+        background-size: 109px 109px, 109px 109px,100% 6px, 109px 109px, 109px 109px;
+        background-position: 54px 55px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
   	} 
 
   	a {
@@ -49,7 +57,6 @@
     nav a {
       color: black;
       font-weight: bold;
-      font-size: 17px;
     }
 
   img {
@@ -112,6 +119,14 @@
     unicode-bidi: isolate;
 }
 
+div nav {
+      border: 1px;
+      border-color: black;
+      border-style:solid;
+      padding: 2ch;
+      background-color: floralwhite;
+}
+
     h1,h2,h3{
       font-weight:bold ;      
       text-transform: uppercase;
@@ -169,9 +184,20 @@ table.usb th {
     padding-top: 0.6ch;
     padding-bottom: 0.6ch;
     font-weight: bold;
-    background-color: cornsilk;
+    background-color: lightblue;
     text-align: center;
     text-transform: uppercase;
+}
+
+nav div img {
+  border: none;
+  width: 3ch;
+  height: auto;
+  text-align: left;
+  vertical-align: middle;
+  padding-left: 1ch;
+  padding-right: 1ch;
+  margin-bottom: 2px;
 }
 
 @m
