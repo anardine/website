@@ -35,12 +35,12 @@
       padding-right: 3%;
       margin: 0 auto;
       background:
-        radial-gradient(linen 1px, transparent 4px),
-        radial-gradient(linen, 1px, transparent 4px),
-        linear-gradient(linen, 5px, transparent 0),
+        radial-gradient(floralwhite 1px, transparent 4px),
+        radial-gradient(floralwhite, 1px, transparent 4px),
+        linear-gradient(floralwhite, 5px, transparent 0),
         /* linear-gradient(45deg, transparent 74px, transparent 75px, #a4a4a4 75px, #a4a4a4 76px, transparent 77px, transparent 109px), */
         /* linear-gradient(-45deg, transparent 75px, transparent 76px, #a4a4a4 76px, #a4a4a4 77px, transparent 78px, transparent 109px), */
-        rgb(255, 255, 255);
+        rgb(236, 238, 255);
         background-size: 109px 109px, 109px 109px,100% 6px, 109px 109px, 109px 109px;
         background-position: 54px 55px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
   	} 
@@ -121,10 +121,10 @@
 
 div nav {
       border: 1px;
-      border-color: black;
+      border-color: grey;
       border-style:solid;
       padding: 2ch;
-      background-color: floralwhite;
+      background-color: rgb(255, 255, 255);
 }
 
     h1,h2,h3{
@@ -177,7 +177,7 @@ table.usb td {
     padding-left:1ch;
     padding-bottom: 0.5ch;
     text-align: left;
-    background-color: floralwhite;
+    background-color: white;
 }
 
 table.usb th {
