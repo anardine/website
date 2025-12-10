@@ -120,10 +120,13 @@
 }
 
 div nav {
-      border: 1px;
+      border: 1px solid;
+      /* border-image: url(images/christmas_border.png) 180 round;
+      border-image-repeat: repeat; */
       border-color: grey;
       border-style:solid;
-      padding: 2ch;
+      /* border-width: 0 0 2ch 0; */
+      padding: 1.5ch;
       background-color: rgb(255, 255, 255);
 }
 
@@ -169,6 +172,7 @@ table.tbody {
 table.usb, table.usb th, table.usb td {
     border: 1px solid black;
     border-collapse: collapse;
+    font-size: 14px;
 }
 
 table.usb td {
@@ -180,11 +184,15 @@ table.usb td {
     background-color: white;
 }
 
+table.usb a {
+  font-size: 14px;
+}
+
 table.usb th {
     padding-top: 0.6ch;
     padding-bottom: 0.6ch;
     font-weight: bold;
-    background-color: lightblue;
+    background-color: cornsilk;
     text-align: center;
     text-transform: uppercase;
 }
