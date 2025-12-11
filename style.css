@@ -86,7 +86,9 @@
     p {
       margin-top: 2ch;
       text-align: justify;
+
     }
+
     sup {
       vertical-align: 0.3em;
       font-size: 0.65em;
@@ -208,50 +210,54 @@ nav div img {
   margin-bottom: 2px;
 }
 
-@m
+/* For small screen devices */
 
-     {
-      font-size: 15px;
-    }
-    @media (max-width: 500px) { /* For small screen decices */
-      * {
-        font-size: 11px; 
+      @media (max-width: 500px) { 
+        
+        * {
+          font-size: 12px; 
+        }
+
+        .title {
+          text-decoration: none;
+        }
+
+        img.pixel, canvas.pixel {
+          image-rendering: pixelated;
+          image-rendering: -moz-crisp-edges;
+          image-rendering: crisp-edges;
+        }
+
+        .trivia {
+          border-left: 1px black solid;
+          padding-left: 1ch;
+        }
+
+        .trivia::before {
+        font-weight: bold;
+        text-decoration: underline;
+        padding-right: 1ch;
+        content: "Trivia:";
+        }
+      
+        table.hard , table.hard th, table.hard td {
+          border: 1px solid black;
+          border-collapse: collapse;
+        }
+        table.hard  td {
+          padding-right: 1ch;
+          padding-top: 0.8ch;
+          padding-bottom: 0.8ch;
+          text-align: right;
+        }
+
+        table.hard th {
+          font-weight: bold;
+          background-color: #BBB;
+        }
+
+        table.usb, table.usb th, table.usb td, table.usb td a {
+          font-size: 11px;
+        }
+
       }
-    }   
-    .title {
-      text-decoration: none;
-    }
-
-    img.pixel, canvas.pixel {
-      image-rendering: pixelated;
-      image-rendering: -moz-crisp-edges;
-      image-rendering: crisp-edges;
-    }
-
-  .trivia {
-    border-left: 1px black solid;
-    padding-left: 1ch;
-  }
-
-  .trivia::before {
-  font-weight: bold;
-  text-decoration: underline;
-  padding-right: 1ch;
-  content: "Trivia:";
-
-  
-table.hard , table.hard th, table.hard td {
-  border: 1px solid black;
-  border-collapse: collapse;
-}
-table.hard  td {
-  padding-right: 1ch;
-  padding-top: 0.8ch;
-  padding-bottom: 0.8ch;
-  text-align: right;
-}
-
-table.hard th {
-  font-weight: bold;
-  background-color: #BBB;
-}
