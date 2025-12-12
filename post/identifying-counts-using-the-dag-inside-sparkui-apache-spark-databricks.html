@@ -89,13 +89,13 @@ df1 = spark.sql("SELECT * FROM catalog1.schema1.table1 where column1 = 'SPARK'")
                 <li>Were they the last thing to be triggered on your notebook/job? if so, did the <code>df.count()</code> command took a long time? This is especially useful in Databricks since you can separate these operations on specific commands and check the time it takes to run them on the top of the cell.</li>
             </ol>
             <p>Now it's time to go to the UI -> SQL/Dataframe tab and search for your operation:</p>
-            <img src="./img/identifying-counts-using-the-dag-inside-sparkui-apache-spark-databricks/1.avif" alt="sparkui ui with the sql/dataframe tab">
+            <img src="../images/posts_images/identifying-counts-using-the-dag-inside-sparkui-apache-spark-databricks/1.avif" alt="sparkui ui with the sql/dataframe tab">
             <p>	This next step might take a while for you to find, but if the <code>.count()</code> operations were intensive, they're probably the most lasting command, so you can filter by duration. If they aren't, you need to double-check the latest commands filtering by time and go from there. </p>
             <p>	That's why running those counts on a separate cell of your notebook is a good idea. You can check the exact job ID that ran for that specific query, and relate to it on the side, in the "Job IDs" column.</p>
-            <img src="./img/identifying-counts-using-the-dag-inside-sparkui-apache-spark-databricks/2.avif" alt="dataframe details">
+            <img src="../images/posts_images/identifying-counts-using-the-dag-inside-sparkui-apache-spark-databricks/2.avif" alt="dataframe details">
             <p>	You can click the description of the command (highlighted in blue) to check the DAG for that Query/Dataframe.</p>
             <p>Now you can directly see that the last <code>WholeStageCodegen</code> returns only one object (that count number) and that the Scan reads all the lines (since a <code>.count()</code> needs to read all the lines). There, you've finally found your number. This can change from plan to plan, but following from the top (that 1 row) downwards can help you navigate the transformations that were made to reach that single line, and get your number from there.</p>
-            <img src="./img/identifying-counts-using-the-dag-inside-sparkui-apache-spark-databricks/3.avif" alt="details of query plan">
+            <img src="../images/posts_images/identifying-counts-using-the-dag-inside-sparkui-apache-spark-databricks/3.avif" alt="details of query plan">
             <h2>Optimizing your code</h2>
             <hr>
             <p>Besides all this <code>.count()</code> thing, running the above command is not the most optimized solution. I can understand that you need to compare, but you should save those results saved into two new variables (Scala users would hate it to be variables, tho).</p>

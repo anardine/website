@@ -45,7 +45,7 @@
 			<h1>Design & Build of a FPV Drone F722 Flight Controller</h1>
             <hr>
 			<br>
-			<div style="display: flex; justify-content: center;"><img src="./img/design-and-build-of-a-fpv-drone-f722-flight-controller/10.avif" alt="ThunderF722 Flight Controller" style="max-width:80%;height:auto;" /></div>
+			<div style="display: flex; justify-content: center;"><img src="../images/posts_images/design-and-build-of-a-fpv-drone-f722-flight-controller/10.avif" alt="ThunderF722 Flight Controller" style="max-width:80%;height:auto;" /></div>
 			<blockquote>
 				DISCLAIMER 2025:<br><br>
 				While I cannot control what people will use it for, I AM NOT INVOLVED, AND I CONDEMN ANY APPLICATIONS OF MY KNOWLEDGE IN BUILDING WEAPONS FOR WARS OR CONFLICTS.<br><br>
@@ -83,7 +83,7 @@
 			<h3>Selecting the Cortex (And Why I Chose the STM32F722RET6)</h3>
             <hr />
 			<p>
-				<img src="./img/design-and-build-of-a-fpv-drone-f722-flight-controller/1.avif" alt="STM32F722 Schematic" style="max-width:50%;height:auto;float:right;margin-left: 3ch; margin-top: 3ch;" />
+				<img src="../images/posts_images/design-and-build-of-a-fpv-drone-f722-flight-controller/1.avif" alt="STM32F722 Schematic" style="max-width:50%;height:auto;float:right;margin-left: 3ch; margin-top: 3ch;" />
 
 				I had to stick with the STMFXX family because I did not want to adapt Betaflight's code and capabilities (too much of a challenge). Since now there is also support for some STMHXX chips, those come out too costly and in my opinion are not worth it, since most pilots do not require tons of UARTs and core CPU use rarely passes the 50% mark on an F722.
 			</p>
@@ -102,7 +102,7 @@
 			<p>
 				The ICM-20689 connects using SPI (as both MPU6000 and the BMI270 do) so it's great that it does not consume a UART that I can freely use for DJI or RX later. The connection is pretty simple and available on the datasheet:
 			</p>
-			<img src="./img/design-and-build-of-a-fpv-drone-f722-flight-controller/2.avif" alt="ICM-20689 Schematic" style="max-width:100%;height:auto;" />
+			<img src="../images/posts_images/design-and-build-of-a-fpv-drone-f722-flight-controller/2.avif" alt="ICM-20689 Schematic" style="max-width:100%;height:auto;" />
 			<p>Make sure to use the right caps and filter power to the VDD and VDDIO pins.</p>
 			<h3>Power Management & Filtering</h3>
             <hr />
@@ -112,14 +112,14 @@
 			<p>
 				Because of that, I used the MP9943GQ-Z from <a href="https://www.monolithicpower.com/">Monolithic Power Systems</a> since it is a small 36V regulated DC-DC buck-down converter that requires few components. It is also flexible enough to use on the LIPO regulator (safely up to 6S voltage coming filtered from the ESC) and also on the LIPO-5V line by changing only one resistor.
 			</p>
-			<img src="./img/design-and-build-of-a-fpv-drone-f722-flight-controller/3.avif" alt="Power Regulator Schematic" style="max-width:100%;height:auto;" />
-			<img src="./img/design-and-build-of-a-fpv-drone-f722-flight-controller/5.avif" alt="LDO Schematic" style="max-width:35%;height:auto;float:right;margin-left: 3ch;" />
+			<img src="../images/posts_images/design-and-build-of-a-fpv-drone-f722-flight-controller/3.avif" alt="Power Regulator Schematic" style="max-width:100%;height:auto;" />
+			<img src="../images/posts_images/design-and-build-of-a-fpv-drone-f722-flight-controller/5.avif" alt="LDO Schematic" style="max-width:35%;height:auto;float:right;margin-left: 3ch;" />
 			<p>The same regulator model MP9943GQ-Z can be used for LIPO-9V and LIPO-5V changing only one of the divider resistors (R1 to R30), making the assembly even cheaper.</p>
 			<p>
 				One important thing I forgot to include in my first design (which burst into flames the first time) was the BAT54C,215. A simple diode that only allows one 5V power to the components (because you can have +5VBAT coming from the battery and +5VBUS coming from the USB at the same time powered on!).
 			</p>
 			<p>Essential to the design, this BAT54C Power Diode helps the final 5V rail to be stable when connecting power to different resources.</p>
-			<img src="./img/design-and-build-of-a-fpv-drone-f722-flight-controller/4.avif" alt="BAT54C Schematic" style="max-width:35%;height:auto;float:right;margin-left: 3ch;" /> 
+			<img src="../images/posts_images/design-and-build-of-a-fpv-drone-f722-flight-controller/4.avif" alt="BAT54C Schematic" style="max-width:35%;height:auto;float:right;margin-left: 3ch;" /> 
 			<p>
 				For the 3.3V power, an LDO on the 5V line does the task well. For this design, I've used the RICHTEK RT9013-33GB.
 			</p>
@@ -127,7 +127,7 @@
 			<p>
 				It's also important to filter everything well. It is key to power design and is not in the scope of this article, but you should be extremely careful when deciding the caps and filters for your design.
 			</p>
-			<img src="./img/design-and-build-of-a-fpv-drone-f722-flight-controller/6.avif" alt="Decoupling Capacitors Schematic" style="max-width:100%;height:auto;" />
+			<img src="../images/posts_images/design-and-build-of-a-fpv-drone-f722-flight-controller/6.avif" alt="Decoupling Capacitors Schematic" style="max-width:100%;height:auto;" />
 			<p>Filter your power well!</p>
 			<h3>USB Connection</h3>
             <hr />
@@ -137,21 +137,21 @@
 			<p>
 				It is key for the stability of the F7 two resistors of 5.1kΩ (R19 and R13) directed on the CC1 and CC2 lines and two 22Ω (R8 and R9) on the USB_D- and USB_D+ lines. I've also included a USBLC6-2P6 protective diode on the data lines, just because.
 			</p>
-			<img src="./img/design-and-build-of-a-fpv-drone-f722-flight-controller/7.avif" alt="USB-C Schematic" style="max-width:100%;height:auto;" />
+			<img src="../images/posts_images/design-and-build-of-a-fpv-drone-f722-flight-controller/7.avif" alt="USB-C Schematic" style="max-width:100%;height:auto;" />
 			<p>USB-C required for external data transfer and FC configuration in Betaflight.</p>
 			<h3>Memory and Flash Storage for Blackbox (and Pidgeon Carriers).</h3>
             <hr />
 			<p>
 				Since the W25Q128JVSIQ also uses the SPI communication protocol, why not? I've added one to register tunning and other files into the drone. It's pretty simple to wire it up and also provides significant benefits at a low cost. You can play correspondence chess or add a *.mp3 song and fly it to your buddy!
 			</p>
-			<img src="./img/design-and-build-of-a-fpv-drone-f722-flight-controller/8.avif" alt="Flash Schematic" style="max-width:100%;height:auto;" />
+			<img src="../images/posts_images/design-and-build-of-a-fpv-drone-f722-flight-controller/8.avif" alt="Flash Schematic" style="max-width:100%;height:auto;" />
 			<p>Using flash on the FC allows for data storage and Blackbox logging.</p>
 			<h3>Wiring Everything Up</h3>
             <hr />
 			<p>
 				For simplicity, you can check the files and the entire diagram on the <a href="https://github.com/tropicalfpv/thunderFC">GitHub link for the thunderFC</a>
 			</p>
-			<img src="./img/design-and-build-of-a-fpv-drone-f722-flight-controller/9.avif" alt="Entire Schematic Diagram" style="max-width:100%;height:auto;" />
+			<img src="../images/posts_images/design-and-build-of-a-fpv-drone-f722-flight-controller/9.avif" alt="Entire Schematic Diagram" style="max-width:100%;height:auto;" />
 			<p>The Entire Schematic Diagram</p>
 			<h3>Board Layout, Size, and Placement</h3>
             <hr />
@@ -161,19 +161,19 @@
 			<p>
 				The size should not be outside of the boundaries of the frame and also should have a 30.5x30.5 4-hole mounting configuration.
 			</p>
-			<img src="./img/design-and-build-of-a-fpv-drone-f722-flight-controller/0.avif" alt="FPV Drone Build" style="max-width:100%;height:auto;" />
+			<img src="../images/posts_images/design-and-build-of-a-fpv-drone-f722-flight-controller/0.avif" alt="FPV Drone Build" style="max-width:100%;height:auto;" />
 			<p>Maximum size of 50x50 to fit most drones without being out too much. Please do not judge the cleanness of my build ;)</p>
 			<p>
 				The number of layers to fit all traces, don't compromise the performance and minimize cross-talk had to be 6. This was the layer distribution across the board:
 			</p>
-			<img src="./img/design-and-build-of-a-fpv-drone-f722-flight-controller/11.avif" alt="Layer Stackup" style="max-width:100%;height:auto;" />
+			<img src="../images/posts_images/design-and-build-of-a-fpv-drone-f722-flight-controller/11.avif" alt="Layer Stackup" style="max-width:100%;height:auto;" />
 			<p>The Layer Stackup: Top and Bot to SIG, middle layers for GND and PWR.</p>
-			<img src="./img/design-and-build-of-a-fpv-drone-f722-flight-controller/12.avif" alt="Signal 1 Layer" style="max-width:100%;height:auto;" />
-			<img src="./img/design-and-build-of-a-fpv-drone-f722-flight-controller/13.avif" alt="PCB Ground Layer" style="max-width:100%;height:auto;" />
-			<img src="./img/design-and-build-of-a-fpv-drone-f722-flight-controller/14.avif" alt="PCB Power Rail Setup" style="max-width:100%;height:auto;" />
-			<img src="./img/design-and-build-of-a-fpv-drone-f722-flight-controller/15.avif" alt="PCB Power Routing 2" style="max-width:100%;height:auto;" />
-			<img src="./img/design-and-build-of-a-fpv-drone-f722-flight-controller/16.avif" alt="PCB Ground Layer 2" style="max-width:100%;height:auto;" />
-			<img src="./img/design-and-build-of-a-fpv-drone-f722-flight-controller/17.avif" alt="PCB Signal 2 Layer" style="max-width:100%;height:auto;" />
+			<img src="../images/posts_images/design-and-build-of-a-fpv-drone-f722-flight-controller/12.avif" alt="Signal 1 Layer" style="max-width:100%;height:auto;" />
+			<img src="../images/posts_images/design-and-build-of-a-fpv-drone-f722-flight-controller/13.avif" alt="PCB Ground Layer" style="max-width:100%;height:auto;" />
+			<img src="../images/posts_images/design-and-build-of-a-fpv-drone-f722-flight-controller/14.avif" alt="PCB Power Rail Setup" style="max-width:100%;height:auto;" />
+			<img src="../images/posts_images/design-and-build-of-a-fpv-drone-f722-flight-controller/15.avif" alt="PCB Power Routing 2" style="max-width:100%;height:auto;" />
+			<img src="../images/posts_images/design-and-build-of-a-fpv-drone-f722-flight-controller/16.avif" alt="PCB Ground Layer 2" style="max-width:100%;height:auto;" />
+			<img src="../images/posts_images/design-and-build-of-a-fpv-drone-f722-flight-controller/17.avif" alt="PCB Signal 2 Layer" style="max-width:100%;height:auto;" />
 			<h3>Optimizing for Cost</h3>
             <hr />
 			<p>
@@ -188,7 +188,7 @@
 			<p>
 				Below is the cost comparison between the first iteration of my design and the latest one, with the same capabilities. I just had to solder the Inductors myself and short the boot mode button to DFU.
 			</p>
-			<img src="./img/design-and-build-of-a-fpv-drone-f722-flight-controller/18.avif" alt="Cost Comparison" style="max-width:100%;height:auto;" />
+			<img src="../images/posts_images/design-and-build-of-a-fpv-drone-f722-flight-controller/18.avif" alt="Cost Comparison" style="max-width:100%;height:auto;" />
 			<p>The first iteration went almost to $130, while the last was below $50 which was the target for Brazil. Price for 5 units.</p>
 			<p>
 				The price point below $50 was critical due to restrictions on importing to Brazil. Hitting this goal was insanely hard, but possible.
@@ -198,12 +198,12 @@
 			<p>
 				It's easy to manufacture and order a board to JLCPCB using the <a href="https://easyeda.com/">EasyEDA software</a>, all you have to do is to make sure that all the components and NETs are done and validated, and all the components are marked correctly on the Schematic Sheet. Once that is done, you can just select "Fabrication" -> "One-click Order PCB/SMT" from the PCB view.
 			</p>
-			<img src="./img/design-and-build-of-a-fpv-drone-f722-flight-controller/19.avif" alt="JLCPCB Fast Quote" style="max-width:100%;height:auto;" />
+			<img src="../images/posts_images/design-and-build-of-a-fpv-drone-f722-flight-controller/19.avif" alt="JLCPCB Fast Quote" style="max-width:100%;height:auto;" />
 			<p>Select this option for fast quote on your prototype in JLCPCB</p>
 			<p>
 				Manufacturing was on the limits of what was possible. The first 2 units of 5 came with solder mask problems, but not placement ones. Although it was possible to do it, for my upcoming iterations I'll try to manage the spacing to be more manufacturable than the ones on this build. On this subject, the team at JLCPCB was super knowledgeable of the facts and took the subject internally. They also came clean by giving me a coupon for the next orders, so no problems there.
 			</p>
-			<img src="./img/design-and-build-of-a-fpv-drone-f722-flight-controller/20.avif" alt="PCB Solder Mask Comparison" style="max-width:100%;height:auto;" />
+			<img src="../images/posts_images/design-and-build-of-a-fpv-drone-f722-flight-controller/20.avif" alt="PCB Solder Mask Comparison" style="max-width:100%;height:auto;" />
 			<p>A comparison between the bad solder mask with the good one. JLCPCB was right on target and solved the issue.</p>
 			<h2>Target & Configurations</h2>
             <hr />
@@ -216,7 +216,7 @@
 			<p>
 				If you have any doubts about creating a target, the <a href="https://betaflight.com/docs/development/manufacturer/creating-an-unified-target">Betaflight documentation</a> can help to get you started.
 			</p>
-			<img src="./img/design-and-build-of-a-fpv-drone-f722-flight-controller/21.avif" alt="Betaflight Config File" style="max-width:100%;height:auto;" />
+			<img src="../images/posts_images/design-and-build-of-a-fpv-drone-f722-flight-controller/21.avif" alt="Betaflight Config File" style="max-width:100%;height:auto;" />
 			<p>Set the timers and DMAs to the channels and Streams according to the STM32F7XX datasheet. Also, set the resources to the correct pins inside the Betaflight .config file.</p>
 			<h2>Conclusion & Next Steps</h2>
             <hr />
@@ -230,7 +230,7 @@
 				<a href="https://github.com/tropicalfpv/thunderFC">ThunderF722</a> © 2023 by <a href="https://www.linkedin.com/in/alessandro-m-nardinelli/">Alessandro M Nardinelli</a> is licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/?ref=chooser-v1">CC BY-SA 4.0</a>
 			</p>
 			<!-- <h2>About the Author</h2>
-			<img src="./img/design-and-build-of-a-fpv-drone-f722-flight-controller/22.avif" alt="Alessandro Nardinelli" style="border-radius:50%;width:45px;height:45px;" />
+			<img src="../images/posts_images/design-and-build-of-a-fpv-drone-f722-flight-controller/22.avif" alt="Alessandro Nardinelli" style="border-radius:50%;width:45px;height:45px;" />
 			<p><b>Alessandro M. Nardinelli</b></p>
 			<p>Data Manager and Spark Lead @ Databricks.<br>FPV Fanatic.</p>
 			<p>Email: <a href="mailto:anardine@hotmail.com">anardine@hotmail.com</a></p>
