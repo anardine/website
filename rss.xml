@@ -13,12 +13,19 @@
 
         <!-- articles -->
         <item>
+            <title>Why Customer-facing Technology Lost it's Magic</title>
+            <link>https://amnardinelli.com/post/why-customer-facing-technology-lost-its-magic.html</link>
+            <description>In this article I explain why old tech felt better than new tech and we connected so much more with the inovation available during that time</description>
+            <pubDate>Mon, 13 Dec 2025 01:00:00 GMT</pubDate>
+            <guid>https://amnardinelli.com/post/why-customer-facing-technology-lost-its-magic.html</guid>
+        </item>
+        <!-- <item>
             <title>Writing a Custom and Faster Driver for the STM32 Family of Microcontrollers - Part 1 - Initial Setup</title>
             <link>https://amnardinelli.com/post/writing-a-custom-and-faster-driver-for-the-stm32-microcontroller-part-1-base-registers.html</link>
             <description>In this article I describe the motivations and the inital process for developing a custom driver for the STM32 based microcontroller</description>
             <pubDate>Mon, 01 Dec 2025 00:00:00 GMT</pubDate>
             <guid>https://amnardinelli.com/post/writing-a-custom-and-faster-driver-for-the-stm32-microcontroller-part-1-base-registers.html</guid>
-        </item>
+        </item> -->
         <item>
             <title>Why I Went Against the Trend Towards Py+AI and Learned Bare-Metal C</title>
             <link>https://amnardinelli.com/post/why-i-went-against-the-trend-towards-py-ai-and-learned-bare-metal-c.html</link>
@@ -46,13 +53,6 @@
             <description>In this article I describe the process to develop an one-sided, cheap, F722 betaflight-ready flight controller</description>
             <pubDate>Thu, 21 Mar 2024 00:00:00 GMT</pubDate>
             <guid>https://amnardinelli.com/post/design-and-build-of-a-fpv-drone-f722-flight-controller.html</guid>
-        </item>
-        <item>
-            <title>Why Customer-facing Technology Lost it's Magic</title>
-            <link>https://amnardinelli.com/post/why-customer-facing-technology-lost-its-magic.html</link>
-            <description>In this article I explain why old tech felt better than new tech and we connected so much more with the inovation available during that time</description>
-            <pubDate>Mon, 13 Dec 2025 01:00:00 GMT</pubDate>
-            <guid>https://amnardinelli.com/post/why-customer-facing-technology-lost-its-magic.html</guid>
         </item>
 
 
