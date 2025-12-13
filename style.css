@@ -46,7 +46,7 @@
   	} 
 
   	a {
-      color: rgb(50, 53, 223);
+      color: rgb(35, 64, 255);
       /* font-weight: bold; */
     }
 
@@ -86,7 +86,29 @@
     p {
       margin-top: 2ch;
       text-align: justify;
+      line-height: 1.5;
 
+    }
+
+    figure { 
+      height:auto;  
+      margin-inline-start: 3ch;
+      margin-inline-end: 0;
+    }
+
+    figure img { 
+      margin-bottom: 2ch;
+      margin-top: 2ch;
+    }
+
+    figcaption {
+      text-align: center;
+      font-size: 11px;
+      margin-bottom: 2ch;
+    }
+
+    figcaption i {
+      font-size: 12px;
     }
 
     sup {
@@ -258,6 +280,10 @@ nav div img {
 
         table.usb, table.usb th, table.usb td, table.usb td a {
           font-size: 11px;
+        }
+
+        figcaption i {
+          font-size: 10px;
         }
 
       }
