@@ -30,7 +30,7 @@
 
     html {
       font-family: alefont,  monospace;
-      max-width: 900px;  /* For Desktop PC (see @media for Tablets/Phones) */
+      max-width: 1000px;  /* For Desktop PC (see @media for Tablets/Phones) */
       padding-left: 2%;
       padding-right: 3%;
       margin: 0 auto;
