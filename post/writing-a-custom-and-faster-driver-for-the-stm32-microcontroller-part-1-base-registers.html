@@ -29,7 +29,7 @@
         <nav>
         <div style="display: inline-block; vertical-align:middle;">
           <img class="ico_small" src="../ico/header.ico" alt="menu_icon">
-          <a href="../index.html" class="title"><b>ALESSANDRO NARDINELLI'S WEBSITE</b></a>
+          <a href="./index.html" class="title"><b>ALESSANDRO NARDINELLI'S WEBSITE</b></a>
           <img class="ico_small" src="../ico/header.ico" alt="menu_icon">
           <hr />
           <a class="title" href="mailto:anardine@hotmail.com">CONTACT</a>
@@ -129,20 +129,35 @@
             <hr>
             <p>
                 The below list is a what I consider a must. It's important to state that learning Bare-metal C using a micrcontroller can be a plesant experience or just hell depending on the tools you have. 
+                <figure style="max-width: 30%; float: right;">
+                    <img src="../images/posts_images/writing-a-custom-and-faster-driver-for-the-stm32-microcontroller-part-1-base-registers/nucleo.avif" alt="the nucelo-wb55 development board">
+                    <figcaption><i>The NUCLEO Board used to develop the driver</i></figcaption>
+                </figure>
             </p>
             <ul>
                 <li>
                     An IDE that have an interface for exploring memory, and tools to help debug microcontrollers. ST themselves have an IDE that's called <code><a href="https://www.st.com/en/development-tools/stm32cubeide.html" target="_blank">STMCubeIDE</a></code>. Since most developers have one that they already code, <code><a href="https://www.jetbrains.com/clion/" target="_blank">CLion</a></code>, which is free at the of this writting and will be the tool used, or even <code>Visual Studio Code</code> can be used with some extensions. If you're in doubt, pick <code>STMCubeIDE</code> which is the safest option.
+                    
                 </li>
                 <li>
                     An NUCLEO or DISCOVERY ST board. Tutorials often follow one, so I'll use the<code><a href="https://www.st.com/en/evaluation-tools/nucleo-wb55rg.html" target="_blank">NUCLEO-WB55RG</a></code>. You can pick whatever, as long an <code>STM32</code> microcontroller is present, and includes the <code>ST-Link</code> debug interface embedded accessible via USB.
                 </li>
                 <li>
-                     FInaly, the reference manual of your microcontroller. This is the most important guide that you'll need to sucessfully develop the driver. You can find the manual on the ST website by searching the documentation of the microcontroller you have. Normally, it has the code RM-XXXXX.
+                     FInaly, the reference manual of your microcontroller. This is the most important guide that you'll need to sucessfully develop the driver. You can find the manual on the ST website by searching the documentation of the microcontroller you have. Normally, it has the code RM-XXXXX. For this tutorial, since we're using the NUCLEO WB55 board, the reference manual is the RM-0434.<a name="back_2" style="text-decoration: none;" href="#footnote_2"><sup>[2]</sup></a>
                 </li>
             </ul>
-            
 
+            <h2>How to navigate inside the Reference Manual</h2>
+            <hr>
+            <p>
+                Since the Reference Manual is the most important document you'll use, it's important to know how to navigate through it.
+            </p>
+            <p>
+                Take a first look on the table of contents. There, you'll find the first headers pointing to overall details (which include the memory map), and then each section will be a peripheral, or a main feature of the microcontroller. Each one of this sections will guide you with the relevant details, register names, their actions, and if they are read/write. The most important section is the register map for each of the features.
+            </p>
+            <p>
+                Once you start navigating through the manual, you'll get confortable on identifying the correct place to go. Basically the thought process is the following:
+            </p>
 
 
 
@@ -160,6 +175,16 @@
                             <td class="ref" style="width:4ch;"> <sup>[1]</sup></td>
                             <td style="width:100%;text-align:left;" class="ref">
                                 Gbati, I. (2024). <i>Bare-Metal Embedded C Programming: Develop high-performance embedded systems with C for Arm microcontrollers</i>. Packt Publishing Ltd.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="ref" style="width:1ch;">
+                                <a name="footnote_2"></a>
+                                <a href="#back_2">^</a>
+                            </td>
+                            <td class="ref" style="width:4ch;"> <sup>[2]</sup></td>
+                            <td style="width:100%;text-align:left;" class="ref">
+                                <i>RM0434 Reference Manual. ST. (2025, January 1).</i> <a href="https://www.st.com/resource/en/reference_manual/rm0434-multiprotocol-wireless-32bit-mcu-armbased-cortexm4-with-fpu-bluetooth-lowenergy-and-802154-radio-solution-stmicroelectronics.pdf">https://www.st.com/resource/en/reference_manual/rm0434-multiprotocol-wireless-32bit-mcu-armbased-cortexm4-with-fpu-bluetooth-lowenergy-and-802154-radio-solution-stmicroelectronics.pdf </a>
                             </td>
                         </tr>
                     </tbody>
