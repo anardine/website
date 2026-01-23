@@ -34,15 +34,7 @@
       padding-left: 2%;
       padding-right: 3%;
       margin: 0 auto;
-      background:
-        radial-gradient(floralwhite 1px, transparent 4px),
-        radial-gradient(floralwhite, 1px, transparent 4px),
-        linear-gradient(floralwhite, 5px, transparent 0),
-        /* linear-gradient(45deg, transparent 74px, transparent 75px, #a4a4a4 75px, #a4a4a4 76px, transparent 77px, transparent 109px), */
-        /* linear-gradient(-45deg, transparent 75px, transparent 76px, #a4a4a4 76px, #a4a4a4 77px, transparent 78px, transparent 109px), */
-        rgb(236, 238, 255);
-        background-size: 109px 109px, 109px 109px,100% 6px, 109px 109px, 109px 109px;
-        background-position: 54px 55px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
+      background:aliceblue;
   	} 
 
   	a {
@@ -145,13 +137,10 @@
 
 div nav {
       border: 1px solid;
-      /* border-image: url(images/christmas_border.png) 180 round;
-      border-image-repeat: repeat; */
       border-color: grey;
       border-style:solid;
-      /* border-width: 0 0 2ch 0; */
       padding: 1.5ch;
-      background-color: rgb(255, 255, 255);
+      background-color: azure;
 }
 
     h1,h2,h3{
@@ -181,7 +170,7 @@ table {
     color: -internal-quirk-inherit;
     text-align: start;
     border-spacing: 2px;
-    border-color: gray;
+    border-color: lightgray;
     white-space: normal;
     font-variant: normal;
 }
@@ -216,7 +205,7 @@ table.usb th {
     padding-top: 0.6ch;
     padding-bottom: 0.6ch;
     font-weight: bold;
-    background-color: cornsilk;
+    background-color: grey;
     text-align: center;
     text-transform: uppercase;
 }
