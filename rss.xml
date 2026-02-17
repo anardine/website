@@ -12,6 +12,13 @@
         <atom:link href="https://amnardinelli.com/rss.xml" rel="self" type="application/rss+xml"/>
 
         <!-- articles -->
+         <item>
+            <title>Building the Stratus 2 meter wingspan motorized glider</title>
+            <link>https://amnardinelli.com/post/bulding-an-rc-motorized-glider-stratus-2m-flying-circus.html</link>
+            <description>In this article I describe my experience of building a 2 meter motorized RC glider</description>
+            <pubDate>Tue, 17 Feb 2026 15:00:00 GMT</pubDate>
+            <guid>https://amnardinelli.com/post/bulding-an-rc-motorized-glider-stratus-2m-flying-circus.htm</guid>
+        </item>
         <item>
             <title>Why Customer-facing Technology Lost it's Magic</title>
             <link>https://amnardinelli.com/post/why-customer-facing-technology-lost-its-magic.html</link>
