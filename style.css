@@ -78,14 +78,14 @@
     p {
       margin-top: 2ch;
       text-align: justify;
-      line-height: 1.5;
+      line-height: 1.6;
 
     }
 
     figure { 
       height:auto;  
-      margin-inline-start: 3ch;
-      margin-inline-end: 0;
+      margin-right: 3ch;
+      margin-left: 3ch;
     }
 
     figure img { 
