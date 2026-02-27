@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml" />
+		<meta charset="UTF-8" />
+        <link rel="icon" type="image/x-icon" href="../ico/fav.ico"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=12.0, minimum-scale=1.0, user-scalable=yes" />
+		<link rel="stylesheet" href="../style.css" />
+		<title>Open Source Casio Watch - Part 1</title>
+        <meta name="description" content="In this article I describe the objectives and choices of the OPENCASIO project">
+	</head>
+
+
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MPBB9NY5KG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-MPBB9NY5KG');
+</script>
+
+
+	<body>
+		<div class="container">
+      <br><br>
+      <center>
+        <nav>
+        <div style="display: inline-block; vertical-align:middle;">
+          <img class="ico_small" src="../ico/header.ico" alt="menu_icon">
+          <a href="../index.html" class="title"><b>ALESSANDRO NARDINELLI'S WEBSITE</b></a>
+          <img class="ico_small" src="../ico/header.ico" alt="menu_icon">
+          <hr />
+          <a class="title" href="mailto:anardine@hotmail.com">CONTACT</a>
+          &nbsp;&nbsp;&nbsp;
+          <a class="title" href="../rss.xml">RSS</a>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <a class="title" href="https://www.paypal.com/donate/?hosted_button_id=7U77WSQ5WNW8E">DONATE</a>
+        </div>
+        </nav>
+      </center>
+			<div style="margin-bottom:6ch; text-transform: none;"></div>
+            <div style="margin-bottom: 2ch;text-transform: none;">Fev 23rd, 2026; - min read<br></div>
+			<h1>The Creation of the OPENCASIO Watch - Part 1 - Objective and Choices</h1>
+            <hr>
+            <br>
+            <h2>What is the OPENCASIO project?</h2>
+            <hr>
+            <p>
+                The OPENCASIO is a replacement board for the Casio F-91W, one of the most used wristwatches in the world. The board integrates a better, sealed RTC module (where the time drift is substantially smaller), as well as a temperature, pressure, and humidity sensor together with a mag module, so you can use it to track the directions you're facing.
+            </p>
+            <p>
+                It's intended to be used by outdoors folks that do not need a bulky smartwatch with useless features and low battery life. With the OPENCASIO, you can have important features in a small, light and classic design. The idea is to maximize the features of the watch to serve as an important tool when you're out. You can monitor atmosferic pressure to understand if a storm is closing in, or use the navigational compass to guide yourself. There's also an upgraded LED that helps you get "some" light during complete darkness. All the native features are untouched, such as alarm, calendar, 12/24 time adjustments, and the stopwatch.
+            </p>
+
+            <h2>Objectives of this project</h2>
+            <hr>
+            <ol>
+                <li>
+                    
+                </li>
+            </ol>
+            <table class="usb" style="width: 100%;">
+                <tbody>
+                    <tr>
+                        <th>Airplane Detail</th>
+                        <th>Characteristics</th>
+                    </tr>
+                    <tr>
+                        <td><b>Airplane Type</b></td>
+                        <td>Motorized Glider</td>
+                    </tr>
+                    <tr>
+                        <td><b>Structure</b></td>
+                        <td>Majorly Balsa wood and compensate. Wing connector in Aluminium.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Wingspan</b></td>
+                        <td>200 cm</td>
+                    </tr>
+                    <tr>
+                        <td><b>Length</b></td>
+                        <td>122 cm</td>
+                    </tr>
+                    <tr>
+                        <td><b>Wing Area</b></td>
+                        <td>45 dm²</td>
+                    </tr>
+                    <tr>
+                        <td><b>Weight</b></td>
+                        <td>990g (with 3S battery 2200 mAh)</td>
+                    </tr>
+                    <tr>
+                        <td><b>Wing Loading</b></td>
+                        <td>22g/dm²</td>
+                    </tr>
+                    <tr>
+                        <td><b>Flaps</b></td>
+                        <td>YES</td>
+                    </tr>
+                    <tr>
+                        <td><b>Engine (Optional)</b></td>
+                        <td>Suggested Eletric 100W~150W. Could be 2822 motor. I've built with the A2212/13T. 30A ESC with 5A BEC</td>
+                    </tr>
+                    <tr>
+                        <td><b>Props (Optional)</b></td>
+                        <td>Depends on Motor, but needs to be folding with 1,5" spinner. I've used the 10x6</td>
+                    </tr>
+                    <tr>
+                        <td><b>Battery (For Motor)</b></td>
+                        <td>3s 2200mAh</td>
+                    </tr>
+                    <tr>
+                        <td><b>Servos</b></td>
+                        <td>4 if no flaps used. 6 with Flaps. Recommended Corona 2.7kg/.13sec - Metal Gear - DS-939MG</td>
+                    </tr>
+                    <tr>
+                        <td><b>Servo Placement</b></td>
+                        <td>4 in Wings (with Flaps), 2 in Fuselage Center.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Receiver</b></td>
+                        <td>Radiomaster ER6 2.4G 6CH 100mw CRSF PWM Receiver</td>
+                    </tr>
+                    <tr>
+                        <td><b>Covering</b></td>
+                        <td>Around 3 meters for the wings if you like slack. 2 meter for fuselage</td>
+                    </tr>
+                    <tr>
+                        <td><b>Additional Obs</b></td>
+                        <td>NEED Guiding tubes and long pushrods + 50cm Extensions for ailerons</td>
+                    </tr>
+                    <tr>
+                        <td><b>Building Dificulty</b></td>
+                        <td>Easy to Intermediate. Guiding materials are clear but misses some details for beginners</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>
+                This glider is a docile airplane for new entrands on the hobbie, both during costruction, which allow for some minor mistakes, but also during flight, which sustains a predictable behavior and is relaxing enough on a calm day. I believe this is what makes the plane so delighfull to own. Fabricio states this in his own words:
+            </p>
+            </p>
+            <blockquote>
+                <p>
+                    "The flight is extremely gentle, with slow but precise controls. The power is enough so that, in one minute of accelerated flight, you can reach an altitude to cut the motor and glide for a good while. If there is a thermal, this flight can last for hours."
+                </p>
+                <p style="text-align: right;">
+                    - Fabricio Nascimento<a name="back_1" style="text-decoration: none;" href="#footnote_1"><sup>[1]</sup></a>
+                </p>
+            </blockquote>
+            <h2>the build process</h2>
+            <hr>
+            <figure style="max-width: 30%; float: right;">
+                    <img src="../images/posts_images/bulding-an-rc-motorized-glider-stratus-2m-flying-circus/wing-naked.jpeg" alt="the pieces of the stratus 2m glider kit">
+                    <figcaption><i>The build process of the wings. They do not align on a single plane so watch out for the correct angle when gluing.</i></figcaption>
+                </figure>
+            <p>
+                The size of the airplane and the building process is designed in a way that utilizes poka-yoke<a name="back_2" style="text-decoration: none;" href="#footnote_2"><sup>[2]</sup></a> mechanisms and has markings on the wood. The only observation i have from those was that some of this laser markings were too shallow in some pieces, which then made them unreadable. Thanks to luck, they were just a few, and i could judge their correct position from their own size.
+            </p>
+            <p>
+                To start the build process, you'll have to follow a guide with some old pictures that are from a past version of the plane. This is one of the most confusing steps of the assembly, as some balsa parts even have different sizing and markings than the ones on the photos. This is normal during multiple iterations, but it would be good to have it updated once it a while. Although this is indeed a problem, paying attention to the process can help you not to mess up before gluing the pieces together. 
+            </p>
+            <p>
+                This is a glider that also needs special care when building the wings, specially when putting their both pieces together (the part with the flaps and the part with the ailerons) given that the angle it has needs to match on both sides. One thing that I was able to do was to glue a spacer of wood to press both parts together, just to then drop a decent amount of CA glue on both parts. This helped me align the wings and remove almost all slack between them both. 
+            </p>
+            <p>
+                For the rudder and elevator the construction is super simple, and you can just use the blueprints as a placeholder and glue everything together. 
+            </p>
+            <figure style="max-width: 30%; float: left;">
+                    <img src="../images/posts_images/bulding-an-rc-motorized-glider-stratus-2m-flying-circus/canopy.jpeg" alt="the canopy with good space for electronics">
+                    <figcaption><i>Canopy Open: This model has a great room for electronics depending on motor choices.</i></figcaption>
+                </figure>
+            <p>
+                Building the fuselage is straight away and it does not require much effort, besides making sure that the motor placement and pushrod guides are correct. Depending on how you're going to use this glider, and the way you're going to place the motor, the're are different configurations for the front. I've decided to use a motor with an inverted axis, which required some motor modification but made a simpler and gave more room for internals. 
+
+            </p>
+            <p>
+                Covering the wood from the wings using the <i>Chinakote</i><a name="back_3" style="text-decoration: none;" href="#footnote_3"><sup>[3]</sup></a> is also challenging if you aim to do it in one piece, since there are angles on two axes all together. This made me go crazy over the idea of doing it in one piece. After some time and meters of the cover lost, I was able to get it done. If you end up streching too much, the cover can easly tear apart and ends up showing the wood, which is a big issue in this case. The way was to calmly go and heat with the iron the outskirts and leave more material than normal before the use of the heat gun for the final shrinking. 
+            </p>
+            <br>
+            <br>
+
+            <h2>Electronics and Assembly</h2>
+            <hr>
+            <p>
+                The electronics used on this project are simple for an RC plane, just make sure to use quality components. I've initially used the ExpressLRS generic 7ch receiver (sometimes called Cyclone) which ended up adding a ton of jittering to the servos. This receiver also needs a firmware mod if you want to use channel 6 and 7 in. PWM, which has a custom config that needs to be uploaded<a name="back_4" style="text-decoration: none;" href="#footnote_4"><sup>[4]</sup></a>. This made my life hell for a day and I ended up buing a less generic and more reliable ELRS receiver from Radiomaster, which then worked just fine. 
+            </p>
+            <div style="display: flex; justify-content: center; gap: 2ch;">
+                <figure style="max-width: 30%; height: auto; margin: 0 1ch;">
+                    <img src="../images/posts_images/bulding-an-rc-motorized-glider-stratus-2m-flying-circus/wing-servo-detail.jpeg" alt="Wing servo detail" style="max-width:100%;height:auto;" />
+                    <figcaption><i>The servos stay too tight on the wood housing and need adjustments for clearance.</i></figcaption>
+                </figure>
+                <figure style="max-width: 30%; height: auto; margin: 0 1ch;">
+                    <img src="../images/posts_images/bulding-an-rc-motorized-glider-stratus-2m-flying-circus/servos-mid.jpeg" alt="fuselage servo detail" style="max-width:100%;height:auto;" />
+                    <figcaption><i>The servos on the fuselage are configured in Series and have great room for movement</i></figcaption>
+                </figure>
+                <figure style="max-width: 30%; height: auto; margin: 0 1ch;">
+                    <img src="../images/posts_images/bulding-an-rc-motorized-glider-stratus-2m-flying-circus/elev-rudder-detail.jpeg" alt="guiding tubes for the pushrods" style="max-width:100%;height:auto;" />
+                    <figcaption><i>Pushrods are guided inside tubes for not flexing during commands.</i></figcaption>
+                </figure>
+            </div>
+            <p>
+                Installing the servos on the wings are easy but they fit too tight if you add the rubber anti-vibration pads. In some of the cases, the horns get too close to the wood that is pre-cutted, and you need to do some minor adjustments. Otherwise wings are fine. The Servo placement on the middle of the fuselage for both the elevator and the rudder also has an easy instalation and does not have limited space. Builders that like to use wood as the linkage for these long systems do not have enough space on this build, and using extension rods with guiding tubes are better. 
+            </p>
+            <h2>Testing</h2>
+            <figure style="max-width: 30%; float: right;">
+                    <img src="../images/posts_images/bulding-an-rc-motorized-glider-stratus-2m-flying-circus/edge_tx_weight_50.png" alt="the edgetx screen">
+                    <figcaption><i>Set the weight of all inputs to 50% before binding</i></figcaption>
+                </figure>
+            <p>
+            <p>
+                I've did some testing by connecting the battery and the servos at the generic ERLS receiver and from the beginning the servos started jittering. It does seems like it's a noise problem from the receiver electronics when a lot of servos get connected. If you remove two servos and use an "Y" connector for the flaps and the ailerons, it reduces noise. Given that a reliable ERLS receiver is way better than workarounds, I've chosen to keep the best one (and you probably should too)
+            </p>
+                Make sure to aways reduce the <code>weight</code> setting to around <code>50%</code> on the <code>Inputs</code> tab of <code>EdgeTX</code> on the first bind for all channels so they don't overly extend the servos on a point that could initially damage the wood. 
+            </p>
+            <h2>Flying</h2>
+            <p>
+                Given that this is my first build, I'm waiting for a nice day out on the country side for the first flight. Updates soon. 
+            </p>
+            
+            
+            
+            <br>
+            <h2>references and definitions</h2>
+            <hr>
+            <p id="paperbox" style="text-align:left;">
+                <table>
+                    <tbody style="vertical-align: top;">
+                        <tr>
+                            <td class="ref" style="width:1ch;">
+                                <a name="footnote_1"></a>
+                                <a href="#back_1">^</a>
+                            </td>
+                            <td class="ref" style="width:4ch;"> <sup>[1]</sup></td>
+                            <td style="width:100%;text-align:left;" class="ref">
+                                <a href="https://flyingcircus.com.br/produto/str2m/"><i>STRATUS 2M</i></a> Projected and Idealized by Fabricio Nascimento.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="ref" style="width:1ch;">
+                                <a name="footnote_2"></a>
+                                <a href="#back_2">^</a>
+                            </td>
+                            <td class="ref" style="width:4ch;"> <sup>[2]</sup></td>
+                            <td style="width:100%;text-align:left;" class="ref">
+                                <a href="https://thequalityportal.com/pokayoke.htm"><i>Poka Yoke or Mistake Proofing :: Overview.</i></a> The Quality Portal. Retrieved Feb 16, 2026.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="ref" style="width:1ch;">
+                                <a name="footnote_3"></a>
+                                <a href="#back_3">^</a>
+                            </td>
+                            <td class="ref" style="width:4ch;"> <sup>[3]</sup></td>
+                            <td style="width:100%;text-align:left;" class="ref">
+                                <i>Chinakote</i> is a generic platic covering used instead of the premmium MonoKote, made by Top Flite. 
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="ref" style="width:1ch;">
+                                <a name="footnote_4"></a>
+                                <a href="#back_4">^</a>
+                            </td>
+                            <td class="ref" style="width:4ch;"> <sup>[4]</sup></td>
+                            <td style="width:100%;text-align:left;" class="ref">
+                                <a href="https://tinkerflight.com/blog/how-to-connect-elrs-receiver-with-pwm-and-uart/"><i>ELRS Generic 7ch JSON Mod</i></a> - Accessed Feb 02, 2026. This Mod makes the 6th and 7th channel of the ELRS receiver work but for me it was still jittery and shitty. 
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+
+            <footer>
+				<br><br>*<br>
+				© 2026 Alessandro Nardinelli
+				<br><br>
+			</footer>
+		</div>
+	</body>
+</html>
