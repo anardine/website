@@ -134,9 +134,40 @@
                 The table above summarizes the main categories; there are also specialized types such as magnetic tape, optical media, Cache/SRAM and emerging technologies (MRAM, PCM, etc.) that you might encounter. They are completly out of our scope, and does not corelate much with what we want to achieve here, but you get the point.
             </p>
             <p>
-                In this article itself, we're going to focus on the DRAM, which is the most common type of RAM used in computers, and is what we usually refer to when we say "RAM". It is volatile memory that requires constant refreshing to maintain its data, and is used as the main system memory for running applications and the operating system. The reason why we're so dependent on it is because it provides a fast and efficient way for the CPU to access data and instructions that are currently in use, from programs that you might be using, and to hold instructions of what the CPU needs to do next. Without RAM, the computer would have to rely on much slower storage options, which would significantly degrade performance and make it impractical for most tasks.
+                In this article itself, we're going to focus on the DRAM, which is the most common type of RAM used in computers, and is what we usually refer to when we say "RAM". 
+            </p>
+            <h2>So what is RAM?</h2>
+            <hr>
+            <p>
+                RAM is is volatile memory that requires constant refreshing to maintain its data, and is used as the main system memory for running applications and the operating system. The reason why we're so dependent on it is because it provides a fast and efficient way for the CPU to access data and instructions that are currently in use, from programs that you might be using, and to hold instructions of what the CPU needs to do next. 
+            </p>
+            <p>
+                Without RAM, the computer would have to rely on much slower storage options for the basic calculations it need to do, and to storage the objects needed for specific things while programs are running, which would significantly degrade performance and make it impractical for most tasks. If we decided to add flash and have a big memory instead, our performance would downgrade, and if we decided to have those as registers built inside the CPU, we would have to have way more expansive and bigger CPUs. RAM comes right in the middle: A way to have a few GBs of memory that are fast enough for our computer to work without trading off read/write speed.
+            </p>
+            <blockquote>
+                add details from a quote here. 
+            </blockquote>
+
+            <h2>How does RAM helps the computer?</h2>
+            <hr>
+            <p>
+                The answer is pretty straight foward. It sits there as a safe space for the computer to write data and retreive when it needs to continue. The RAM is managed by the <i>operating system</i>, which allocates (or <i>grabs</i>) the amount of memory necessary for a task during a program execution. Let's say that you load a program that translate text. 
+            </p>
+            <p>
+                During the first initialization of the program, it asks for some memory to work, let's say, <code>1Kb</code>. It's going to use this <code>1Kb</code> to store the text you want to translate. After you type the text and press <i>translate</i>, the software then asks the operating system to save this into memory, which is then used to refer as the base text for the translation. After your program translates it (we're not going to dive into the translation process here on this article for obvious reasons), the program asks the OS to then allocate another <code>1Kb</code> for the results, fetches this data and present to you on the screen. 
+            </p>
+            <p>
+                This example highlights the importance of the RAM in your system. It helps the computer to storage intermediary results so it those can be used when it most needs. After you shut down your computer, and does not save the translated text into a .txt file (in this case, using the HD or the Flash memory), it will be lost, because as we've seen in the begining, RAM is volatile.
             </p>
 
+            <h2>How it works under the hood</h2>
+            <hr>
+            <p>
+                As we stated earlier, RAM uses a bunch of switches. The curious thing, tho, is that we can access one switch at the time for every single chip of RAM<a name="back_2" style="text-decoration: none;" href="#footnote_2"><sup>[2]</sup></a>.
+            </p>
+            <p>
+                To be able to fetch this state, and since a RAM chip has tons of these switches, we need to tell the RAM chip in what <i>address</i> the switch we want to access is. After we tell the chip where it is, it will tell us the state of the switch: Positive voltage when <i>ON</i>, 0 volts when <i>OFF</i>. This is normally read in a digital system by 1 when <i>ON</i> and 0 when <i>OFF</i>.
+            </p>
         
             
             
