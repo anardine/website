@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml" />
+		<meta charset="UTF-8" />
+        <link rel="icon" type="image/x-icon" href="../ico/fav.ico"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=12.0, minimum-scale=1.0, user-scalable=yes" />
+		<link rel="stylesheet" href="../style.css" />
+		<title>Understanding Computer Memory - How RAM Works.</title>
+        <meta name="description" content="In this first article on computer memory introduction I describe how RAM works">
+	</head>
+
+
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MPBB9NY5KG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-MPBB9NY5KG');
+</script>
+
+
+	<body>
+		<div class="container">
+      <br><br>
+      <center>
+        <nav>
+        <div style="display: inline-block; vertical-align:middle;">
+          <img class="ico_small" src="../ico/header.ico" alt="menu_icon">
+          <a href="../index.html" class="title"><b>ALESSANDRO NARDINELLI'S WEBSITE</b></a>
+          <img class="ico_small" src="../ico/header.ico" alt="menu_icon">
+          <hr />
+          <a class="title" href="mailto:anardine@hotmail.com">CONTACT</a>
+          &nbsp;&nbsp;&nbsp;
+          <a class="title" href="../rss.xml">RSS</a>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <a class="title" href="https://www.paypal.com/donate/?hosted_button_id=7U77WSQ5WNW8E">DONATE</a>
+        </div>
+        </nav>
+      </center>
+			<div style="margin-bottom:6ch; text-transform: none;"></div>
+            <div style="margin-bottom: 2ch;text-transform: none;">Mar 5th, 2026; 5 min read<br></div>
+			<h1>Part 1 of Understanding Computer Memory: How RAM works and why do We even need memory?</h1>
+            <hr>
+            <br>
+            
+            <h2>Why do we need another article on Computer Memory in 2026?</h2>
+            <hr>
+            <p>
+                As the time of the writing of this article, we're facing a RAM shrotage in the world, and there are multiple factors of why, which I don't intend to describe here.What I trully want to bring is visibility to people of the basics. This not only makes you understand the importance of it, but also adds a layer of understanding that most people don't have given that, during these times, we simply don't need to care. We have enough abstraction layers on top of what is used to make things work (aka a computer) that most humam beings will go through the journey of their life without a hint on how does a computer actully do to perform the tasks that are inputed to them. This is also part of the current problem that we're facing.
+
+            </p>
+            
+            <p>
+                With the BOOM of AI everywhere, people are clearly overly using it. We use to make videos, images, text and sound that does not add anything to humanity overall. Most of it is true garbage, and are being used solely for picosecconds of dopamine rush. This things consume an incredible amount of computing power and natural resources all thorughout the planet while giving us back Will Smith eating pasta.
+            </p>
+            <p>
+                While the central theme of this article is not about the overusage of AI, it's the main motivation why I'm writing this. I want to make sure that, once you read thorugh this series of articles, you keep this overusage on top of your head. It's only making people aware of how things work in the most grannular layer, that they realize the imense effort and technology dedicated on generating these junks. With that in mind, let's start with a feasible intro to how computers remember.
+            </p>
+            <h2>How Does a Computer Remembers?</h2>
+            <hr>
+            <p>
+                This concept is really simple, and is composed by a clever analogy:
+            </p>
+            <p>
+                All of us have light switches at home. Some may be the classical ones, where you need to toggle it with your fingers, and others have Bluetooth and wifi capabilites. I'll leave to you which one to imagine. 
+            </p>
+            <p>
+                The use of a switch is the most classical way to make your house <i>remembers</i> a state. You can turn the kitchen on, the livingroom off, and the bedrooms on. If you leave your house, and come back some time later, you'll find yourself with your house on the same <i>state</i> it was before: With kitchen on, the livingroom off, and the bedrooms on. This is the same way computer memory works: It uses swithces (but on their case eletrical, not mechanical) to remember the state of what was written before into it. They use a <i>switch</i> called <i>transistor</i>, which is a switch you can toggle using eletrical energy. If you want to turn it on, you put energy into it, if you want to turn it off, you remove energy from it<a name="back_1" style="text-decoration: none;" href="#footnote_1"><sup>[1]</sup></a>.
+            </p>
+            <p>
+            <h2>What is RAM and why we are so dependent of it</h2>
+            <hr>
+            <p>
+                The computer needs a set of these transistors <i>switches</i> to be able to remember states. This is required because not only it needs to <i>remember</i> where it was in a specific point in time but also to successfully proceed with a set of instructions gave to it. It also needs a way of storing and retrieving data from the user, otherwise, it would forget your name every time.
+            </p>
+            <p>
+                There's a catch, tho.
+            </p>
+            <p>
+                Multiple types of these memories are used and they have different objectives and characteristics, so the computer knows when to use which one, and for an specific puprpose. The list is not too big, but worth knowing. The fact that the memory hardware <i>persists</i> data when turned off is refered as <i>volatile</i>. Memory that persists data after turned off is caled non-volatile, and memory that looses the data after loss of power is called volatile. The table below summarizes the main types of memory used in computers, their volatility, speed, typical use-cases, and some notes on their characteristics.
+            </p>
+            <table class="usb" style="width: 100%;">
+                <thead>
+                    <tr>
+                        <th>Memory Type</th>
+                        <th>Volatility</th>
+                        <th>Speed</th>
+                        <th>Typical Use‑Case</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Registers</td>
+                        <td>Volatile</td>
+                        <td>Fastest</td>
+                        <td>Hold data for immediate processing by the CPU</td>
+                        <td>Extremely limited capacity since they are part of the CPU itself</td>
+                    </tr>
+                    <tr>
+                        <td><b>DRAM</b></td>
+                        <td><b>Volatile</b></td>
+                        <td><b>Slower than SRAM (requires refresh)</b></td>
+                        <td><b>Main system memory (RAM)</b></td>
+                        <td><b>e.g., DDR variants; needs refresh</b></td>
+                    </tr>
+                    <tr>
+                        <td>Flash (NAND/EEPROM)</td>
+                        <td>Non‑volatile</td>
+                        <td>Moderate (fast read, slow write/erase)</td>
+                        <td>SSDs, USB drives, firmware</td>
+                        <td>Fast than HDDs but slower than RAM</td>
+                    </tr>
+                    <tr>
+                        <td>Magnetic storage (HDD)</td>
+                        <td>Non‑volatile</td>
+                        <td>Slow (mechanical)</td>
+                        <td>Mass storage</td>
+                        <td>Large capacity and cost-effective</td>
+                    </tr>
+                    <tr>
+                        <td>ROM</td>
+                        <td>Non‑volatile</td>
+                        <td>Varies</td>
+                        <td>Firmware, boot code</td>
+                        <td>Often one-time programmable. Used as a backup for critical system code.</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>
+                The table above summarizes the main categories; there are also specialized types such as magnetic tape, optical media, Cache/SRAM and emerging technologies (MRAM, PCM, etc.) that you might encounter. They are completly out of our scope, and does not corelate much with what we want to achieve here, but you get the point.
+            </p>
+            <p>
+                In this article itself, we're going to focus on the DRAM, which is the most common type of RAM used in computers, and is what we usually refer to when we say "RAM". It is volatile memory that requires constant refreshing to maintain its data, and is used as the main system memory for running applications and the operating system. The reason why we're so dependent on it is because it provides a fast and efficient way for the CPU to access data and instructions that are currently in use, from programs that you might be using, and to hold instructions of what the CPU needs to do next. Without RAM, the computer would have to rely on much slower storage options, which would significantly degrade performance and make it impractical for most tasks.
+            </p>
+
+        
+            
+            
+            <br>
+            <h2>references and definitions</h2>
+            <hr>
+            <p id="paperbox" style="text-align:left;">
+                <table>
+                    <tbody style="vertical-align: top;">
+                        <tr>
+                            <td class="ref" style="width:1ch;">
+                                <a name="footnote_1"></a>
+                                <a href="#back_1">^</a>
+                            </td>
+                            <td class="ref" style="width:4ch;"> <sup>[1]</sup></td>
+                            <td style="width:100%;text-align:left;" class="ref">
+                                <a href="https://www.build-electronic-circuits.com/how-transistors-work/"><i>NPN Transistor</i></a> How Transistor Works. Retrieved Mar 1st, 2026.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="ref" style="width:1ch;">
+                                <a name="footnote_2"></a>
+                                <a href="#back_2">^</a>
+                            </td>
+                            <td class="ref" style="width:4ch;"> <sup>[2]</sup></td>
+                            <td style="width:100%;text-align:left;" class="ref">
+                                <a href="https://thequalityportal.com/pokayoke.htm"><i>Poka Yoke or Mistake Proofing :: Overview.</i></a> The Quality Portal. Retrieved Feb 16, 2026.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="ref" style="width:1ch;">
+                                <a name="footnote_3"></a>
+                                <a href="#back_3">^</a>
+                            </td>
+                            <td class="ref" style="width:4ch;"> <sup>[3]</sup></td>
+                            <td style="width:100%;text-align:left;" class="ref">
+                                <i>Chinakote</i> is a generic platic covering used instead of the premmium MonoKote, made by Top Flite. 
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="ref" style="width:1ch;">
+                                <a name="footnote_4"></a>
+                                <a href="#back_4">^</a>
+                            </td>
+                            <td class="ref" style="width:4ch;"> <sup>[4]</sup></td>
+                            <td style="width:100%;text-align:left;" class="ref">
+                                <a href="https://tinkerflight.com/blog/how-to-connect-elrs-receiver-with-pwm-and-uart/"><i>ELRS Generic 7ch JSON Mod</i></a> - Accessed Feb 02, 2026. This Mod makes the 6th and 7th channel of the ELRS receiver work but for me it was still jittery and shitty. 
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+
+            <footer>
+				<br><br>*<br>
+				© 2026 Alessandro Nardinelli
+				<br><br>
+			</footer>
+		</div>
+	</body>
+</html>
