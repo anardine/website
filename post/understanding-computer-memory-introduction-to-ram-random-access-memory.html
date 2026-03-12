@@ -101,11 +101,11 @@
                         <td>Extremely limited capacity since they are part of the CPU itself</td>
                     </tr>
                     <tr>
-                        <td><b>DRAM</b></td>
-                        <td><b>Volatile</b></td>
-                        <td><b>Slower than SRAM (requires refresh)</b></td>
-                        <td><b>Main system memory (RAM)</b></td>
-                        <td><b>e.g., DDR variants; needs refresh</b></td>
+                        <td>RAM</td>
+                        <td>Volatile</td>
+                        <td>Can be SRAM (static) or DRAM (dynamic)</td>
+                        <td>Main system memory used for object storage</td>
+                        <td>Good mix of speed and size. Used during processing for local storage of data.</td>
                     </tr>
                     <tr>
                         <td>Flash (NAND/EEPROM)</td>
@@ -142,7 +142,7 @@
                 </figure>
             </div>
             <p>
-                In this article itself, we're going to focus on the DRAM, which is the most common type of RAM used in computers, and is what we usually refer to when we say "RAM". 
+                In this article itself, we're going to focus on the both SRAM and DRAM, which are the most common type of RAM used in computers, and is what we usually refer to when we say "RAM". 
             </p>
             <h2>So what is RAM?</h2>
             <hr>
@@ -152,10 +152,6 @@
             <p>
                 Without RAM, the computer would have to rely on much slower storage options for the basic calculations it need to do, and to storage the objects needed for specific things while programs are running, which would significantly degrade performance and make it impractical for most tasks. If we decided to add flash and have a big memory instead, our performance would downgrade, and if we decided to have those as registers built inside the CPU, we would have to have way more expansive and bigger CPUs. RAM comes right in the middle: A way to have a few GBs of memory that are fast enough for our computer to work without trading off read/write speed.
             </p>
-            <blockquote>
-                add details from a quote here. 
-            </blockquote>
-
             <h2>How does RAM helps the computer?</h2>
             <hr>
             <p>
@@ -197,11 +193,100 @@
             </p>
             <figure style="max-width: 100%;">
                     <img style="border: none;" src="../images/posts_images/computer-memory/ram_schematic.svg" alt="accessing data in a multiple RAM chip">
-                    <figcaption><i>Take a look at the single chip. It can only fetch one bit at a time. If you add 8 of the single RAM chips alltogether, you can extract a whole byte using the same 20bit address. It's all about the parallel design that makes everything possible.</i></figcaption>
+                    <figcaption><i>RAM Design: Take a look at the single chip. It can only fetch one bit at a time. If you add 8 of the single RAM chips alltogether, you can extract a whole byte using the same 20bit address. It's all about the parallel design that makes everything possible.</i></figcaption>
                 </figure>
             <p>
                 Computers engineers can now work on serving (or retreiving) to the RAM chip the smallest unit possible (the byte). This happens because sotwares do not tend to save only one or two bits. For that, we request a memory that we can save a whole byte, and use the byte as the smallest unit possible. That's why a RAM chip that can store 8 Billion bits (1 Billion bytes), is a 1Gb RAM.
             </p>
+            <h2>Types of RAM</h2>
+            <hr>
+            <p>
+                As time went by, the engineers realized that RAM chips that are static (as the one described above, which are made from flip flops) were super fast, reliable and power efficient, but that was only the case when the computer was iddle. Since SRAM takes 6 trasistors to store a bit (which then need more physical space per square-inch), this ended up being harder to manafucture and way more expensive if we wanted to make RAMs with over 1Gb. DRAM then became more popular since it used only one capacitor and one transitor, but consumed more energy since it constantly needed to be <i>refresed</i> to keep it's state.
+            </p>
+                
+            <blockquote>
+                <p>
+                    Memory constructed from flip-flops is more preciselly called <i>static</i> random access memory. By 1980, dynamic RAM, or DRAM, was taking over and soon became dominant. DRAM requires only one transistor and one capacitor for each memory cell. [...] A capacitor can store an electric charge but not indefinitly. The key to making DRAM work is that these charges are refreshed thousands of times per second.
+                </p>
+                <p style="text-align: right;">
+                    - Charles Petzold<a name="back_3" style="text-decoration: none;" href="#footnote_3"><sup>[3]</sup></a>
+                </p>
+            </blockquote>
+            <p>
+                Bellow, I've added a table with the details of each for easier reference.
+            </p>
+            <table class="usb" style="width: 100%; margin-top: 2ch;">
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>SRAM</th>
+                            <th>DRAM</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Cell Structure</td>
+                            <td>6 transistors (flip-flop)</td>
+                            <td>1 transistor + 1 capacitor</td>
+                        </tr>
+                        <tr>
+                            <td>Speed</td>
+                            <td>Very fast (low latency)</td>
+                            <td>Fast, but higher latency than SRAM</td>
+                        </tr>
+                        <tr>
+                            <td>Power Consumption</td>
+                            <td>Lower (especially when idle)</td>
+                            <td>Higher (needs constant refresh)</td>
+                        </tr>
+                        <tr>
+                            <td>Density</td>
+                            <td>Lower (larger cells, less bits per chip)</td>
+                            <td>Higher (smaller cells, more bits per chip)</td>
+                        </tr>
+                        <tr>
+                            <td>Cost</td>
+                            <td>More expensive per bit</td>
+                            <td>Cheaper per bit</td>
+                        </tr>
+                        <tr>
+                            <td>Usage</td>
+                            <td>CPU cache, registers, embedded systems</td>
+                            <td>Main system memory (RAM), graphics memory</td>
+                        </tr>
+                        <tr>
+                            <td>Refresh Required?</td>
+                            <td>No</td>
+                            <td>Yes, thousands of times per second</td>
+                        </tr>
+                        <tr>
+                            <td>Data Retention</td>
+                            <td>As long as power is supplied</td>
+                            <td>Only while refreshed and powered</td>
+                        </tr>
+                        <tr>
+                            <td>Integration</td>
+                            <td>Often integrated on CPU chips</td>
+                            <td>Usually separate chips/modules</td>
+                        </tr>
+                        <tr>
+                            <td>Typical Capacity</td>
+                            <td>KBs to a few MBs (cache)</td>
+                            <td>GBs (main memory)</td>
+                        </tr>
+                        <tr>
+                            <td>Example Chips</td>
+                            <td>Intel 2114, used in microcontroller caches</td>
+                            <td>DDR4, DDR5, used in desktop/laptop RAM</td>
+                        </tr>
+                        <tr>
+                            <td>Failure Modes</td>
+                            <td>Less prone to bit errors</td>
+                            <td>More prone to bit errors (needs ECC in servers)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            
             <h2>Next Steps</h2>
             <hr>
             <p>
@@ -242,7 +327,7 @@
                             </td>
                             <td class="ref" style="width:4ch;"> <sup>[3]</sup></td>
                             <td style="width:100%;text-align:left;" class="ref">
-                                
+                                Petzold, C. (2022). <i>Code: The Hidden Language of Computer Hardware and Software. Microsoft Press.</i> Second Eddition. Page 285.
                             </td>
                         </tr>
                         <tr>

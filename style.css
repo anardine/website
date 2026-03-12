@@ -25,7 +25,7 @@
     }
 
     * {
-       font-size: 16px;
+       font-size: 15px;
     }
 
     html {
@@ -34,7 +34,7 @@
       padding-left: 2%;
       padding-right: 3%;
       margin: 0 auto;
-      background:aliceblue;
+      background:rgb(241, 241, 241);
   	} 
 
   	a {
@@ -205,7 +205,7 @@ table.usb th {
     padding-top: 0.6ch;
     padding-bottom: 0.6ch;
     font-weight: bold;
-    background-color: lightsteelblue;
+    background-color:lightgrey;
     text-align: center;
     text-transform: uppercase;
 }
