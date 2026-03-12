@@ -1,0 +1,115 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" version="29.6.0">
+  <diagram name="Page-1" id="1jxV0JFW0Czf1mG2BOno">
+    <mxGraphModel dx="2239" dy="784" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="#FFFFFF" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="qdsx6a5SftUQYN2xa0Js-23" edge="1" parent="1" source="qdsx6a5SftUQYN2xa0Js-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=13;labelBackgroundColor=none;fillColor=#f9f7ed;strokeColor=#36393d;" target="qdsx6a5SftUQYN2xa0Js-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qdsx6a5SftUQYN2xa0Js-24" edge="1" parent="1" source="qdsx6a5SftUQYN2xa0Js-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=13;labelBackgroundColor=none;fillColor=#f9f7ed;strokeColor=#36393d;" target="qdsx6a5SftUQYN2xa0Js-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qdsx6a5SftUQYN2xa0Js-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=IBM Plex Mono;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DIBM%2BPlex%2BMono;fontSize=13;labelBackgroundColor=none;fillColor=#f9f7ed;strokeColor=#36393d;" value="Internal/Main" vertex="1">
+          <mxGeometry height="60" width="250" x="50" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="qdsx6a5SftUQYN2xa0Js-21" edge="1" parent="1" source="qdsx6a5SftUQYN2xa0Js-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=13;labelBackgroundColor=none;fillColor=#f9f7ed;strokeColor=#36393d;" target="qdsx6a5SftUQYN2xa0Js-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qdsx6a5SftUQYN2xa0Js-22" edge="1" parent="1" source="qdsx6a5SftUQYN2xa0Js-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=13;labelBackgroundColor=none;fillColor=#f9f7ed;strokeColor=#36393d;" target="qdsx6a5SftUQYN2xa0Js-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qdsx6a5SftUQYN2xa0Js-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=IBM Plex Mono;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DIBM%2BPlex%2BMono;fontSize=13;labelBackgroundColor=none;fillColor=#f9f7ed;strokeColor=#36393d;" value="Computer Memory" vertex="1">
+          <mxGeometry height="60" width="250" x="290" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="qdsx6a5SftUQYN2xa0Js-25" edge="1" parent="1" source="qdsx6a5SftUQYN2xa0Js-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=13;labelBackgroundColor=none;fillColor=#f9f7ed;strokeColor=#36393d;" target="qdsx6a5SftUQYN2xa0Js-17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qdsx6a5SftUQYN2xa0Js-26" edge="1" parent="1" source="qdsx6a5SftUQYN2xa0Js-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=13;labelBackgroundColor=none;fillColor=#f9f7ed;strokeColor=#36393d;" target="qdsx6a5SftUQYN2xa0Js-18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qdsx6a5SftUQYN2xa0Js-27" edge="1" parent="1" source="qdsx6a5SftUQYN2xa0Js-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=13;labelBackgroundColor=none;fillColor=#f9f7ed;strokeColor=#36393d;" target="qdsx6a5SftUQYN2xa0Js-19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qdsx6a5SftUQYN2xa0Js-3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=IBM Plex Mono;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DIBM%2BPlex%2BMono;fontSize=13;labelBackgroundColor=none;fillColor=#f9f7ed;strokeColor=#36393d;" value="External/Secondary" vertex="1">
+          <mxGeometry height="60" width="250" x="530" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="qdsx6a5SftUQYN2xa0Js-5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=IBM Plex Mono;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DIBM%2BPlex%2BMono;fontSize=13;labelBackgroundColor=none;fillColor=#f9f7ed;strokeColor=#36393d;" value="ROM&lt;div&gt;(Read Only Memory)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="180" x="-20" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="qdsx6a5SftUQYN2xa0Js-28" edge="1" parent="1" source="qdsx6a5SftUQYN2xa0Js-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=13;labelBackgroundColor=none;fillColor=#f9f7ed;strokeColor=#36393d;" target="qdsx6a5SftUQYN2xa0Js-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qdsx6a5SftUQYN2xa0Js-29" edge="1" parent="1" source="qdsx6a5SftUQYN2xa0Js-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=13;labelBackgroundColor=none;fillColor=#f9f7ed;strokeColor=#36393d;" target="qdsx6a5SftUQYN2xa0Js-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qdsx6a5SftUQYN2xa0Js-6" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=IBM Plex Mono;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DIBM%2BPlex%2BMono;fontSize=13;labelBackgroundColor=none;fillColor=#f9f7ed;strokeColor=#36393d;" value="RAM&lt;div&gt;(Random Access Memory)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="180" x="200" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="qdsx6a5SftUQYN2xa0Js-7" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=IBM Plex Mono;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DIBM%2BPlex%2BMono;fontSize=13;labelBackgroundColor=none;fillColor=#f9f7ed;strokeColor=#36393d;" value="SRAM" vertex="1">
+          <mxGeometry height="50" width="140" x="140" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="qdsx6a5SftUQYN2xa0Js-31" edge="1" parent="1" source="qdsx6a5SftUQYN2xa0Js-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=13;labelBackgroundColor=none;fillColor=#f9f7ed;strokeColor=#36393d;" target="qdsx6a5SftUQYN2xa0Js-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qdsx6a5SftUQYN2xa0Js-32" edge="1" parent="1" source="qdsx6a5SftUQYN2xa0Js-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=13;labelBackgroundColor=none;fillColor=#f9f7ed;strokeColor=#36393d;" target="qdsx6a5SftUQYN2xa0Js-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qdsx6a5SftUQYN2xa0Js-33" edge="1" parent="1" source="qdsx6a5SftUQYN2xa0Js-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=13;labelBackgroundColor=none;fillColor=#f9f7ed;strokeColor=#36393d;" target="qdsx6a5SftUQYN2xa0Js-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qdsx6a5SftUQYN2xa0Js-8" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=IBM Plex Mono;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DIBM%2BPlex%2BMono;fontSize=13;labelBackgroundColor=none;fillColor=#f9f7ed;strokeColor=#36393d;" value="DRAM" vertex="1">
+          <mxGeometry height="50" width="140" x="320" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="qdsx6a5SftUQYN2xa0Js-9" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=IBM Plex Mono;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DIBM%2BPlex%2BMono;fontSize=13;labelBackgroundColor=none;fillColor=#f9f7ed;strokeColor=#36393d;" value="SDRAM" vertex="1">
+          <mxGeometry height="50" width="140" x="160" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="qdsx6a5SftUQYN2xa0Js-10" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=IBM Plex Mono;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DIBM%2BPlex%2BMono;fontSize=13;labelBackgroundColor=none;fillColor=#f9f7ed;strokeColor=#36393d;" value="RDRAM" vertex="1">
+          <mxGeometry height="50" width="140" x="320" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="qdsx6a5SftUQYN2xa0Js-34" edge="1" parent="1" source="qdsx6a5SftUQYN2xa0Js-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;fontSize=13;labelBackgroundColor=none;fillColor=#f9f7ed;strokeColor=#36393d;" target="qdsx6a5SftUQYN2xa0Js-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qdsx6a5SftUQYN2xa0Js-35" edge="1" parent="1" source="qdsx6a5SftUQYN2xa0Js-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=13;labelBackgroundColor=none;fillColor=#f9f7ed;strokeColor=#36393d;" target="qdsx6a5SftUQYN2xa0Js-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qdsx6a5SftUQYN2xa0Js-36" edge="1" parent="1" source="qdsx6a5SftUQYN2xa0Js-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=13;labelBackgroundColor=none;fillColor=#f9f7ed;strokeColor=#36393d;" target="qdsx6a5SftUQYN2xa0Js-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qdsx6a5SftUQYN2xa0Js-37" edge="1" parent="1" source="qdsx6a5SftUQYN2xa0Js-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=13;labelBackgroundColor=none;fillColor=#f9f7ed;strokeColor=#36393d;" target="qdsx6a5SftUQYN2xa0Js-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qdsx6a5SftUQYN2xa0Js-38" edge="1" parent="1" source="qdsx6a5SftUQYN2xa0Js-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;fontSize=13;labelBackgroundColor=none;fillColor=#f9f7ed;strokeColor=#36393d;" target="qdsx6a5SftUQYN2xa0Js-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qdsx6a5SftUQYN2xa0Js-11" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=IBM Plex Mono;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DIBM%2BPlex%2BMono;fontSize=13;labelBackgroundColor=none;fillColor=#f9f7ed;strokeColor=#36393d;" value="DDR SDRAM" vertex="1">
+          <mxGeometry height="50" width="140" x="480" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="qdsx6a5SftUQYN2xa0Js-12" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=IBM Plex Mono;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DIBM%2BPlex%2BMono;fontSize=13;labelBackgroundColor=none;fillColor=#f9f7ed;strokeColor=#36393d;" value="DDR1" vertex="1">
+          <mxGeometry height="50" width="140" x="180" y="540" as="geometry" />
+        </mxCell>
+        <mxCell id="qdsx6a5SftUQYN2xa0Js-13" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=IBM Plex Mono;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DIBM%2BPlex%2BMono;fontSize=13;labelBackgroundColor=none;fillColor=#f9f7ed;strokeColor=#36393d;" value="DDR2" vertex="1">
+          <mxGeometry height="50" width="140" x="330" y="540" as="geometry" />
+        </mxCell>
+        <mxCell id="qdsx6a5SftUQYN2xa0Js-14" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=IBM Plex Mono;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DIBM%2BPlex%2BMono;fontSize=13;labelBackgroundColor=none;fillColor=#f9f7ed;strokeColor=#36393d;" value="DDR3" vertex="1">
+          <mxGeometry height="50" width="140" x="480" y="540" as="geometry" />
+        </mxCell>
+        <mxCell id="qdsx6a5SftUQYN2xa0Js-15" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=IBM Plex Mono;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DIBM%2BPlex%2BMono;fontSize=13;labelBackgroundColor=none;fillColor=#f9f7ed;strokeColor=#36393d;" value="DDR4" vertex="1">
+          <mxGeometry height="50" width="140" x="630" y="540" as="geometry" />
+        </mxCell>
+        <mxCell id="qdsx6a5SftUQYN2xa0Js-16" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=IBM Plex Mono;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DIBM%2BPlex%2BMono;fontSize=13;labelBackgroundColor=none;fillColor=#f9f7ed;strokeColor=#36393d;" value="DDR5" vertex="1">
+          <mxGeometry height="50" width="140" x="780" y="540" as="geometry" />
+        </mxCell>
+        <mxCell id="qdsx6a5SftUQYN2xa0Js-17" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=IBM Plex Mono;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DIBM%2BPlex%2BMono;fontSize=13;labelBackgroundColor=none;fillColor=#f9f7ed;strokeColor=#36393d;" value="HDD" vertex="1">
+          <mxGeometry height="50" width="140" x="410" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="qdsx6a5SftUQYN2xa0Js-18" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=IBM Plex Mono;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DIBM%2BPlex%2BMono;fontSize=13;labelBackgroundColor=none;fillColor=#f9f7ed;strokeColor=#36393d;" value="SSD/Flash" vertex="1">
+          <mxGeometry height="50" width="140" x="585" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="qdsx6a5SftUQYN2xa0Js-19" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=IBM Plex Mono;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DIBM%2BPlex%2BMono;fontSize=13;labelBackgroundColor=none;fillColor=#f9f7ed;strokeColor=#36393d;" value="CD/DVD/Others" vertex="1">
+          <mxGeometry height="50" width="140" x="760" y="260" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
