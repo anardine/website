@@ -286,13 +286,49 @@
                         </tr>
                     </tbody>
                 </table>
+                <p>
+                    The ammount of details find when designing for these components are endless. There are multiple ways of integrating them into cirquits and other relevant details on the process of accessing the data, storing it, referencing to it, and desinging hardware that will interact with it in a stable and fast manner. These are all more complex and for the sake of not making this article too extensive and out of purpose, we're stopping here. 
+                </p>
+                <h2>Connecting the Dots</h2>
+                <hr>
+                <p>
+                    The intense usage of RAM during the AI era resumes itself into two main areas: Training and Serving. 
+                </p>
+                <figure style="max-width: 40%; float: right;">
+                    <img style="border: none;" src="../images/posts_images/computer-memory/mem_band_bottleneck.svg" alt="how to increase memory bandwith">
+                </figure>
+                <p>
+                    Training usage is related to the process of training an LLM that normally takes weeks to be completed, and needs a bunch of special type of machines. Since trainning an LLM basically means that you're going to create a ton of different parameters using the entire data available on the internet (Peta and Peta bytes of data), this data needs to be stored somehow to be processed. Innitally, that does not get stored in RAM, but at an storage layer. 
+                </p>
+                <p>
+                    When we start processing this data and feeding into a <i>neural network</i> these machines are all connected together, and start processing things in parallel, in LLMs case, using GPUs. GPUs (Graphical Processing Units) are one type of a logical processing unit that is really good at multiplying stuff, simply speaking. They innitially were conceptualized to process graphics (That's where the "G" comes in), but for purposes not aligned with this article, they started to be using duiring LLM trainning. 
+                </p>
+                <p>
+                    GPUs processing power is called <i>compute power</i>. Duirng training and serving, to complete a round of parameter multiplication (a phase of the process), it needs to fetch data from the attached memory. Since GPU process these multiplications super fast, the more data we have in a faster memory type to serve them, the faster you can train a model. This capacity of serving the data saved in memory to the GPU is called <i>memory bandwith</i>. When total memory bandwith is lower than GPU compute power, we end up bottlenecking the entire process. 
+                </p>
+                <p>
+                    The drawing on the right showcases (in a really simple abstraction and grandma-friendly way) how this can impact the overall trainning of an LLM model and how one of the sides can become a bottleneck in the process. 
+                </p>
+                <p>
+                    You can see that the only way to reduce the bottleneck process of the <i>memory bandwith</i> is to add more memmory. This increases the capabilities of the process and make the GPU work more efficient since it reduces the amount of time a GPU spends without data to work with. 
+                </p>
+                <p>
+                    This is simmilar on serving, where data from users all around the world needs to be inputed fast on a model, transformed, calculated, transformed back and then get served to the user. This process is getting faster and faster as the days goes by, and multiple companies are competing towards the state-of-the art model. Since the production and availability of the hardware is finite, there's a rush on securing the manufacturing pipeline of the few companies in the world that builds RAM.
+                </p>
+                
+                <h2>A note from the author on the Current RAM shortage</h2>
+                <hr>
+                <p>
+                    There are multiple specialists that are running global chip shortage analysis way better than I can. On this little section, I've aimed at adding my two cents. Since it's just an opinion, and dependently in which date you read this, also can be extremely wrong, I feel the urge to position myself into the subject. 
+
+                </p>
             
             <h2>Next Steps</h2>
             <hr>
             <p>
                 Since this article is part of a bigger chapter on memory, feel free to advance towards the next types, or decide to dig down on the RAM hardware details. 
             </p>
-            <a href="/">Advanced RAM hardware Guide</a>
+            <a href="/">Advanced RAM</a>
             
             <br>
             <h2>references and definitions</h2>
