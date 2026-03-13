@@ -61,7 +61,7 @@
     }
 
     blockquote {
-    background-color: ghostwhite;
+    background-color: #f3f3f7;
     border: dashed 1px grey;
     width: 97.5%;
     font-style: italic;
@@ -205,7 +205,7 @@ table.usb th {
     padding-top: 0.6ch;
     padding-bottom: 0.6ch;
     font-weight: bold;
-    background-color:lightgrey;
+    background-color:lavender;
     text-align: center;
     text-transform: uppercase;
 }
