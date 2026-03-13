@@ -41,12 +41,12 @@
         </nav>
       </center>
 			<div style="margin-bottom:6ch; text-transform: none;"></div>
-            <div style="margin-bottom: 2ch;text-transform: none;">Mar 5th, 2026; 5 min read<br></div>
-			<h1>Part 1 of Understanding Computer Memory: How RAM works and why do We even need memory?</h1>
+            <div style="margin-bottom: 2ch;text-transform: none;">Mar 13th, 2026; 8 min read<br></div>
+			<h1>How RAM works, and why do We even need so much memory nowadays?</h1>
             <hr>
             <br>
             
-            <h2>Why do we need another article on Computer Memory in 2026?</h2>
+            <h2>Why do we need another article on Memory in 2026?</h2>
             <hr>
             <p>
                 As the time of the writing of this article, we're facing a RAM shrotage in the world, and there are multiple factors of why, which I don't intend to describe here.What I trully want to bring is visibility to people of the basics. This not only makes you understand the importance of it, but also adds a layer of understanding that most people don't have given that, during these times, we simply don't need to care. We have enough abstraction layers on top of what is used to make things work (aka a computer) that most humam beings will go through the journey of their life without a hint on how does a computer actully do to perform the tasks that are inputed to them. This is also part of the current problem that we're facing.
@@ -80,7 +80,7 @@
                 There's a catch, tho.
             </p>
             <p>
-                Multiple types of these memories are used and they have different objectives and characteristics, so the computer knows when to use which one, and for an specific puprpose. The list is not too big, but worth knowing. The fact that the memory hardware <i>persists</i> data when turned off is refered as <i>volatile</i>. Memory that persists data after turned off is caled non-volatile, and memory that looses the data after loss of power is called volatile. The table below summarizes the main types of memory used in computers, their volatility, speed, typical use-cases, and some notes on their characteristics.
+                Multiple types of these memories are used and they have different objectives and characteristics, so the computer knows when to use which one, and for an specific puprpose. The list is not too big, but worth knowing. The definition when memory hardware <i>looses</i> data when turned off (when power is cut) is refered as <i>volatile</i>. The table below summarizes the main types of memory used in computers, their volatility, speed, typical use-cases, and some notes on their characteristics.
             </p>
             <table class="usb" style="width: 100%;">
                 <thead>
@@ -112,7 +112,7 @@
                         <td>Non‑volatile</td>
                         <td>Moderate (fast read, slow write/erase)</td>
                         <td>SSDs, USB drives, firmware</td>
-                        <td>Fast than HDDs but slower than RAM</td>
+                        <td>Faster than HDDs but slower than RAM</td>
                     </tr>
                     <tr>
                         <td>Magnetic storage (HDD)</td>
@@ -146,9 +146,14 @@
             </p>
             <h2>So what is RAM?</h2>
             <hr>
+            <figure style="max-width: 30%; float: right; ">
+                    <img style="border: none;" src="../images/posts_images/computer-memory/ram_chip_photo.avif" alt="RAM chip">
+                    <figcaption><i>DRAM chips sitting on board. Carbonero Stock/Getty Images</i></figcaption>
+                </figure>
             <p>
                 RAM is is volatile memory that requires constant refreshing to maintain its data, and is used as the main system memory for running applications and the operating system. The reason why we're so dependent on it is because it provides a fast and efficient way for the CPU to access data and instructions that are currently in use, from programs that you might be using, and to hold instructions of what the CPU needs to do next. 
             </p>
+            
             <p>
                 Without RAM, the computer would have to rely on much slower storage options for the basic calculations it need to do, and to storage the objects needed for specific things while programs are running, which would significantly degrade performance and make it impractical for most tasks. If we decided to add flash and have a big memory instead, our performance would downgrade, and if we decided to have those as registers built inside the CPU, we would have to have way more expansive and bigger CPUs. RAM comes right in the middle: A way to have a few GBs of memory that are fast enough for our computer to work without trading off read/write speed.
             </p>
@@ -201,7 +206,7 @@
             <h2>Types of RAM</h2>
             <hr>
             <p>
-                As time went by, the engineers realized that RAM chips that are static (as the one described above, which are made from flip flops) were super fast, reliable and power efficient, but that was only the case when the computer was iddle. Since SRAM takes 6 trasistors to store a bit (which then need more physical space per square-inch), this ended up being harder to manafucture and way more expensive if we wanted to make RAMs with over 1Gb. DRAM then became more popular since it used only one capacitor and one transitor, but consumed more energy since it constantly needed to be <i>refresed</i> to keep it's state.
+                As time went by, the engineers realized that RAM chips that are static (as the one described above, which are made from flip flops) were super fast, reliable and power efficient, but that was only the case when the computer was idle. Since SRAM takes 6 trasistors to store a bit (which then need more physical space per square-inch), this ended up being harder to manafucture and way more expensive if we wanted to make RAMs with over 1Gb. DRAM then became more popular since it used only one capacitor and one transitor, but consumed more energy since it constantly needed to be <i>refresed</i> to keep it's state.
             </p>
                 
             <blockquote>
@@ -294,12 +299,12 @@
                 <p>
                     The intense usage of RAM during the AI era resumes itself into two main areas: Training and Serving. 
                 </p>
-                <figure style="max-width: 40%; float: right;">
-                    <img style="border: none;" src="../images/posts_images/computer-memory/mem_band_bottleneck.svg" alt="how to increase memory bandwith">
-                </figure>
                 <p>
                     Training usage is related to the process of training an LLM that normally takes weeks to be completed, and needs a bunch of special type of machines. Since trainning an LLM basically means that you're going to create a ton of different parameters using the entire data available on the internet (Peta and Peta bytes of data), this data needs to be stored somehow to be processed. Innitally, that does not get stored in RAM, but at an storage layer. 
                 </p>
+                <figure style="max-width: 45%; float: right;">
+                    <img style="border: none;" src="../images/posts_images/computer-memory/mem_band_bottleneck.svg" alt="how to increase memory bandwith">
+                </figure>
                 <p>
                     When we start processing this data and feeding into a <i>neural network</i> these machines are all connected together, and start processing things in parallel, in LLMs case, using GPUs. GPUs (Graphical Processing Units) are one type of a logical processing unit that is really good at multiplying stuff, simply speaking. They innitially were conceptualized to process graphics (That's where the "G" comes in), but for purposes not aligned with this article, they started to be using duiring LLM trainning. 
                 </p>
@@ -315,12 +320,80 @@
                 <p>
                     This is simmilar on serving, where data from users all around the world needs to be inputed fast on a model, transformed, calculated, transformed back and then get served to the user. This process is getting faster and faster as the days goes by, and multiple companies are competing towards the state-of-the art model. Since the production and availability of the hardware is finite, there's a rush on securing the manufacturing pipeline of the few companies in the world that builds RAM.
                 </p>
-                
+                <p>
+                    To overcome adding more, a strategy that could be used is to add more <i>speed</i>. To do that, we need to increase the frequency that RAM operates. Because of this, AI companies are focusing their workloads on computers that bunddles a GPU with a special type of RAM, called HBM (High Bandwith Memory). Bellow are the details of HBM memory compared to DRAM. 
+                </p>
+                                <table class="usb" style="width: 100%; margin-top: 2ch;">
+                                    <thead>
+                                        <tr>
+                                            <th>Feature</th>
+                                            <th>DRAM (DDR4/DDR5)</th>
+                                            <th>HBM (High Bandwidth Memory)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Physical Structure</td>
+                                            <td>Planar chips on DIMMs, side-by-side on motherboard</td>
+                                            <td>3D-stacked chips, vertically integrated with TSVs (Through-Silicon Vias)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Bandwidth</td>
+                                            <td>~25-50 GB/s per module (DDR4/DDR5)</td>
+                                            <td>Up to 1 TB/s per stack (HBM2e/HBM3)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Bus Width</td>
+                                            <td>64 bits per channel</td>
+                                            <td>1024+ bits per stack</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Latency</td>
+                                            <td>Moderate (higher than SRAM, lower than SSD)</td>
+                                            <td>Similar or slightly higher than DRAM, but compensated by bandwidth</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Capacity</td>
+                                            <td>Up to 128 GB per module (main memory)</td>
+                                            <td>Typically 4-32 GB per stack (used as GPU/accelerator memory)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Power Efficiency</td>
+                                            <td>Standard</td>
+                                            <td>Much higher (lower energy per bit transferred)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Integration</td>
+                                            <td>On motherboard, separate from CPU/GPU</td>
+                                            <td>Very close to GPU/CPU die (often on same package)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Use Cases</td>
+                                            <td>Main system memory for PCs, servers</td>
+                                            <td>High-performance GPUs, AI accelerators, HPC, networking</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Cost</td>
+                                            <td>Lower per GB</td>
+                                            <td>Higher per GB</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Example Devices</td>
+                                            <td>Desktop/laptop RAM, server memory</td>
+                                            <td>NVIDIA A100, H100, AMD MI300, AI/ML accelerators</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                <p>
+                    HBM is specifically designed to provide extremely high memory bandwidth by stacking memory dies vertically and placing them very close to the processor (such as a GPU or AI accelerator). This architecture allows for much faster data transfer rates compared to traditional DRAM, which is critical for AI workloads that require moving massive amounts of data in and out of memory every second<a name="back_4" style="text-decoration: none;" href="#footnote_4"><sup>[4]</sup></a>. In AI training and inference, the speed at which data can be fed to the compute units (GPUs/TPUs) often becomes the bottleneck. HBM's high bandwidth and low power consumption enable GPUs to operate at their full compute potential, significantly accelerating training times and improving efficiency for large models. This is why modern AI hardware, such as NVIDIA's H100 and AMD's MI300, uses HBM instead of standard DRAM.
+                </p>
+                <p>
+                    Maybe the most important point on this article, know that you know how RAM works, is the fact that the manufacturing capabilities (and even the machines) that make DRAM are also used to make HBM, which connects us to the last part of this article. 
+                </p>
                 <h2>A note from the author on the Current RAM shortage</h2>
                 <hr>
                 <p>
-                    There are multiple specialists that are running global chip shortage analysis way better than I can. On this little section, I've aimed at adding my two cents. Since it's just an opinion, and dependently in which date you read this, also can be extremely wrong, I feel the urge to position myself into the subject. 
-
+                    There are multiple specialists that are running global chip shortage analysis way better than I can. On this little section, I've aimed at adding my two cents. Since it's just an opinion (and it's my blog anyways), I feel the urge to position myself into the subject, and you can judge the way it most suits you. 
                 </p>
             
             <h2>Next Steps</h2>
@@ -331,7 +404,7 @@
             <a href="/">Advanced RAM</a>
             
             <br>
-            <h2>references and definitions</h2>
+            <h2>references</h2>
             <hr>
             <p id="paperbox" style="text-align:left;">
                 <table>
@@ -373,7 +446,7 @@
                             </td>
                             <td class="ref" style="width:4ch;"> <sup>[4]</sup></td>
                             <td style="width:100%;text-align:left;" class="ref">
-                                
+                            Press, R. (2026, March 4). <a href="Press, R. (2026, March 4). High bandwidth memory (HBM): Everything you need to know. https://www.rambus.com/blogs/hbm3-everything-you-need-to-know/ "><i>High bandwidth memory (HBM): Everything you need to know.</i></a>
                             </td>
                         </tr>
                         <tr>
