@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" version="29.6.1">
   <diagram name="Page-1" id="1jxV0JFW0Czf1mG2BOno">
-    <mxGraphModel dx="4357" dy="2090" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="#FFFFFF" math="0" shadow="0">
+    <mxGraphModel dx="3267" dy="1522" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="#FFFFFF" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -947,7 +947,7 @@
         <mxCell id="aeK422RSbXbA1DhcCrz2-100" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontFamily=IBM Plex Mono;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DIBM%2BPlex%2BMono;rotation=0;fontSize=13;" value="RAM" vertex="1">
           <mxGeometry height="30" width="61" x="1583.6200000000001" y="1890" as="geometry" />
         </mxCell>
-        <mxCell id="aeK422RSbXbA1DhcCrz2-101" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontFamily=IBM Plex Mono;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DIBM%2BPlex%2BMono;rotation=0;fontSize=13;" value="Adding more RAM Increase Memory Bandwith and Process do not have more Bottlenecks" vertex="1">
+        <mxCell id="aeK422RSbXbA1DhcCrz2-101" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontFamily=IBM Plex Mono;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DIBM%2BPlex%2BMono;rotation=0;fontSize=13;" value="Adding more Memory Bandwith so Process do not have more Bottlenecks" vertex="1">
           <mxGeometry height="115.63" width="140" x="1660" y="2021.12" as="geometry" />
         </mxCell>
         <mxCell id="aeK422RSbXbA1DhcCrz2-102" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=IBM Plex Mono;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DIBM%2BPlex%2BMono;fontSize=13;labelBackgroundColor=none;" value="slot" vertex="1">
@@ -989,10 +989,10 @@
         <mxCell id="aeK422RSbXbA1DhcCrz2-115" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=IBM Plex Mono;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DIBM%2BPlex%2BMono;fontSize=13;labelBackgroundColor=none;fillColor=#f9f7ed;strokeColor=#36393d;dashed=1;dashPattern=8 8;" value="data" vertex="1">
           <mxGeometry height="51.5" width="54.5" x="1416.1200000000001" y="2004.5" as="geometry" />
         </mxCell>
-        <mxCell id="aeK422RSbXbA1DhcCrz2-116" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" value="" vertex="1">
+        <mxCell id="aeK422RSbXbA1DhcCrz2-116" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#bac8d3;strokeColor=#23445d;" value="" vertex="1">
           <mxGeometry height="150" width="257.75" x="1390.8700000000001" y="2120" as="geometry" />
         </mxCell>
-        <mxCell id="aeK422RSbXbA1DhcCrz2-117" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontFamily=IBM Plex Mono;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DIBM%2BPlex%2BMono;rotation=0;fontSize=13;" value="RAM" vertex="1">
+        <mxCell id="aeK422RSbXbA1DhcCrz2-117" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontFamily=IBM Plex Mono;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DIBM%2BPlex%2BMono;rotation=0;fontSize=13;" value="HBM" vertex="1">
           <mxGeometry height="30" width="61" x="1583.6200000000001" y="2090" as="geometry" />
         </mxCell>
         <mxCell id="aeK422RSbXbA1DhcCrz2-121" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=IBM Plex Mono;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DIBM%2BPlex%2BMono;fontSize=13;labelBackgroundColor=none;fillColor=#f9f7ed;strokeColor=#36393d;" value="data" vertex="1">
@@ -1024,6 +1024,9 @@
         </mxCell>
         <mxCell id="aeK422RSbXbA1DhcCrz2-130" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=IBM Plex Mono;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DIBM%2BPlex%2BMono;fontSize=13;labelBackgroundColor=none;fillColor=#f9f7ed;strokeColor=#36393d;strokeWidth=1;dashed=1;dashPattern=8 8;" value="data" vertex="1">
           <mxGeometry height="51.5" width="54.5" x="1414.75" y="1485" as="geometry" />
+        </mxCell>
+        <mxCell id="TgRI7OfkMV8K7D8lxNBy-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontFamily=IBM Plex Mono;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DIBM%2BPlex%2BMono;rotation=0;fontSize=13;" value="VS" vertex="1">
+          <mxGeometry height="27" width="40" x="1497" y="2077.5" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
