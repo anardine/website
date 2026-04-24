@@ -201,6 +201,10 @@ table.usb a {
   font-size: 14px;
 }
 
+math {
+  math-style: compact;
+}
+
 table.usb th {
     padding-top: 0.6ch;
     padding-bottom: 0.6ch;

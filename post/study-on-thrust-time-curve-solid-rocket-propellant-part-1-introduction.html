@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml" />
+		<meta charset="UTF-8" />
+        <link rel="icon" type="image/x-icon" href="../ico/fav.ico"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=12.0, minimum-scale=1.0, user-scalable=yes" />
+		<link rel="stylesheet" href="../style.css" />
+		<title>Solid Rocket Booster Design: Introduction</title>
+        <meta name="description" content="This Article is Part of the Solid Rocket Booster Internal Grain Geometry Study">
+	</head>
+
+
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MPBB9NY5KG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-MPBB9NY5KG');
+</script>
+
+
+	<body>
+		<div class="container">
+      <br><br>
+      <center>
+        <nav>
+        <div style="display: inline-block; vertical-align:middle;">
+          <img class="ico_small" src="../ico/header.ico" alt="menu_icon">
+          <a href="../index.html" class="title"><b>ALESSANDRO NARDINELLI'S WEBSITE</b></a>
+          <img class="ico_small" src="../ico/header.ico" alt="menu_icon">
+          <hr />
+          <a class="title" href="mailto:anardine@hotmail.com">CONTACT</a>
+          &nbsp;&nbsp;&nbsp;
+          <a class="title" href="../rss.xml">RSS</a>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <a class="title" href="https://www.paypal.com/donate/?hosted_button_id=7U77WSQ5WNW8E">DONATE</a>
+        </div>
+        </nav>
+      </center>
+			<div style="margin-bottom:6ch; text-transform: none;"></div>
+            <div style="margin-bottom: 2ch;text-transform: none;">Apr 12th, 2026; 8 min read<br></div>
+			<h1>Study on Thrust-time Curve of a Solid Rocket Propellant: Part 1 - Introduction</h1>
+            <hr>
+            <div style="display: flex; justify-content: center;"><img src="../images/posts_images/srb/rocket-booster-cover-1.gif" alt="ram chip xray" style="max-width:50%;height:auto;" loading="lazy"/></div>
+            <br>
+            <h2>a brief over this series of articles</h2>
+            <hr>
+            <p>
+                During my bachelor's degree in Mechanical Engineering, I was able to get my first scientific research that was approved by the university and funded by them. The subject of it was somehow not common in mechanical engineering: The study of the thrust-time curve of different geometrical sections on a solid propellant. Since this work was solely conducted in portuguese, and never published on the web, I'm aiming to bring this study to my website to expand the reach, now, in English.  
+            </p>
+            <h2>Introduction</h2>
+            <hr>
+            <p>
+                The propulsion systems used today by the aerospace industries have a couple of different characteristics and applications when needed to deliver an amount of thrust in a short period; also, the propulsion systems depends directly on the industries demand and the main characteristics are developed to fulfill specifically that propose. The solid rocket motor is one of the most used when a huge amount of thrust is necessary, defining this type of motors one of the most used in aerospace vehicles. The propellant used in these systems are called “grain” and can be chemically and geometrically adapted to sustain a better development of the project. As this type of propulsion system have a wide range of applications, an optimization is required to better adapt the project. The main purpose of this study is to use different grains geometries with the same chemical composition and compare the collected data, using the same propulsion system by theorical and practical tests that suggest the modifications on the Thrust-Time curve with each of the geometries used.
+            </p>
+            
+            <p>
+                The justification for carrying out this work and compiling this data lies in their importance for the chamber sizing process, since they directly affect the motor's final characteristics. Furthermore, the cross-sectional grain geometry has great influence on atmospheric data collection vehicles, signaling systems, aerospace research, and applications of the Brazilian Space Agency and its divisions. Since they have lower specific impulse, solid propellant motors represent an essential category in applications requiring large thrust delivery relative to time, and may also be part of a hybrid propulsion system.
+            </p>
+            <h2>1.2 System Characterization</h2>
+            <p>
+                Propulsion is the act of generating a force through a combination of elements that overcome other forces acting on a body, with the purpose of manipulating its position, velocity vector, and acceleration (TAYLOR, 2009). It is characterized by the force called thrust, used to place a body on its specific trajectory as well as to increase or decrease linear momentum. Mathematically, it is the force that generates the change of linear momentum in a body. For rocket propulsion systems specifically, the methods vary according to the required amount of thrust over a period of time. The systems consist of releasing a quantity of gas at controlled pressures and velocities so that a resultant force acts in the opposite direction to the flow. The linear momentum of a body can be defined as:
+            </p>
+            <math>
+                <mi>p</mi>
+                <mo>=</mo>
+                <mi>m</mi>
+                <mi>v</mi>
+            </math>
+            <p>
+                Where <i>p</i> is the linear momentum present in the body of mass <i>m</i> with scalar velocity <i>v</i>. We designate the force <i>F</i> as <i>Thrust</i>, where:
+            </p>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+                <mi mathcolor="#000000">T</mi>
+                <mi mathcolor="#000000">h</mi>
+                <mi mathcolor="#000000">r</mi>
+                <mi mathcolor="#000000">u</mi>
+                <mi mathcolor="#000000">s</mi>
+                <mi mathcolor="#000000">t</mi>
+                <mo mathcolor="#000000">=</mo>
+                <mi mathcolor="#000000">F</mi>
+                <mo mathcolor="#000000">=</mo>
+                <mi mathcolor="#000000">m</mi>
+                <mi mathcolor="#000000">a</mi>
+                <mo mathcolor="#000000">=</mo>
+                <mi mathcolor="#000000"> </mi>
+                <mfrac mathcolor="#000000">
+                    <mrow>
+                    <mi mathcolor="#000000">d</mi>
+                    <mi mathcolor="#000000">p</mi>
+                    </mrow>
+                    <mrow>
+                    <mi mathcolor="#000000">d</mi>
+                    <mi mathcolor="#000000">t</mi>
+                    </mrow>
+                </mfrac>
+                <mo mathcolor="#000000">=</mo>
+                <mi mathcolor="#000000">m</mi>
+                <mfrac mathcolor="#000000">
+                    <mrow>
+                    <mi mathcolor="#000000">d</mi>
+                    <mi mathcolor="#000000">v</mi>
+                    </mrow>
+                    <mrow>
+                    <mi mathcolor="#000000">d</mi>
+                    <mi mathcolor="#000000">t</mi>
+                    </mrow>
+                </mfrac>
+                <mo mathcolor="#000000">+</mo>
+                <mi mathcolor="#000000"> </mi>
+                <mfrac mathcolor="#000000">
+                    <mrow>
+                    <mi mathcolor="#000000">d</mi>
+                    <mi mathcolor="#000000">m</mi>
+                    </mrow>
+                    <mrow>
+                    <mi mathcolor="#000000">d</mi>
+                    <mi mathcolor="#000000">t</mi>
+                    </mrow>
+                </mfrac>
+            </math>
+            <p>
+                Equation 1.2 better describes how variations in both velocity and mass affect the force F produced by the system over time. This is the most important concept when selecting a thrust system for a unique application. The amount of force generated at any given instant depends on the variation in velocity and mass of the entire system.
+            </p>
+            <p>
+                This is of utmost importance in a propulsion system used in rockets of any type and function. It is the relationship that shows how the variation in fuel mass also influences the resulting force propelling the rocket. That is: with internal pressurization of the combustion chamber by propellant burning, the internal pressure becomes greater than the external pressure, forcing the combustion gases through a geometrically defined and optimized nozzle, which further accelerates the exhaust to supersonic velocities. The rocket then overcomes inertia when this force generated by gas expulsion exceeds all forces acting on the body. The gas exhaust force formula is given by:
+            </p>
+            <p>
+                Theoretically, in the first term of the equation, the gas exit velocity must remain constant during propellant burning; thus, force variation is driven by increases or decreases in fuel mass flow rate rather than by changes in exhaust velocity, which is defined by the motor's internal components: fuel chemical composition, combustion chamber geometry, and nozzle shape. In the second term, mass remains constant over time and the temporal velocity variation is defined as the acceleration of the flowing gases, characterized by the resultant force component generated by the escape of mass being accelerated through the nozzle geometry. Since pressure variation exists, the resultant force can be expressed as the following equation:
+            </p>
+            <p>
+                Where F_thr is the force generated by the pressure difference between the internal pressure at the nozzle exit and the external pressure, across the throat cross-sectional area A_e. Adding the left-hand term of equation 1.3 to equation 1.4 gives the thrust generated by the internal combustion process.
+            </p>
+            <p>
+                Equation 1.5 defines the parameters governing motor behavior. The exhaust gas velocity and pressure are determined by the propellant's chemical combination as well as the motor and nozzle configurations.</p>
+            <br>
+            <h2>1.3 Impulse and Thrust Equations</h2>
+            <p>
+                Thrust is the primary driving force of the system; it is this force that places the rocket on its specific trajectory and imparts velocity and acceleration gains. Despite being an important concept, thrust alone only partially describes conservation of linear momentum and says little about temporal variation. Understanding how thrust is influenced by the time elapsed since ignition is of utmost importance for project development; it is through this analysis that the motor's application is classified and characterized. Impulse can be divided into two fundamental concepts: total impulse and specific impulse.
+            </p>
+            <p>
+                <b>Total Impulse</b> is defined as the time integral of the thrust curve during motor operation:
+            </p>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+                <mi>I</mi>
+                <mo>=</mo>
+                <msubsup>
+                    <mo>&#x222B;</mo>
+                    <mi>t_0</mi>
+                    <mi>t_f</mi>
+                </msubsup>
+                <mi>F</mi>
+                <mo>&#x2062;</mo>
+                <mi>d</mi>
+                <mi>t</mi>
+            </math>
+            <p>
+                By this definition, a motor can deliver large thrust over a short time interval or small thrust over a long time interval — both yielding the same Total Impulse. The following graph illustrates the definition of Impulse:
+            </p>
+            <div style="display: flex; justify-content: center;"><img src="../images/posts_images/srb/thrust-impulse-graph.png" alt="Impulse Graph" style="max-width:60%;height:auto;" loading="lazy"/></div>
+            <p style="text-align:center;font-size:9pt;">Graph 1. The definition of Total Impulse expressed graphically.</p>
+            <p>
+                By Newton's second law, the force <i>F</i> can be rewritten as the time derivative of momentum:
+            </p>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+                <mi>F</mi>
+                <mo>=</mo>
+                <mfrac>
+                    <mrow>
+                        <mi>d</mi>
+                        <mi>p</mi>
+                    </mrow>
+                    <mrow>
+                        <mi>d</mi>
+                        <mi>t</mi>
+                    </mrow>
+                </mfrac>
+            </math>
+            <p>
+                This equation demonstrates that a force applied to an object over a period of time produces a change in linear momentum. Considering the force generated as a mass variation at constant velocity, impulse can be formulated as:
+            </p>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+                <mi>I</mi>
+                <mo>=</mo>
+                <mi>v</mi>
+                <mo>&#x2206;</mo>
+                <mi>m</mi>
+            </math>
+            <p>
+                This relationship explicitly shows the importance of mass flow rate variation in achieving total impulse. The change in linear momentum now appears in the impulse formula because propellant mass and the resulting gas velocity are not constant and influence the force distribution over time. Therefore, mass variation becomes a fundamental detail for motor sizing, requiring a new concept to quantify and qualify motor characteristics; this concept must capture how important mass change is in the system and how this characteristic influences burning behavior.
+            </p>
+            <p>
+                <b>Specific Impulse</b> (<i>I<sub>sp</sub></i>) is the duration, in seconds, for which a motor delivers thrust while the initial mass decreases under Earth's gravitational acceleration. The higher the specific impulse, the more efficiently Δv is imparted to the system. Motors used to place vehicles into orbit have a low <i>I<sub>sp</sub></i> (around 200 to 500 seconds) because they are designed to deliver maximum thrust in a short time, requiring a very large propellant mass. On the other hand, spacecraft already in orbit may need thrust only to correct their trajectory or for specific docking maneuvers; in such cases, the specific impulse of this type of motor is typically higher (around 2000 to 3500 seconds).
+            </p>
+            <h2>1.4 The Influence of Cross-Sectional Grain Geometry</h2>
+            <p>
+                The behavior of the thrust-time curve is governed by the variation of the fuel burning area, which directly influences the thrust at any given instant, resulting in different combustion chamber pressurization for each cross-sectional grain geometry (SUTTON, 2010). The following diagram shows the different effects on the thrust-time curve caused by geometric variations in the grain cross-section:
+            </p>
+            <div style="display: flex; justify-content: center;"><img src="../images/posts_images/srb/grain-geometry-effect.png" alt="Effect of grain geometry variation on the Thrust-Time curve" style="max-width:60%;height:auto;" loading="lazy"/></div>
+            <p style="text-align:center;font-size:9pt;">Drawing 1. Effect of grain geometry variation on the Thrust-Time curve.</p>
+            <p>
+                Regardless of chamber pressurization conditions, burning area regression occurs perpendicularly at every instant, as can be seen in the next diagram:
+            </p>
+            <div style="display: flex; justify-content: center;"><img src="../images/posts_images/srb/burn-direction.png" alt="Burn direction and non-constant area regression over time" style="max-width:60%;height:auto;" loading="lazy"/></div>
+            <p style="text-align:center;font-size:9pt;">Drawing 2. Burn direction (normal to the face) and non-constant area regression over time.</p>
+            <p>
+                An important aspect is that area regression at times t1, t2, and t3 is not constant, because pressure variation directly affects the propellant burn rate following Saint Robert's Law. For different propellant configurations under the same initial conditions, there is significant differentiation in burning properties under different pressurization environments. The parameter 'n' characterizes the grain composition. The thrust delivery of a propellant with 'n' close to zero can be better controlled, resulting in lower internal chamber pressure. Based on the fuel's chemical composition, the same cross-sectional geometry cannot be used for motors targeting the same thrust value — a sudden pressure increase caused by a propellant with 'n' close to 1 can cause catastrophic failure, efficiency loss, or unexpected behavior (TAYLOR, 2009).
+            </p>
+            <div style="display: flex; justify-content: center;"><img src="../images/posts_images/srb/regression-pressure-curve.png" alt="Influence of grain composition on the Regression-Pressure curve" style="max-width:60%;height:auto;" loading="lazy"/></div>
+            <p style="text-align:center;font-size:10pt;">Graph 2. Influence of grain composition on the Regression-Pressure curve.</p>
+            
+            <br>
+            <h2>references</h2>
+            <hr>
+            <p id="paperbox" style="text-align:left;">
+                <table>
+                    <tbody style="vertical-align: top;">
+                        <tr>
+                            <td class="ref" style="width:1ch;">
+                                <a name="footnote_1"></a>
+                                <a href="#back_1">^</a>
+                            </td>
+                            <td class="ref" style="width:4ch;"> <sup>[1]</sup></td>
+                            <td style="width:100%;text-align:left;" class="ref">
+                                <a href="https://www.build-electronic-circuits.com/how-transistors-work/"><i>NPN Transistor</i></a> How Transistor Works. Retrieved Mar 1st, 2026.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="ref" style="width:1ch;">
+                                <a name="footnote_2"></a>
+                                <a href="#back_2">^</a>
+                            </td>
+                            <td class="ref" style="width:4ch;"> <sup>[2]</sup></td>
+                            <td style="width:100%;text-align:left;" class="ref">
+                                <a href="https://a.co/d/7d6uVjX"><i>Duntemann, J. (2009). Assembly language step-by-step: Programming with linux.</i></a> Wiley Pub.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="ref" style="width:1ch;">
+                                <a name="footnote_3"></a>
+                                <a href="#back_3">^</a>
+                            </td>
+                            <td class="ref" style="width:4ch;"> <sup>[3]</sup></td>
+                            <td style="width:100%;text-align:left;" class="ref">
+                                Petzold, C. (2022). <i>Code: The Hidden Language of Computer Hardware and Software. Microsoft Press.</i> Second Eddition. Page 285.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="ref" style="width:1ch;">
+                                <a name="footnote_4"></a>
+                                <a href="#back_4">^</a>
+                            </td>
+                            <td class="ref" style="width:4ch;"> <sup>[4]</sup></td>
+                            <td style="width:100%;text-align:left;" class="ref">
+                            Press, R. (2026, March 4). <a href="Press, R. (2026, March 4). High bandwidth memory (HBM): Everything you need to know. https://www.rambus.com/blogs/hbm3-everything-you-need-to-know/ "><i>High bandwidth memory (HBM): Everything you need to know.</i></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+
+            <footer>
+				<br><br>*<br>
+				© 2026 Alessandro Nardinelli
+				<br><br>
+			</footer>
+		</div>
+	</body>
+</html>
