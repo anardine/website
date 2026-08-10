@@ -3,11 +3,24 @@
     <head>
         <link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml" />
 		<meta charset="UTF-8" />
-        <link rel="icon" type="image/x-icon" href="../ico/fav.ico"> 
+        <link rel="icon" type="image/x-icon" href="../ico/fav.ico">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=12.0, minimum-scale=1.0, user-scalable=yes" />
 		<link rel="stylesheet" href="../style.css" />
 		<title>Solid Rocket Booster Design: Introduction</title>
         <meta name="description" content="This Article is Part of the Solid Rocket Booster Internal Grain Geometry Study">
+
+        <!-- MathJax for rendering equations (SVG output: self-contained, no web-font loading) -->
+        <script>
+          window.MathJax = {
+            tex: { inlineMath: [['\\(', '\\)']], displayMath: [['$$', '$$']], tags: 'none' },
+            svg: { fontCache: 'global' }
+          };
+        </script>
+        <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+        <style>
+          mjx-container[jax="SVG"] { border: none !important; }
+          mjx-container[jax="SVG"] svg { border: none !important; width: auto; margin-bottom: 0; }
+        </style>
 	</head>
 
 
@@ -41,226 +54,290 @@
         </nav>
       </center>
 			<div style="margin-bottom:6ch; text-transform: none;"></div>
-            <div style="margin-bottom: 2ch;text-transform: none;">Apr 12th, 2026; 8 min read<br></div>
-			<h1>Study on Thrust-time Curve of a Solid Rocket Propellant: Part 1 - Introduction</h1>
+            <div style="margin-bottom: 2ch;text-transform: none;">Apr 28th, 2026; 21 min read<br></div>
+			<h1>Study on Thrust-time Curve of a Solid Rocket Propellant</h1>
             <hr>
-            <div style="display: flex; justify-content: center;"><img src="../images/posts_images/srb/rocket-booster-cover-1.gif" alt="ram chip xray" style="max-width:50%;height:auto;" loading="lazy"/></div>
+            <div style="display: flex; justify-content: center;"><img src="../images/posts_images/srb/rocket-booster-cover-1.gif" alt="solid rocket booster cover" style="max-width:50%;height:auto;" loading="lazy"/></div>
             <br>
-            <h2>a brief over this series of articles</h2>
+            <h2>a brief over this article</h2>
             <hr>
             <p>
-                During my bachelor's degree in Mechanical Engineering, I was able to get my first scientific research that was approved by the university and funded by them. The subject of it was somehow not common in mechanical engineering: The study of the thrust-time curve of different geometrical sections on a solid propellant. Since this work was solely conducted in portuguese, and never published on the web, I'm aiming to bring this study to my website to expand the reach, now, in English.  
+                During my bachelor's degree in Mechanical Engineering, I was able to get my first scientific research that was approved by the university and funded by them. The subject of it was somehow not common in mechanical engineering: The study of the thrust-time curve of different geometrical sections on a solid propellant. Since this work was solely conducted in portuguese, and never published on the web, I'm aiming to bring this study to my website to expand the reach, now, in English.
             </p>
-            <h2>Introduction</h2>
+
+            <h2>1. Introduction</h2>
             <hr>
+
+            <h3>1.1 Objective and Research Problem</h3>
             <p>
-                The propulsion systems used today by the aerospace industries have a couple of different characteristics and applications when needed to deliver an amount of thrust in a short period; also, the propulsion systems depends directly on the industries demand and the main characteristics are developed to fulfill specifically that propose. The solid rocket motor is one of the most used when a huge amount of thrust is necessary, defining this type of motors one of the most used in aerospace vehicles. The propellant used in these systems are called “grain” and can be chemically and geometrically adapted to sustain a better development of the project. As this type of propulsion system have a wide range of applications, an optimization is required to better adapt the project. The main purpose of this study is to use different grains geometries with the same chemical composition and compare the collected data, using the same propulsion system by theorical and practical tests that suggest the modifications on the Thrust-Time curve with each of the geometries used.
+                The objective of this work is to investigate and characterize, through a reduced-scale model, how the variation of parameters — mainly the cross-sectional geometry of the grain — influences the thrust-time curve of specific motors.
             </p>
-            
             <p>
                 The justification for carrying out this work and compiling this data lies in their importance for the chamber sizing process, since they directly affect the motor's final characteristics. Furthermore, the cross-sectional grain geometry has great influence on atmospheric data collection vehicles, signaling systems, aerospace research, and applications of the Brazilian Space Agency and its divisions. Since they have lower specific impulse, solid propellant motors represent an essential category in applications requiring large thrust delivery relative to time, and may also be part of a hybrid propulsion system.
             </p>
-            <h2>1.2 System Characterization</h2>
+
+            <h3>1.2 System Characterization</h3>
             <p>
                 Propulsion is the act of generating a force through a combination of elements that overcome other forces acting on a body, with the purpose of manipulating its position, velocity vector, and acceleration (TAYLOR, 2009). It is characterized by the force called thrust, used to place a body on its specific trajectory as well as to increase or decrease linear momentum. Mathematically, it is the force that generates the change of linear momentum in a body. For rocket propulsion systems specifically, the methods vary according to the required amount of thrust over a period of time. The systems consist of releasing a quantity of gas at controlled pressures and velocities so that a resultant force acts in the opposite direction to the flow. The linear momentum of a body can be defined as:
             </p>
-            <math>
-                <mi>p</mi>
-                <mo>=</mo>
-                <mi>m</mi>
-                <mi>v</mi>
-            </math>
+            <div style="text-align: center;">$$ p = mv $$</div>
             <p>
-                Where <i>p</i> is the linear momentum present in the body of mass <i>m</i> with scalar velocity <i>v</i>. We designate the force <i>F</i> as <i>Thrust</i>, where:
+                Where p is the linear momentum present in the body of mass m with scalar velocity v. We designate the force F as Thrust, where:
             </p>
-            <math xmlns="http://www.w3.org/1998/Math/MathML">
-                <mi mathcolor="#000000">T</mi>
-                <mi mathcolor="#000000">h</mi>
-                <mi mathcolor="#000000">r</mi>
-                <mi mathcolor="#000000">u</mi>
-                <mi mathcolor="#000000">s</mi>
-                <mi mathcolor="#000000">t</mi>
-                <mo mathcolor="#000000">=</mo>
-                <mi mathcolor="#000000">F</mi>
-                <mo mathcolor="#000000">=</mo>
-                <mi mathcolor="#000000">m</mi>
-                <mi mathcolor="#000000">a</mi>
-                <mo mathcolor="#000000">=</mo>
-                <mi mathcolor="#000000"> </mi>
-                <mfrac mathcolor="#000000">
-                    <mrow>
-                    <mi mathcolor="#000000">d</mi>
-                    <mi mathcolor="#000000">p</mi>
-                    </mrow>
-                    <mrow>
-                    <mi mathcolor="#000000">d</mi>
-                    <mi mathcolor="#000000">t</mi>
-                    </mrow>
-                </mfrac>
-                <mo mathcolor="#000000">=</mo>
-                <mi mathcolor="#000000">m</mi>
-                <mfrac mathcolor="#000000">
-                    <mrow>
-                    <mi mathcolor="#000000">d</mi>
-                    <mi mathcolor="#000000">v</mi>
-                    </mrow>
-                    <mrow>
-                    <mi mathcolor="#000000">d</mi>
-                    <mi mathcolor="#000000">t</mi>
-                    </mrow>
-                </mfrac>
-                <mo mathcolor="#000000">+</mo>
-                <mi mathcolor="#000000"> </mi>
-                <mfrac mathcolor="#000000">
-                    <mrow>
-                    <mi mathcolor="#000000">d</mi>
-                    <mi mathcolor="#000000">m</mi>
-                    </mrow>
-                    <mrow>
-                    <mi mathcolor="#000000">d</mi>
-                    <mi mathcolor="#000000">t</mi>
-                    </mrow>
-                </mfrac>
-            </math>
+            <div style="text-align: center;">$$ F = ma = \frac{dp}{dt} = m\frac{dv}{dt} + v\frac{dm}{dt} \tag{1.2} $$</div>
             <p>
                 Equation 1.2 better describes how variations in both velocity and mass affect the force F produced by the system over time. This is the most important concept when selecting a thrust system for a unique application. The amount of force generated at any given instant depends on the variation in velocity and mass of the entire system.
             </p>
             <p>
                 This is of utmost importance in a propulsion system used in rockets of any type and function. It is the relationship that shows how the variation in fuel mass also influences the resulting force propelling the rocket. That is: with internal pressurization of the combustion chamber by propellant burning, the internal pressure becomes greater than the external pressure, forcing the combustion gases through a geometrically defined and optimized nozzle, which further accelerates the exhaust to supersonic velocities. The rocket then overcomes inertia when this force generated by gas expulsion exceeds all forces acting on the body. The gas exhaust force formula is given by:
             </p>
+            <div style="text-align: center;">$$ F_E = \dot{m}v_e + m\dot{v}_e \tag{1.3} $$</div>
             <p>
-                Theoretically, in the first term of the equation, the gas exit velocity must remain constant during propellant burning; thus, force variation is driven by increases or decreases in fuel mass flow rate rather than by changes in exhaust velocity, which is defined by the motor's internal components: fuel chemical composition, combustion chamber geometry, and nozzle shape. In the second term, mass remains constant over time and the temporal velocity variation is defined as the acceleration of the flowing gases, characterized by the resultant force component generated by the escape of mass being accelerated through the nozzle geometry. Since pressure variation exists, the resultant force can be expressed as the following equation:
+                Theoretically, in the first term of the equation, the gas exit velocity must remain constant during propellant burning; thus, force variation is driven by increases or decreases in fuel mass flow rate rather than by changes in exhaust velocity, which is defined by the motor's internal components: fuel chemical composition, combustion chamber geometry, and nozzle shape. In the second term, mass remains constant over time and the temporal velocity variation is defined as the acceleration of the flowing gases, characterized by the resultant force component generated by the escape of mass being accelerated through the nozzle geometry. Since pressure variation exists, the resultant force can be expressed as the following equation:<a name="back_1" style="text-decoration: none;" href="#footnote_1"><sup>[1]</sup></a>
             </p>
+            <div style="text-align: center;">$$ F_{thr} = (P_i - P_e)A_e \tag{1.4} $$</div>
             <p>
                 Where F_thr is the force generated by the pressure difference between the internal pressure at the nozzle exit and the external pressure, across the throat cross-sectional area A_e. Adding the left-hand term of equation 1.3 to equation 1.4 gives the thrust generated by the internal combustion process.
             </p>
+            <div style="text-align: center;">$$ F = \dot{m}v_e + (P_i - P_e)A_e \tag{1.5} $$</div>
             <p>
-                Equation 1.5 defines the parameters governing motor behavior. The exhaust gas velocity and pressure are determined by the propellant's chemical combination as well as the motor and nozzle configurations.</p>
-            <br>
-            <h2>1.3 Impulse and Thrust Equations</h2>
+                Equation 1.5 defines the parameters governing motor behavior. The exhaust gas velocity and pressure are determined by the propellant's chemical combination as well as the motor and nozzle configurations.
+            </p>
+
+            <h3>1.3 Impulse</h3>
             <p>
                 Thrust is the primary driving force of the system; it is this force that places the rocket on its specific trajectory and imparts velocity and acceleration gains. Despite being an important concept, thrust alone only partially describes conservation of linear momentum and says little about temporal variation. Understanding how thrust is influenced by the time elapsed since ignition is of utmost importance for project development; it is through this analysis that the motor's application is classified and characterized. Impulse can be divided into two fundamental concepts: total impulse and specific impulse.
             </p>
             <p>
-                <b>Total Impulse</b> is defined as the time integral of the thrust curve during motor operation:
+                Total Impulse is defined as the time integral of the thrust curve during motor operation, as in the formula:
             </p>
-            <math xmlns="http://www.w3.org/1998/Math/MathML">
-                <mi>I</mi>
-                <mo>=</mo>
-                <msubsup>
-                    <mo>&#x222B;</mo>
-                    <mi>t_0</mi>
-                    <mi>t_f</mi>
-                </msubsup>
-                <mi>F</mi>
-                <mo>&#x2062;</mo>
-                <mi>d</mi>
-                <mi>t</mi>
-            </math>
+            <div style="text-align: center;">$$ I_t = \int_0^t F\,dt \tag{1.6} $$</div>
             <p>
-                By this definition, a motor can deliver large thrust over a short time interval or small thrust over a long time interval — both yielding the same Total Impulse. The following graph illustrates the definition of Impulse:
+                By this definition, a motor can deliver large thrust over a short time interval or small thrust over a long time interval — both yielding the same Total Impulse. Graph 1 illustrates the definition of Impulse.
             </p>
-            <div style="display: flex; justify-content: center;"><img src="../images/posts_images/srb/thrust-impulse-graph.png" alt="Impulse Graph" style="max-width:60%;height:auto;" loading="lazy"/></div>
-            <p style="text-align:center;font-size:9pt;">Graph 1. The definition of Total Impulse expressed graphically.</p>
+            <div style="display: flex; justify-content: center;"><img src="../images/posts_images/srb/grain-geometry/image007_en.png" alt="Total impulse expressed graphically" style="max-width:45%;height:auto;" loading="lazy"/></div>
+            <div style="text-align:center; margin-bottom:2ch;"><small><i>Graph 1. The definition of Total Impulse expressed graphically.</i></small></div>
             <p>
-                By Newton's second law, the force <i>F</i> can be rewritten as the time derivative of momentum:
+                By Newton's second law, the force F can be rewritten as the time derivative of momentum, or:
             </p>
-            <math xmlns="http://www.w3.org/1998/Math/MathML">
-                <mi>F</mi>
-                <mo>=</mo>
-                <mfrac>
-                    <mrow>
-                        <mi>d</mi>
-                        <mi>p</mi>
-                    </mrow>
-                    <mrow>
-                        <mi>d</mi>
-                        <mi>t</mi>
-                    </mrow>
-                </mfrac>
-            </math>
+            <div style="text-align: center;">$$ I = \int F\,dt = \int \frac{dp}{dt}\,dt = \int dp = \Delta p \tag{1.7} $$</div>
             <p>
                 This equation demonstrates that a force applied to an object over a period of time produces a change in linear momentum. Considering the force generated as a mass variation at constant velocity, impulse can be formulated as:
             </p>
-            <math xmlns="http://www.w3.org/1998/Math/MathML">
-                <mi>I</mi>
-                <mo>=</mo>
-                <mi>v</mi>
-                <mo>&#x2206;</mo>
-                <mi>m</mi>
-            </math>
+            <div style="text-align: center;">$$ I = \int_{m_f}^{m_i} v\,\frac{dm}{dt}\,dt = \Delta p = (m_i - m_f)v \tag{1.8} $$</div>
             <p>
-                This relationship explicitly shows the importance of mass flow rate variation in achieving total impulse. The change in linear momentum now appears in the impulse formula because propellant mass and the resulting gas velocity are not constant and influence the force distribution over time. Therefore, mass variation becomes a fundamental detail for motor sizing, requiring a new concept to quantify and qualify motor characteristics; this concept must capture how important mass change is in the system and how this characteristic influences burning behavior.
+                This relationship explicitly shows the importance of mass flow rate variation in achieving total impulse. The change in linear momentum now appears in the impulse formula because propellant mass and the resulting gas velocity are not constant and influence the force distribution over time. Therefore, mass variation becomes a fundamental detail for motor sizing, requiring a new concept to quantify and qualify motor characteristics; this concept must capture how important mass change is in the system and how this characteristic influences burning behavior. The following sequence of equations shows how this relationship can be tabulated and the motor characterized more clearly. We know that Impulse can be defined as:
+            </p>
+            <div style="text-align: center;">$$ I = (m_i - m_f)v = \Delta m_{grain}\,v_e \tag{1.9} $$</div>
+            <div style="text-align: center;">$$ v_e = \frac{I}{\Delta m_{grain}} \tag{1.10} $$</div>
+            <div style="text-align: center;">$$ I_{esp} = \frac{I}{\Delta m_{grain}\,g} \tag{1.11} $$</div>
+            <p>
+                The specific impulse of a motor is the duration, in seconds, for which a motor delivers thrust while the initial mass decreases under Earth's gravitational acceleration. The higher the specific impulse, the more efficiently Δv is imparted to the system. Motors used to place vehicles into orbit have a low I_sp (around 200 to 500 seconds) because they are designed to deliver maximum thrust in a short time, requiring a very large propellant mass. On the other hand, spacecraft already in orbit may need thrust only to correct their trajectory or for specific docking maneuvers; in such cases, the specific impulse of this type of motor is typically higher (around 2000 to 3500 seconds).
+            </p>
+
+            <h3>1.4 The Influence of Cross-Sectional Grain Geometry</h3>
+            <p>
+                The behavior of the thrust-time curve is governed by the variation of the fuel burning area, which directly influences the thrust at any given instant, resulting in different combustion chamber pressurization for each cross-sectional grain geometry (SUTTON, 2010). Drawing 1 shows the different effects on the thrust-time curve caused by geometric variations in the grain cross-section.
+            </p>
+            <div style="display: flex; justify-content: center;"><img src="../images/posts_images/srb/grain-geometry/image013_en.jpg" alt="Effect of grain geometry variation on the Thrust-Time curve" style="max-width:55%;height:auto;" loading="lazy"/></div>
+            <div style="text-align:center; margin-bottom:2ch;"><small><i>Drawing 1. Effect of grain geometry variation on the Thrust-Time curve.</i></small></div>
+            <p>
+                Regardless of chamber pressurization conditions, burning area regression occurs perpendicularly at every instant, as can be seen in Drawing 2.
+            </p>
+            <div style="display: flex; justify-content: center;"><img src="../images/posts_images/srb/grain-geometry/image014_en.png" alt="Burn direction normal to the face and non-constant area regression over time" style="max-width:60%;height:auto;" loading="lazy"/></div>
+            <div style="text-align:center; margin-bottom:2ch;"><small><i>Drawing 2. Burn direction (normal to the face) and non-constant area regression over time.</i></small></div>
+            <p>
+                An important aspect is that area regression at times t1, t2, and t3 is not constant, because pressure variation directly affects the propellant burn rate following Saint Robert's Law. As can be verified in Graph 2, for different propellant configurations under the same initial conditions, there is significant differentiation in burning properties under different pressurization environments. The parameter 'n' characterizes the grain composition. The thrust delivery of a propellant with 'n' close to zero can be better controlled, resulting in lower internal chamber pressure. Based on the fuel's chemical composition, the same cross-sectional geometry cannot be used for motors targeting the same thrust value — a sudden pressure increase caused by a propellant with 'n' close to 1 can cause catastrophic failure, efficiency loss, or unexpected behavior (TAYLOR, 2009).
+            </p>
+            <div style="display: flex; justify-content: center;"><img src="../images/posts_images/srb/grain-geometry/image015_en.png" alt="Influence of grain composition on the Regression-Pressure curve" style="max-width:45%;height:auto;" loading="lazy"/></div>
+            <div style="text-align:center; margin-bottom:2ch;"><small><i>Graph 2. Influence of grain composition on the Regression-Pressure curve.</i></small></div>
+
+            <h2>2. Method</h2>
+            <hr>
+
+            <h3>2.1 Research Planning</h3>
+            <p>
+                Initially, the concept was thoroughly developed through research at various laboratories and organizations that already work professionally and commercially with this type of motor. Given the project's high level of complexity, a deep analysis of the relevant standards was required — both for the chemical and physical integrity of the project and because it poses a risk to the surrounding environment during construction and testing. Since experimental validation is expressly required for project qualification, all necessary precautions were taken to ensure successful data collection without information discrepancy.
             </p>
             <p>
-                <b>Specific Impulse</b> (<i>I<sub>sp</sub></i>) is the duration, in seconds, for which a motor delivers thrust while the initial mass decreases under Earth's gravitational acceleration. The higher the specific impulse, the more efficiently Δv is imparted to the system. Motors used to place vehicles into orbit have a low <i>I<sub>sp</sub></i> (around 200 to 500 seconds) because they are designed to deliver maximum thrust in a short time, requiring a very large propellant mass. On the other hand, spacecraft already in orbit may need thrust only to correct their trajectory or for specific docking maneuvers; in such cases, the specific impulse of this type of motor is typically higher (around 2000 to 3500 seconds).
+                To begin the research, all material necessary for the motor's primary sizing was gathered: Excel® spreadsheets, bibliographies from various authors, assembly and manufacturing procedures, calculation reports, and software for data collection and component pre-sizing. Beyond simulation data, the motor underwent laboratory inspection, with its entire assembly accompanied by precise measurements to prevent any leakage or test-to-test inconsistency. The data collection system was also developed to ensure measurement precision and positively influence results while guaranteeing safety throughout. It is worth noting that for comparative measurements, the same motor configuration will be used, along with the nozzle, internal ignition components, and thermal insulation; however, some grain configurations may exceed the project's limits, requiring preventive safety changes, all clearly specified in the reports and procedures to be followed. Modifications to the grain cross-section will also aim for ease of construction, as extremely advanced geometric configurations are nearly impossible to manufacture.
             </p>
-            <h2>1.4 The Influence of Cross-Sectional Grain Geometry</h2>
+
+            <h3>2.2 Propellant Selection</h3>
             <p>
-                The behavior of the thrust-time curve is governed by the variation of the fuel burning area, which directly influences the thrust at any given instant, resulting in different combustion chamber pressurization for each cross-sectional grain geometry (SUTTON, 2010). The following diagram shows the different effects on the thrust-time curve caused by geometric variations in the grain cross-section:
+                The propellant used in this system has two main components: the fuel and the oxidizer. For an initial experiment, the agents must not be under restricted control and must have characteristics that guarantee combustion stability and safe handling; propellants with complex chemical configurations may present instability and be harmful to the project and the surrounding environment.
             </p>
-            <div style="display: flex; justify-content: center;"><img src="../images/posts_images/srb/grain-geometry-effect.png" alt="Effect of grain geometry variation on the Thrust-Time curve" style="max-width:60%;height:auto;" loading="lazy"/></div>
-            <p style="text-align:center;font-size:9pt;">Drawing 1. Effect of grain geometry variation on the Thrust-Time curve.</p>
             <p>
-                Regardless of chamber pressurization conditions, burning area regression occurs perpendicularly at every instant, as can be seen in the next diagram:
+                Regardless of the fuel selected, all of them tend to maintain the same geometric configuration to maximize volumetric efficiency within the motor, presenting a hollow cylindrical configuration. For the project, the Bates grain configuration was selected because it provides a higher internal burning area ratio, influencing the internal chamber pressure; another reason for selection was the possibility of combining different sections in a motor configuration, which can yield interesting data collection results. Drawing 3 compares the Bates configuration with the standard configuration, as well as the geometric characteristics of the grain within the chamber.<a name="back_2" style="text-decoration: none;" href="#footnote_2"><sup>[2]</sup></a>
             </p>
-            <div style="display: flex; justify-content: center;"><img src="../images/posts_images/srb/burn-direction.png" alt="Burn direction and non-constant area regression over time" style="max-width:60%;height:auto;" loading="lazy"/></div>
-            <p style="text-align:center;font-size:9pt;">Drawing 2. Burn direction (normal to the face) and non-constant area regression over time.</p>
+            <div style="display: flex; justify-content: center;"><img src="../images/posts_images/srb/grain-geometry/image016.jpg" alt="Bates configuration versus standard configuration" style="max-width:75%;height:auto;" loading="lazy"/></div>
+            <div style="text-align:center; margin-bottom:2ch;"><small><i>Drawing 3. Bates configuration (left) vs. standard configuration (right). In the Bates configuration, the burning areas (in red) are exposed per section.</i></small></div>
             <p>
-                An important aspect is that area regression at times t1, t2, and t3 is not constant, because pressure variation directly affects the propellant burn rate following Saint Robert's Law. For different propellant configurations under the same initial conditions, there is significant differentiation in burning properties under different pressurization environments. The parameter 'n' characterizes the grain composition. The thrust delivery of a propellant with 'n' close to zero can be better controlled, resulting in lower internal chamber pressure. Based on the fuel's chemical composition, the same cross-sectional geometry cannot be used for motors targeting the same thrust value — a sudden pressure increase caused by a propellant with 'n' close to 1 can cause catastrophic failure, efficiency loss, or unexpected behavior (TAYLOR, 2009).
+                Data on the possible fuels to be used was collected and tabulated with each fuel's relevant characteristics according to Table 1.
             </p>
-            <div style="display: flex; justify-content: center;"><img src="../images/posts_images/srb/regression-pressure-curve.png" alt="Influence of grain composition on the Regression-Pressure curve" style="max-width:60%;height:auto;" loading="lazy"/></div>
-            <p style="text-align:center;font-size:10pt;">Graph 2. Influence of grain composition on the Regression-Pressure curve.</p>
-            
+            <p>
+                Thus, with safety in mind, propellant selection followed these criteria:
+            </p>
+            <ul>
+                <li>Combustion stability and predictability of results.</li>
+                <li>Easy handling and manufacturing, including molding and demolding.</li>
+                <li>Ease of acquisition and low cost.</li>
+                <li>Safety at all stages of manufacturing and ignition.</li>
+                <li>Thermal characteristics and chemical properties.</li>
+            </ul>
+            <table class="usb" style="width: 100%;">
+                <tbody>
+                    <tr>
+                        <th>Fuel Characteristics (Theoretical)</th>
+                        <th>KN-Dextrose</th>
+                        <th>KN-Sucrose</th>
+                        <th>KN-Sorbitol</th>
+                    </tr>
+                    <tr>
+                        <td><b>Specific Impulse (@ 1000 psi)</b></td>
+                        <td>164 s</td>
+                        <td>166 s</td>
+                        <td>164 s</td>
+                    </tr>
+                    <tr>
+                        <td><b>Characteristic Exhaust Velocity</b></td>
+                        <td>912 m/s</td>
+                        <td>947 m/s</td>
+                        <td>938 m/s</td>
+                    </tr>
+                    <tr>
+                        <td><b>Combustion Temperature (@ 1000 psia)</b></td>
+                        <td>1710 K</td>
+                        <td>1720 K</td>
+                        <td>1600 K</td>
+                    </tr>
+                    <tr>
+                        <td><b>Density</b></td>
+                        <td>0,001879 g/mm³</td>
+                        <td>0,001890 g/mm³</td>
+                        <td>0,001841 g/mm³</td>
+                    </tr>
+                    <tr>
+                        <td><b>Burn Rate (@ 1 atm)</b></td>
+                        <td>2,13 mm/s</td>
+                        <td>3,96 mm/s</td>
+                        <td>2,60 mm/s</td>
+                    </tr>
+                    <tr>
+                        <td><b>Burn Rate (@ 1000 psia)</b></td>
+                        <td>12,93 mm/s</td>
+                        <td>15,29 mm/s</td>
+                        <td>11,3 mm/s</td>
+                    </tr>
+                    <tr>
+                        <td><b>Ignition Temperature</b></td>
+                        <td>&gt; 573,15 K</td>
+                        <td>&gt; 573,15 K</td>
+                        <td>&gt; 573,15 K</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div style="text-align:center; margin-bottom:2ch;"><small><i>Table 1. Main characteristics of the fuels selected for comparison. The collected data were established by the PROPEP software and the results have theoretical value only.</i></small></div>
+            <p>
+                The selected propellant was Potassium Nitrate-Dextrose (KNDX) in a configuration of 65% oxidizer and 35% fuel, as it presents advantages over the others for the reasons described above; this was the result of research into its chemical and physical properties compared to the data of the various other propellants.
+            </p>
+
+            <h3>2.3 Motor Sizing</h3>
+
+            <h3>2.3.1 Combustion Chamber Sizing</h3>
+            <p>
+                It was established at the outset of the project that the motor would have dimensions qualifying it for the M classification category. Based on the initial assumptions made for its development and the difficulty and restrictions in obtaining a specific alloy for the combustion chamber, all motor sizing was based on commercially available products that could be used in the process. Image 1 was used for sizing and for predicting some theoretical results, enabling a first analysis through the partial results generated.<a name="back_3" style="text-decoration: none;" href="#footnote_3"><sup>[3]</sup></a><a name="back_4" style="text-decoration: none;" href="#footnote_4"><sup>[4]</sup></a>
+            </p>
+            <p>
+                For combustion chamber selection, the standard NBR 5590 (ASTM A-53) was used, and an S/C GRB SCH40 3" pipe was chosen, with a Yield Strength of 240 MPa and an Ultimate Tensile Strength of 415 MPa. From Image 1, it can be verified that for a Kn of 422, the throat cross-sectional area where gases will be accelerated must be maintained at 185 mm². Since nozzle material erosion occurs during exhaust, the diameter must be approximated to compensate for this effect throughout the tests.<a name="back_5" style="text-decoration: none;" href="#footnote_5"><sup>[5]</sup></a>
+            </p>
+            <div style="display: flex; justify-content: center;"><img src="../images/posts_images/srb/grain-geometry/image017.png" alt="Primary motor qualification through an Excel spreadsheet" style="max-width:70%;height:auto;" loading="lazy"/></div>
+            <div style="text-align:center; margin-bottom:2ch;"><small><i>Image 1. Primary motor qualification through an Excel® spreadsheet. The data in blue were entered to generate "Graph 1". The gray cell next to the "Click to Solve" button shows that the values converged to a plausible result.</i></small></div>
+            <p>
+                For combustion system sizing, four different grain cross-sectional geometries were selected to compose the comparative tests. The grain cross-sections can be seen representatively in Drawing 4.
+            </p>
+            <div style="display: flex; justify-content: center;"><img src="../images/posts_images/srb/grain-geometry/image018.png" alt="The different geometries selected for the experimental test" style="max-width:60%;height:auto;" loading="lazy"/></div>
+            <div style="text-align:center; margin-bottom:2ch;"><small><i>Drawing 4. The different geometries selected for the experimental test.</i></small></div>
+            <p>
+                For system verification, Geometry 1 was used as the standard, since it has the same area regression in all directions. A theoretical pressure behavior was established to supply the values needed for combustion chamber sizing. Graphs 3 and 4 show how the pressure and thrust gains in the system vary over time.
+            </p>
+            <div style="display: flex; justify-content: center; gap: 1.5ch; flex-wrap: wrap;"><img src="../images/posts_images/srb/grain-geometry/image019.png" alt="Chamber Pressure curve over time for Geometry 1" style="max-width:40%;height:auto;" loading="lazy"/><img src="../images/posts_images/srb/grain-geometry/image020.png" alt="Thrust curve over time for Geometry 1" style="max-width:40%;height:auto;" loading="lazy"/></div>
+            <div style="text-align:center; margin-bottom:2ch;"><small><i>Graphs 3 and 4. Chamber Pressure and Thrust curves over time for Geometry 1 (Theoretical Values).</i></small></div>
+            <p>
+                The combustion chamber was verified using formula 2.1 established by Roark. The formula takes into account the Yield Strength of the pipe material as well as the safety factor established in the project.
+            </p>
+            <div style="text-align: center;">$$ P_d = \frac{2\,t\,\sigma_{YS}}{D_0\,C_S} \tag{2.1} $$</div>
+            <p>
+                Where t is the pipe wall thickness, σYS is the Yield Strength of the pressure vessel material, D0 is the initial internal diameter of the chamber, and a safety coefficient CS established as 2.5; the maximum design pressure P_d becomes 11.85 MPa. Since the system will reach a maximum pressure of approximately 10.0 MPa, the pressure vessel is qualified as safe for combustion of this geometry. It is worth noting that variation in grain cross-sectional geometry results in different internal pressure distributions within the chamber. Predicting these results is complex and requires a specific study, since area regression during burning does not follow a consistent direction.
+            </p>
+
+            <h3>2.3.2 Motor End Cap Sizing</h3>
+            <p>
+                The motor end cap, commonly known as a Bulkhead, serves to seal the side opposite to the gas flow. The end cap also has the function of igniting the combustion system through a device located at its center. It was developed based on safety concepts and features shear pins sized to release in case the motor is exposed to a pressure distribution greater than that determined by the project, thereby reducing the risk of motor explosion. Through mechanical strength calculations, the use of ten (10) retention pins was determined. These must shear the end cap when the internal chamber pressure exceeds 13.0 MPa.
+            </p>
+
+            <h3>2.4 The Data Collection System</h3>
+            <p>
+                The data collection system was assembled on the test stand with the function of obtaining the motor's operating parameters. Through a load cell, the collected data will indicate the thrust resulting from propellant combustion. The motor was positioned with the ignition system in contact with the load cell and aligned with the test stand. The motor prepared for the test can be seen in Photo 1.
+            </p>
+            <div style="display: flex; justify-content: center;"><img src="../images/posts_images/srb/grain-geometry/image022.jpg" alt="Motor positioned and ready on the test stand" style="max-width:35%;height:auto;" loading="lazy"/></div>
+            <div style="text-align:center; margin-bottom:2ch;"><small><i>Photo 1. Motor positioned and ready. The test stand was set in concrete and buried to keep the motor in a vertical position at all times during the data collection period.</i></small></div>
+
+            <h2>3. Conclusions and Results</h2>
+            <hr>
+
+            <h3>3.1 Test Preparation</h3>
+            <p>
+                For the first test, grain sections with circular geometry at their center were used; these served to gather data for comparison with the other geometries and to verify the physical integrity of the motor. After the ignition and collection systems were ready and verified, the perimeter was assessed to ensure the surrounding environment would not be compromised in any way; thus, the test area was fenced off and all safety procedures were checked.
+            </p>
+
+            <h3>3.2 Results</h3>
+            <p>
+                The first thrust signal was obtained through the load cell from the small variation in internal chamber pressure resulting from ignition, followed almost instantly by the start of propellant combustion. Shortly after approximately 1.3 seconds, the motor suffered catastrophic failure, rupturing the end cap due to internal over-pressurization, and the remaining propellant was ejected from the top of the motor. A visual analysis was performed after the failure and it was found that all the screws securing the end cap were expelled; however, it was concluded that the thermal protection of the end cap did not withstand the heat generated by combustion, which weakened the aluminum's resistance, lowering its Ultimate Tensile Strength and causing rupture at a pressure lower than calculated. Photo 2 shows the sequence of events that occurred during the test.
+            </p>
+            <div style="display: flex; justify-content: center; gap: 1.5ch; flex-wrap: wrap;"><img src="../images/posts_images/srb/grain-geometry/image023.png" alt="Ignition marks the beginning of propellant combustion" style="max-width:28%;height:auto;" loading="lazy"/><img src="../images/posts_images/srb/grain-geometry/image024.png" alt="Pressure leaks through the end cap holes" style="max-width:28%;height:auto;" loading="lazy"/><img src="../images/posts_images/srb/grain-geometry/image025.png" alt="Catastrophic failure due to complete rupture of the end cap" style="max-width:28%;height:auto;" loading="lazy"/></div>
+            <div style="text-align:center; margin-bottom:2ch;"><small><i>Photo 2. Sequence of motor operation. In the first instant, the ignition system marks the beginning of propellant combustion. In the second moment, pressure leaks through the end cap holes, indicating partial failure. In the last instant, catastrophic failure occurs due to complete rupture of the end cap.</i></small></div>
+
+            <h3>3.3 Result Analysis</h3>
+            <p>
+                A thorough analysis of the events shows that the motor behaved far more aggressively than expected. Graph 5 demonstrates the thrust distribution over time as collected by the data acquisition system.
+            </p>
+            <div style="display: flex; justify-content: center;"><img src="../images/posts_images/srb/grain-geometry/image026_en.jpg" alt="Motor behavior throughout the entire data collection period" style="max-width:75%;height:auto;" loading="lazy"/></div>
+            <div style="text-align:center; margin-bottom:2ch;"><small><i>Graph 5. Motor behavior throughout the entire data collection period.</i></small></div>
+            <p>
+                Since catastrophic failure occurred in the motor, the graph is interpreted to identify the points that characterized such failure, as well as the moment of end cap rupture and the functioning of the ignition system. For this reason, a time interval corresponding to regular operation up to the moment of end cap rupture and data collection system degradation was isolated. In Graph 6, the time interval is separated for better visualization of what occurred.
+            </p>
+            <div style="display: flex; justify-content: center;"><img src="../images/posts_images/srb/grain-geometry/image027_en.jpg" alt="Analysis of the points characterizing catastrophic failure" style="max-width:80%;height:auto;" loading="lazy"/></div>
+            <div style="text-align:center; margin-bottom:2ch;"><small><i>Graph 6. Analysis of the points where the motor exhibited characteristics important for the analysis of catastrophic failure.</i></small></div>
+            <p>
+                At marker 1, the instant at which the motor undergoes ignition and begins to build internal pressure is verified. At 2, propellant combustion is nearly linear and indicates good internal pressure development. At 3, the motor begins to stabilize and almost reaches its maximum thrust point. At 4, over-pressurization of the chamber occurs along with gas leakage through the threaded holes. At 5, the end cap detaches and the load cell is invalidated, having suffered major damage from contact with the igniter. Photos 3 and 4 show the end cap and igniter assembly after detachment and the load cell after the test.
+            </p>
+            <div style="display: flex; justify-content: center; gap: 1.5ch; flex-wrap: wrap;"><img src="../images/posts_images/srb/grain-geometry/image028.jpg" alt="End cap and igniter assembly after detachment" style="max-width:40%;height:auto;" loading="lazy"/><img src="../images/posts_images/srb/grain-geometry/image029.jpg" alt="The load cell after the test" style="max-width:40%;height:auto;" loading="lazy"/></div>
+            <div style="text-align:center; margin-bottom:2ch;"><small><i>Photos 3 and 4. The destruction of the pressure retention and data collection systems. The load cell deteriorated while still reading, causing unstable data and invalidating the results from approximately 1.5 seconds after the start of the test.</i></small></div>
+
             <br>
             <h2>references</h2>
             <hr>
-            <p id="paperbox" style="text-align:left;">
-                <table>
-                    <tbody style="vertical-align: top;">
-                        <tr>
-                            <td class="ref" style="width:1ch;">
-                                <a name="footnote_1"></a>
-                                <a href="#back_1">^</a>
-                            </td>
-                            <td class="ref" style="width:4ch;"> <sup>[1]</sup></td>
-                            <td style="width:100%;text-align:left;" class="ref">
-                                <a href="https://www.build-electronic-circuits.com/how-transistors-work/"><i>NPN Transistor</i></a> How Transistor Works. Retrieved Mar 1st, 2026.
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="ref" style="width:1ch;">
-                                <a name="footnote_2"></a>
-                                <a href="#back_2">^</a>
-                            </td>
-                            <td class="ref" style="width:4ch;"> <sup>[2]</sup></td>
-                            <td style="width:100%;text-align:left;" class="ref">
-                                <a href="https://a.co/d/7d6uVjX"><i>Duntemann, J. (2009). Assembly language step-by-step: Programming with linux.</i></a> Wiley Pub.
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="ref" style="width:1ch;">
-                                <a name="footnote_3"></a>
-                                <a href="#back_3">^</a>
-                            </td>
-                            <td class="ref" style="width:4ch;"> <sup>[3]</sup></td>
-                            <td style="width:100%;text-align:left;" class="ref">
-                                Petzold, C. (2022). <i>Code: The Hidden Language of Computer Hardware and Software. Microsoft Press.</i> Second Eddition. Page 285.
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="ref" style="width:1ch;">
-                                <a name="footnote_4"></a>
-                                <a href="#back_4">^</a>
-                            </td>
-                            <td class="ref" style="width:4ch;"> <sup>[4]</sup></td>
-                            <td style="width:100%;text-align:left;" class="ref">
-                            Press, R. (2026, March 4). <a href="Press, R. (2026, March 4). High bandwidth memory (HBM): Everything you need to know. https://www.rambus.com/blogs/hbm3-everything-you-need-to-know/ "><i>High bandwidth memory (HBM): Everything you need to know.</i></a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </p>
+                <!-- Added references from selection -->
+                <p id="paperbox" style="text-align:left;">
+                    <table>
+                        <tbody style="vertical-align: top;">
+                                <tr><td class="ref" style="width:1ch;"><a name="footnote_1"></a><a href="#back_1">^</a></td><td class="ref" style="width:4ch;"> <sup>[1]</sup></td><td style="width:100%;text-align:left;" class="ref">ALMEIDA, D. S; NETO, C. M. Materials for manufacturing high-performance pressure vessels. p 3-6. Oct. 1997.</td></tr>
+                                <tr><td class="ref" style="width:1ch;"><a name="footnote_2"></a><a href="#back_2">^</a></td><td class="ref" style="width:4ch;"> <sup>[2]</sup></td><td style="width:100%;text-align:left;" class="ref">Canadian Association of Rocketry. CAR Motor Certification Committee: Motor Testing Manual. 2002. Rev. 3.1. Available at <a href="http://www.canadianrocketry.org/files/CAR_Motor_Testing_Manual.pdf">http://www.canadianrocketry.org/files/CAR_Motor_Testing_Manual.pdf</a>. Accessed on November 23, 2013.</td></tr>
+                                <tr><td class="ref" style="width:1ch;"><a name="footnote_3"></a><a href="#back_3">^</a></td><td class="ref" style="width:4ch;"> <sup>[3]</sup></td><td style="width:100%;text-align:left;" class="ref">DAVENAS, A. Development of Modern Solid Propellants. Journal of Propulsion and Power, v. 19, p. 1101-1110, November-December 2003.</td></tr>
+                                <tr><td class="ref" style="width:1ch;"><a name="footnote_4"></a><a href="#back_4">^</a></td><td class="ref" style="width:4ch;"> <sup>[4]</sup></td><td style="width:100%;text-align:left;" class="ref">HUNLEY, J. D. The History of Solid Propellant Rocketry What We Do And Do Not Know. AIAA. P. 2-7, Jun. 1999.</td></tr>
+                                <tr><td class="ref" style="width:1ch;"><a name="footnote_5"></a><a href="#back_5">^</a></td><td class="ref" style="width:4ch;"> <sup>[5]</sup></td><td style="width:100%;text-align:left;" class="ref">LEE, T. W. Aerospace Propulsion. 2013. 1 ed. Wiley, 2013. 316p.</td></tr>
+                                <tr><td class="ref" style="width:1ch;"><a name="footnote_6"></a><a href="#back_6">^</a></td><td class="ref" style="width:4ch;"> <sup>[6]</sup></td><td style="width:100%;text-align:left;" class="ref">MARTIN, J. L. T. Rocket and Spacecraft Propulsion: Principles, Practice and New Developments. 2008. 3 ed. Springer, 2009. 390p.</td></tr>
+                                <tr><td class="ref" style="width:1ch;"><a name="footnote_7"></a><a href="#back_7">^</a></td><td class="ref" style="width:4ch;"> <sup>[7]</sup></td><td style="width:100%;text-align:left;" class="ref">National Association of Rocketry. Level 3 High Power Certification Requirements. 2012. Available at <a href="http://www.nar.org/pdf/L3certreq.pdf">http://www.nar.org/pdf/L3certreq.pdf</a>. Accessed on June 7, 2014.</td></tr>
+                                <tr><td class="ref" style="width:1ch;"><a name="footnote_8"></a><a href="#back_8">^</a></td><td class="ref" style="width:4ch;"> <sup>[8]</sup></td><td style="width:100%;text-align:left;" class="ref">NAKKA, R. Solid Rocket Motor Theory: Propellant Grain. 2001. Available at: <a href="http://www.nakka-rocketry.net/th_grain.html">http://www.nakka-rocketry.net/th_grain.html</a>. Accessed on October 19, 2013.</td></tr>
+                                <tr><td class="ref" style="width:1ch;"><a name="footnote_9"></a><a href="#back_9">^</a></td><td class="ref" style="width:4ch;"> <sup>[9]</sup></td><td style="width:100%;text-align:left;" class="ref">NAKKA, R. Solid Propellant Burn Rate. 2003. Available at: <a href="http://www.nakka-rocketry.net/burnrate.html">http://www.nakka-rocketry.net/burnrate.html</a>. Accessed on October 15, 2013.</td></tr>
+                                <tr><td class="ref" style="width:1ch;"><a name="footnote_10"></a><a href="#back_10">^</a></td><td class="ref" style="width:4ch;"> <sup>[10]</sup></td><td style="width:100%;text-align:left;" class="ref">NAKKA, R. Strain Gauge Load Cell for Thrust Measurement. 2007. Available at: <a href="http://www.nakka-rocketry.net/strainlc.html">http://www.nakka-rocketry.net/strainlc.html</a>. Accessed on March 2, 2014.</td></tr>
+                                <tr><td class="ref" style="width:1ch;"><a name="footnote_11"></a><a href="#back_11">^</a></td><td class="ref" style="width:4ch;"> <sup>[11]</sup></td><td style="width:100%;text-align:left;" class="ref">TAYLOR, S. T. Introduction to Rocket Science and Engineering. 2009. 1 ed. New York: CRC Press, 2009. 314 p.</td></tr>
+                                <tr><td class="ref" style="width:1ch;"><a name="footnote_12"></a><a href="#back_12">^</a></td><td class="ref" style="width:4ch;"> <sup>[12]</sup></td><td style="width:100%;text-align:left;" class="ref">TUALATIN PHYSICS. Translated Image. Available at: <a href="http://www.tuhsphysics.ttsd.k12.or.us/Research/IB11/HumbLockToddHarr/index_files/image005.">http://www.tuhsphysics.ttsd.k12.or.us/Research/IB11/HumbLockToddHarr/index_files/image005.</a>. Accessed on August 19, 2013.</td></tr>
+                                <tr><td class="ref" style="width:1ch;"><a name="footnote_13"></a><a href="#back_13">^</a></td><td class="ref" style="width:4ch;"> <sup>[13]</sup></td><td style="width:100%;text-align:left;" class="ref">SUTTON, P. G; BIBLARZ, O. Rocket Propulsion Elements. 2010. 8 ed. Wiley, 2010. 784 p.</td></tr>
+                        </tbody>
+                    </table>
+                </p>
 
             <footer>
 				<br><br>*<br>

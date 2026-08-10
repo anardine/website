@@ -7,11 +7,18 @@
         <link>https://amnardinelli.com</link>
         <description>Ale's Website Feed</description>
         <language>en-us</language>
-        <pubDate>Thr, 04 Dec 2025 22:00:00 GMT</pubDate>
-        <lastBuildDate>Thr, 04 Dec 2025 22:00:00 GMT</lastBuildDate>
+        <pubDate>Tue, 28 Apr 2026 00:00:00 GMT</pubDate>
+        <lastBuildDate>Tue, 28 Apr 2026 00:00:00 GMT</lastBuildDate>
         <atom:link href="https://amnardinelli.com/rss.xml" rel="self" type="application/rss+xml"/>
 
         <!-- articles -->
+         <item>
+            <title>Study on Thrust-time Curve of a Solid Rocket Propellant</title>
+            <link>https://amnardinelli.com/post/study-on-thrust-time-curve-solid-rocket-propellant-part-1-introduction.html</link>
+            <description>This Article is Part of the Solid Rocket Booster Internal Grain Geometry Study</description>
+            <pubDate>Tue, 28 Apr 2026 00:00:00 GMT</pubDate>
+            <guid>https://amnardinelli.com/post/study-on-thrust-time-curve-solid-rocket-propellant-part-1-introduction.html</guid>
+        </item>
          <item>
             <title>What it means to manage people</title>
             <link>https://amnardinelli.com/post/what-it-means-to-manage-people.html</link>
