@@ -1,0 +1,197 @@
+/* Postmaker tool chrome — kept separate from the site's own style.css.
+   The chrome (toolbar, meta form, dialogs) uses a neutral system font so it
+   reads as app UI; the #paper writing area inherits the site's own typeface
+   and styling so composing feels like editing the live post. Colours below are
+   pulled straight from the site's palette (style.css) so the whole tool reads
+   as part of the site. */
+:root {
+  --site-bg: whitesmoke;      /* page background */
+  --site-panel: ghostwhite;   /* nav/panel surfaces */
+  --site-border: grey;        /* borders */
+  --site-text: black;         /* text and links */
+  --site-accent: lavender;    /* table-header accent, used for hovers */
+  --site-code-bg: #d1d1d1;    /* inline code background */
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--site-bg);
+  color: var(--site-text);
+  margin: 0;
+}
+
+.tool-title {
+  text-transform: none;
+}
+
+#app {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+#toolbar-top {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.tool-title {
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+#metaForm {
+  background: var(--site-panel);
+  border: 1px solid var(--site-border);
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+}
+
+.field-row {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.field-row label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.8rem;
+  color: #333;
+  gap: 0.2rem;
+}
+
+.field-row label.grow {
+  flex: 1;
+  min-width: 200px;
+}
+
+.field-row input, .field-row select {
+  font-size: 0.95rem;
+  padding: 0.3rem;
+}
+
+#toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  background: var(--site-panel);
+  border: 1px solid var(--site-border);
+  border-radius: 6px;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+#toolbar button, #actions button, .dialog-actions button {
+  cursor: pointer;
+  padding: 0.35rem 0.7rem;
+  border: 1px solid var(--site-border);
+  border-radius: 4px;
+  background: var(--site-bg);
+  color: var(--site-text);
+}
+
+#toolbar button:hover, .dialog-actions button:hover {
+  background: var(--site-accent);
+}
+
+#toolbar .sep {
+  width: 1px;
+  background: var(--site-border);
+  margin: 0 0.25rem;
+}
+
+/* The "paper": renders the post the way the live site will. It inherits the
+   site font and lets the loaded style.css style paragraphs, headings, images,
+   blockquotes, code and tables exactly as they'll appear when published. */
+#paper {
+  font-family: alefont, monospace;
+  background: whitesmoke;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.08);
+  padding: 2ch 3ch 3ch;
+  margin-bottom: 1rem;
+}
+
+.preview-meta {
+  text-transform: none;
+  margin-bottom: 2ch;
+  min-height: 1.6em;
+}
+
+/* Site h1 uses margin-top:5ch (room for the nav); tighten it here since the
+   paper starts at the date line. */
+.preview-title {
+  margin-top: 1ch;
+}
+.preview-title.is-placeholder {
+  color: #999;
+  font-weight: normal;
+}
+
+#canvas {
+  min-height: 400px;
+  outline: none;
+}
+
+#canvas .editor-selected-image {
+  outline: 2px solid var(--site-text);
+  outline-offset: 3px;
+}
+
+#actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 2rem;
+}
+
+/* Primary action (Save/Publish). Scoped with the #actions id so it beats the
+   generic "#actions button" rule above — otherwise the grey background wins and
+   the white label becomes unreadable. Inverted (black on white) as the accent. */
+#actions button.primary, .dialog-actions button.primary, button.primary {
+  background: var(--site-text);
+  color: var(--site-bg);
+  border-color: var(--site-text);
+}
+
+#actions button.primary:hover, .dialog-actions button.primary:hover {
+  background: #333;
+}
+
+#statusMsg {
+  font-size: 0.85rem;
+  color: var(--site-text);
+}
+
+dialog {
+  background: var(--site-panel);
+  color: var(--site-text);
+  border-radius: 8px;
+  border: 1px solid var(--site-border);
+  padding: 1rem 1.25rem;
+  min-width: 320px;
+}
+
+dialog label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  margin-bottom: 0.6rem;
+  font-size: 0.85rem;
+}
+
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}

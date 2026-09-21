@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Post Management</title>
+  <link rel="stylesheet" href="/static/editor.css" />
+  <link rel="stylesheet" href="/site-style.css" />
+</head>
+<body>
+  <div id="app">
+    <header id="toolbar-top">
+      <h1 class="tool-title">Post Management</h1>
+      <div class="field-row">
+        <label>Load existing post
+          <select id="loadSelect">
+            <option value="">— new post —</option>
+          </select>
+        </label>
+        <span id="statusMsg"></span>
+      </div>
+    </header>
+
+    <section id="metaForm">
+      <div class="field-row">
+        <label class="grow">Title
+          <input id="title" type="text" placeholder="Post title" />
+        </label>
+        <label>Slug
+          <input id="slug" type="text" placeholder="auto-from-title" />
+        </label>
+      </div>
+      <div class="field-row">
+        <label class="grow">Description (meta / RSS)
+          <input id="description" type="text" placeholder="One-line summary" />
+        </label>
+      </div>
+      <div class="field-row">
+        <label>Publish date
+          <input id="date" type="date" />
+        </label>
+        <label>Read time (min)
+          <input id="readMinutes" type="number" min="1" value="5" />
+        </label>
+        <label class="grow">Updated (optional)
+          <input id="updated" type="text" placeholder="e.g. May 25" />
+        </label>
+      </div>
+      <div class="field-row">
+        <label class="grow">Date/meta line override (raw HTML, leave blank to auto-generate from above)
+          <input id="dateMetaRaw" type="text" placeholder="e.g. Mar 13th, 2026; 8 min read<br>" />
+        </label>
+      </div>
+    </section>
+
+    <section id="toolbar">
+      <button data-cmd="bold" title="Bold"><b>B</b></button>
+      <button data-cmd="italic" title="Italic"><i>I</i></button>
+      <span class="sep"></span>
+      <button data-block="h2">H2</button>
+      <button data-block="h3">H3</button>
+      <button data-block="p">P</button>
+      <button data-block="blockquote">Quote</button>
+      <button data-block="pre">Code block</button>
+      <span class="sep"></span>
+      <button data-cmd="insertUnorderedList">• List</button>
+      <button data-cmd="insertOrderedList">1. List</button>
+      <button id="btnInlineCode">Inline code</button>
+      <span class="sep"></span>
+      <button id="btnImage">Image</button>
+      <button id="btnEditImage" disabled>Adjust selected image</button>
+      <button id="btnTable">Table</button>
+      <button id="btnFootnote">Footnote</button>
+    </section>
+
+    <section id="paper">
+      <div id="previewMeta" class="preview-meta"></div>
+      <h1 id="previewTitle" class="preview-title"></h1>
+      <hr />
+      <div id="canvas" contenteditable="true">
+        <p>Start writing your post here…</p>
+      </div>
+    </section>
+
+    <footer id="actions">
+      <span id="draftInfo"></span>
+      <button id="btnSaveDraft">Save draft</button>
+      <button id="btnSave" class="primary">Publish</button>
+    </footer>
+  </div>
+
+  <dialog id="imgDialog">
+    <h3>Insert image</h3>
+    <label>File <input type="file" id="imgFile" accept="image/*" /></label>
+    <label>Alt text <input type="text" id="imgAlt" /></label>
+    <label>Size (%) <input type="number" id="imgSize" value="100" min="10" max="100" /></label>
+    <label>Alignment
+      <select id="imgAlign">
+        <option value="full">Full width</option>
+        <option value="center">Centered</option>
+        <option value="left">Float left</option>
+        <option value="right">Float right</option>
+      </select>
+    </label>
+    <label>Caption (optional) <input type="text" id="imgCaption" /></label>
+    <div class="dialog-actions">
+      <button id="imgCancel">Cancel</button>
+      <button id="imgInsert" class="primary">Insert</button>
+    </div>
+  </dialog>
+
+  <dialog id="tableDialog">
+    <h3>Insert table</h3>
+    <label>Rows <input type="number" id="tblRows" value="2" min="1" max="20" /></label>
+    <label>Columns <input type="number" id="tblCols" value="2" min="1" max="10" /></label>
+    <div class="dialog-actions">
+      <button id="tblCancel">Cancel</button>
+      <button id="tblInsert" class="primary">Insert</button>
+    </div>
+  </dialog>
+
+  <dialog id="footnoteDialog">
+    <h3>Insert footnote / reference</h3>
+    <label>Reference text <input type="text" id="fnText" placeholder="Author, Title, Year." /></label>
+    <label>URL (optional) <input type="text" id="fnUrl" placeholder="https://..." /></label>
+    <div class="dialog-actions">
+      <button id="fnCancel">Cancel</button>
+      <button id="fnInsert" class="primary">Insert</button>
+    </div>
+  </dialog>
+
+  <script src="/static/editor.js"></script>
+</body>
+</html>
