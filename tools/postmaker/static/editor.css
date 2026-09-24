@@ -109,6 +109,77 @@ body {
   margin: 0 0.25rem;
 }
 
+/* Contextual table toolbar — appears only when the caret is inside a table. */
+#tableTools {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+  background: var(--site-accent);
+  border: 1px solid var(--site-border);
+  border-radius: 6px;
+  padding: 0.5rem;
+  margin: 0 0 1rem;
+  /* Stick just below the main toolbar (its height is set on `top` from JS) so it
+     stays on screen while editing a table far down the page. */
+  position: sticky;
+  top: 0;
+  z-index: 9;
+}
+#tableTools[hidden] {
+  display: none;
+}
+#tableTools button {
+  cursor: pointer;
+  padding: 0.3rem 0.55rem;
+  border: 1px solid var(--site-border);
+  border-radius: 4px;
+  background: var(--site-bg);
+  color: var(--site-text);
+  font-size: 0.85rem;
+}
+#tableTools button:hover {
+  background: #fff;
+}
+#tableTools .tt-label {
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+#tableTools .tt-hint {
+  font-size: 0.75rem;
+  font-style: italic;
+  opacity: 0.7;
+}
+#tableTools .sep {
+  width: 1px;
+  height: 1.2em;
+  background: var(--site-border);
+  margin: 0 0.2rem;
+}
+
+/* Draggable column-border handles overlaid on the active table. */
+.col-divider {
+  position: absolute;
+  width: 9px;
+  margin-left: -4px;
+  cursor: col-resize;
+  z-index: 900;
+}
+.col-divider::after {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: transparent;
+}
+.col-divider:hover::after,
+.col-divider.dragging::after {
+  background: var(--site-text);
+}
+
 /* The "paper": renders the post the way the live site will. It inherits the
    site font and lets the loaded style.css style paragraphs, headings, images,
    blockquotes, code and tables exactly as they'll appear when published. */
@@ -146,6 +217,62 @@ body {
 #canvas .editor-selected-image {
   outline: 2px solid var(--site-text);
   outline-offset: 3px;
+}
+
+/* Drag-to-resize handle parked at the selected image's bottom-right corner. */
+#imgResizer {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background: var(--site-text);
+  border: 2px solid var(--site-bg);
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  cursor: nwse-resize;
+  touch-action: none;
+  z-index: 1000;
+}
+#imgResizer[hidden] {
+  display: none;
+}
+
+/* Move handle (top-left of the selected image). */
+#imgMover {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  line-height: 1;
+  color: var(--site-bg);
+  background: var(--site-text);
+  border: 2px solid var(--site-bg);
+  border-radius: 3px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  cursor: grab;
+  touch-action: none;
+  z-index: 1000;
+  user-select: none;
+}
+#imgMover.dragging {
+  cursor: grabbing;
+}
+#imgMover[hidden] {
+  display: none;
+}
+
+/* Vertical bar showing where the image will drop. */
+#dropIndicator {
+  position: absolute;
+  width: 3px;
+  background: #2a6df4;
+  z-index: 1001;
+  pointer-events: none;
+}
+#dropIndicator[hidden] {
+  display: none;
 }
 
 #actions {
@@ -187,6 +314,80 @@ dialog label {
   gap: 0.2rem;
   margin-bottom: 0.6rem;
   font-size: 0.85rem;
+}
+
+.dialog-hint {
+  margin: -0.4rem 0 0.6rem;
+  font-size: 0.75rem;
+  font-style: italic;
+  opacity: 0.7;
+}
+
+dialog label.img-check {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: bold;
+}
+
+#imgRowList {
+  margin-bottom: 0.6rem;
+}
+.row-item {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+  padding: 0.4rem;
+  border: 1px solid var(--site-border);
+  border-radius: 4px;
+}
+.row-item .thumb {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border: 1px solid var(--site-border);
+  border-radius: 3px;
+  flex: none;
+}
+.row-item .fields {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex: 1;
+  min-width: 0;
+}
+.row-item-name {
+  font-size: 0.72rem;
+  font-weight: bold;
+  word-break: break-all;
+}
+.row-item input {
+  font-size: 0.85rem;
+  padding: 0.25rem;
+}
+.row-item .remove {
+  flex: none;
+  width: 24px;
+  height: 24px;
+  line-height: 1;
+  cursor: pointer;
+  border: 1px solid var(--site-border);
+  border-radius: 3px;
+  background: var(--site-bg);
+  color: var(--site-text);
+}
+.add-btn {
+  cursor: pointer;
+  padding: 0.35rem 0.7rem;
+  border: 1px solid var(--site-border);
+  border-radius: 4px;
+  background: var(--site-bg);
+  color: var(--site-text);
+  font-size: 0.85rem;
+}
+.add-btn:hover {
+  background: var(--site-accent);
 }
 
 .dialog-actions {

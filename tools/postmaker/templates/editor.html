@@ -55,6 +55,7 @@
     <section id="toolbar">
       <button data-cmd="bold" title="Bold"><b>B</b></button>
       <button data-cmd="italic" title="Italic"><i>I</i></button>
+      <button id="btnClearFormat" title="Remove formatting (bold, italic, inline code, links) from the selected text">Clear format</button>
       <span class="sep"></span>
       <button data-block="h2">H2</button>
       <button data-block="h3">H3</button>
@@ -70,6 +71,23 @@
       <button id="btnEditImage" disabled>Adjust selected image</button>
       <button id="btnTable">Table</button>
       <button id="btnFootnote">Footnote</button>
+    </section>
+
+    <section id="tableTools" hidden>
+      <span class="tt-label">Table</span>
+      <button id="ttRowAbove" title="Insert row above">+ row ↑</button>
+      <button id="ttRowBelow" title="Insert row below">+ row ↓</button>
+      <button id="ttColLeft" title="Insert column left">+ col ←</button>
+      <button id="ttColRight" title="Insert column right">+ col →</button>
+      <span class="sep"></span>
+      <button id="ttDelRow" title="Delete current row">✕ row</button>
+      <button id="ttDelCol" title="Delete current column">✕ col</button>
+      <span class="sep"></span>
+      <button id="ttMerge" title="Merge the selected cells (drag across cells first)">Merge cells</button>
+      <button id="ttSplit" title="Split the merged cell under the cursor">Split cell</button>
+      <span class="sep"></span>
+      <button id="ttHeader" title="Toggle the header row on/off">Header on/off</button>
+      <span class="tt-hint">drag a column border to resize</span>
     </section>
 
     <section id="paper">
@@ -90,18 +108,27 @@
 
   <dialog id="imgDialog">
     <h3>Insert image</h3>
-    <label>File <input type="file" id="imgFile" accept="image/*" /></label>
-    <label>Alt text <input type="text" id="imgAlt" /></label>
-    <label>Size (%) <input type="number" id="imgSize" value="100" min="10" max="100" /></label>
-    <label>Alignment
-      <select id="imgAlign">
-        <option value="full">Full width</option>
-        <option value="center">Centered</option>
-        <option value="left">Float left</option>
-        <option value="right">Float right</option>
-      </select>
-    </label>
-    <label>Caption (optional) <input type="text" id="imgCaption" /></label>
+    <label class="img-check"><input type="checkbox" id="imgRow" /> Add several images in a centered row</label>
+    <div id="imgSingleFields">
+      <label>File <input type="file" id="imgFile" accept="image/*" /></label>
+      <label>Alt text <input type="text" id="imgAlt" /></label>
+      <label>Size (%) <input type="number" id="imgSize" value="100" min="10" max="100" /></label>
+      <label>Alignment
+        <select id="imgAlign">
+          <option value="full">Full width</option>
+          <option value="center">Centered</option>
+          <option value="left">Float left</option>
+          <option value="right">Float right</option>
+        </select>
+      </label>
+      <label>Caption (optional) <input type="text" id="imgCaption" /></label>
+    </div>
+    <div id="imgRowFields" hidden>
+      <p class="dialog-hint">Click “+ Add image” for each picture — they go into a centered row in the order you add them. Give each an optional caption.</p>
+      <div id="imgRowList"></div>
+      <button id="imgRowAdd" type="button" class="add-btn">+ Add image</button>
+      <input type="file" id="imgRowFile" accept="image/*" multiple hidden />
+    </div>
     <div class="dialog-actions">
       <button id="imgCancel">Cancel</button>
       <button id="imgInsert" class="primary">Insert</button>
@@ -112,6 +139,7 @@
     <h3>Insert table</h3>
     <label>Rows <input type="number" id="tblRows" value="2" min="1" max="20" /></label>
     <label>Columns <input type="number" id="tblCols" value="2" min="1" max="10" /></label>
+    <label class="tbl-check"><input type="checkbox" id="tblHeader" checked /> Include header row</label>
     <div class="dialog-actions">
       <button id="tblCancel">Cancel</button>
       <button id="tblInsert" class="primary">Insert</button>
