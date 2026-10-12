@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml" />
+        <meta charset="UTF-8" />
+        <link rel="icon" type="image/x-icon" href="../ico/fav.ico">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=12.0, minimum-scale=1.0, user-scalable=yes" />
+        <link rel="stylesheet" href="../style.css" />
+        <title>Setting up a Windows XP computer in 2026 - Part 2 - The Software</title>
+        <meta name="description" content="In this article i describe the process of setting up a windows xp computer from the bios to the working setup">
+    </head>
+
+
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MPBB9NY5KG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-MPBB9NY5KG');
+</script>
+
+
+    <body>
+        <div class="container">
+      <br><br>
+      <center>
+        <nav>
+        <div style="display: inline-block; vertical-align:middle;">
+          <img class="ico_small" src="../ico/header.ico" alt="menu_icon">
+          <a href="../index.html" class="title"><b>ALESSANDRO NARDINELLI'S WEBSITE</b></a>
+          <img class="ico_small" src="../ico/header.ico" alt="menu_icon">
+          <hr />
+          <a class="title" href="mailto:anardine@hotmail.com">CONTACT</a>
+          &nbsp;&nbsp;&nbsp;
+          <a class="title" href="../rss.xml">RSS</a>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <a class="title" href="https://www.paypal.com/donate/?hosted_button_id=7U77WSQ5WNW8E">DONATE</a>
+        </div>
+        </nav>
+      </center>
+            <div style="margin-bottom:6ch; text-transform: none;"></div>
+            <div style="margin-bottom: 2ch;text-transform: none;">Oct 8, 2026 &middot; 3 min read<br></div>
+            <h1>Setting up a Windows XP computer in 2026 - Part 2 - The Software</h1>
+            <hr>
+<h2><img src="../images/posts_images/setting-up-a-windows-xp-computer-in-2026-part-2-the-software/0.avif" loading="lazy" style="max-width: 100%;"></h2><h2>BIOS SETUP</h2><hr><p>The bios was by far the most challenging aspect of the installation. As I've described on the Part I article<a name="back_1" style="text-decoration: none;" href="#footnote_1"><sup>[1]</sup></a>, the motherboard did not had specific details of the manufacturer available, besides just one small paper sticker. As this was the initial (and only) clue that I had, there was much to discover (and guess) on how to update the bios of this computer. I tend not to mess with BIOS around when not needed, but the main problem of this setup is that the NVIDIA GEFORCE GT 710 that I bought was not outputting video from neither the HDMI nor the VGA ports.<figure style="max-width:50%;float:right;margin-left:3ch;margin-top:3ch;"><img src="../images/posts_images/setting-up-a-windows-xp-computer-in-2026-part-2-the-software/2.avif" alt="the bios screen with the firmware version" loading="lazy" class=""><figcaption><i>it's possible to see that the BIOS was still in a 2011 version, which did not have the Legacy/CSM option.</i></figcaption></figure></p><p>After further analysis, the old BIOS version was using a legacy BIOS that expects a 16-bit real-mode option ROM. Many GeForce 700-series and newer cards ship with a UEFI-only or hybrid VBIOS that legacy firmware fails to initialize, resulting in a black screen, no POST, or the system falling back to integrated graphics. The old BIOS version did not have a toggle between <span class="rQesXe MPyX" data-sfc-cp="" jsaction="" jscontroller="tP2kf#s32ZS" data-sfc-root="ep" data-epip="" jsuid="FptOg_3x" data-complete="true" style="margin: 0px; border-bottom: 0px rgb(230, 232, 240);">UEFI</span> and <span class="rQesXe MPyX" data-sfc-cp="" jsaction="" jscontroller="tP2kf#s32ZS" data-sfc-root="ep" data-epip="" jsuid="FptOg_3y" data-complete="true" style="margin: 0px; border-bottom: 0px rgb(230, 232, 240);">Legacy/CSM (Compatibility Support Module) which was required to be enabled so the GT 710 could communicate correctly for outputting video.</span></p><p>The update process for the&nbsp;H61H2-M2 is not simple. It involves following multiple procedures that requires clearing the CMOS and jumping the ME_UNLOCK pins. This is fully described on this guide<a name="back_2" style="text-decoration: none;" href="#footnote_2"><sup>[2]</sup></a>, which was created to help users install Windows 8. The most critical step was to identify which version the board was on this build, since there were two main ones being manufactured for SEMP TOSHIBA during this time. The only way to identify is to check the model of the ROM embedded on the board, which had different memory sizes. The only way (besides checking the version printed on the board, if available) to distinguish them is by running a tool like CPU-Z or by checking the backup/dump file size when saving the existing BIOS (V1.0 generates a file under 4MB, while V2.0 generates a file larger than 4MB, typically around 6MB–8MB). Running CPU-Z on SEMP TOSHIBA machines DOES NOT give you this information because they renamed the BIOS and changed the boot screen logo to theirs, so the only way to identify is by the output file size.</p><h2>Setting up windows xp</h2><hr><p>After resolving the issue with the BIOS and the compatibility of the video card, there was one last small adapting needed via BIOS, which was doe to enable the installer to recognize the Hard Drive by changing the SATA driver properties to Legacy Mode, instead of AHCI</p><p><div style="display: flex; justify-content: center; gap: 2ch;"><figure style="max-width: 45%; height: auto; margin: 0 1ch;"><img src="../images/posts_images/setting-up-a-windows-xp-computer-in-2026-part-2-the-software/3.avif" alt="installer missing the HD SATA Driver" style="max-width:100%;height:auto;" loading="lazy"><figcaption><i>installer missing the HD SATA Driver</i></figcaption></figure><figure style="max-width: 45%; height: auto; margin: 0 1ch;"><img src="../images/posts_images/setting-up-a-windows-xp-computer-in-2026-part-2-the-software/4.avif" alt="installer correctly identifying the HD SATA Driver after changing AHCI (ou Native SATA) to Legacy" style="max-width:100%;height:auto;" loading="lazy"><figcaption><i>installer correctly identifying the HD SATA Driver after changing AHCI (ou Native SATA) to Legacy</i></figcaption></figure></div><br></p><p>Once that was done, setting windows XP was pretty straight forward, just following the installer steps.&nbsp;</p><p><div style="display: flex; justify-content: center; gap: 2ch;"><figure style="max-width: 30%; height: auto; margin: 0 1ch;"><img src="../images/posts_images/setting-up-a-windows-xp-computer-in-2026-part-2-the-software/5.avif" alt="the region selection screen" style="max-width:100%;height:auto;" loading="lazy"><figcaption><i>The region selection screen</i></figcaption></figure><figure style="max-width: 30%; height: auto; margin: 0 1ch;"><img src="../images/posts_images/setting-up-a-windows-xp-computer-in-2026-part-2-the-software/6.avif" alt="setting user name" style="max-width:100%;height:auto;" loading="lazy"><figcaption><i>Setting the user name</i></figcaption></figure><figure style="max-width: 30%; height: auto; margin: 0 1ch;"><img src="../images/posts_images/setting-up-a-windows-xp-computer-in-2026-part-2-the-software/7.avif" alt="the startup screen" style="max-width:100%;height:auto;" loading="lazy"><figcaption><i>Finally, the startup screen</i></figcaption></figure></div><br></p><h2>references</h2><hr><p id="paperbox" style="text-align:left;"></p><table><tbody style="vertical-align: top;"><tr><td class="ref" style="width:1ch;"><a name="footnote_1"></a><a href="#back_1">^</a></td><td class="ref" style="width:4ch;"> <sup>[1]</sup></td><td style="width:100%;text-align:left;" class="ref"><a href="https://amnardinelli.com/post/setting-up-a-windows-xp-computer-in-2026-part-1-the-hardware"><i>Nardinelli, Alessandro - Setting up a Windows XP computer in 2026 - Part 1 - The Hardware</i></a></td></tr><tr><td class="ref" style="width:1ch;"><a name="footnote_2"></a><a href="#back_2">^</a></td><td class="ref" style="width:4ch;"> <sup>[2]</sup></td><td style="width:100%;text-align:left;" class="ref"><a href="https://campaign.ecs.com.tw/support/windows_8_support/intel_win8_biosupgrade.html"><i>ECS BIOS updgrade guide</i></a></td></tr></tbody></table>
+            <footer>
+                <br><br>*<br>
+                &copy; 2026 Alessandro Nardinelli
+                <br><br>
+            </footer>
+        </div>
+    </body>
+</html>
