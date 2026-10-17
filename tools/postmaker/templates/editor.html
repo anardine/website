@@ -55,6 +55,7 @@
     <section id="toolbar">
       <button data-cmd="bold" title="Bold"><b>B</b></button>
       <button data-cmd="italic" title="Italic"><i>I</i></button>
+      <button id="btnLink" title="Add a link to the selected text">Link</button>
       <button id="btnClearFormat" title="Remove formatting (bold, italic, inline code, links) from the selected text">Clear format</button>
       <span class="sep"></span>
       <button data-block="h2">H2</button>
@@ -68,6 +69,7 @@
       <button id="btnInlineCode">Inline code</button>
       <span class="sep"></span>
       <button id="btnImage">Image</button>
+      <button id="btnStl">3D viewer (STL / OBJ / USDZ / glTF)</button>
       <button id="btnEditImage" disabled>Adjust selected image</button>
       <button id="btnTable">Table</button>
       <button id="btnFootnote">Footnote</button>
@@ -135,6 +137,22 @@
     </div>
   </dialog>
 
+  <dialog id="stlDialog">
+    <h3>Insert 3D viewer</h3>
+    <label>3D model file <input type="file" id="stlFile" accept=".stl,.obj,.usdz,.gltf,.glb" /></label>
+    <label>glTF asset folder (optional)
+      <input type="file" id="gltfAssets" webkitdirectory multiple />
+    </label>
+    <p class="dialog-hint">For glTF/GLB with separate .bin or texture files, select the folder containing the model. Only referenced files are uploaded. Self-contained GLB needs no folder.</p>
+    <label>Model description <input type="text" id="stlTitle" placeholder="3D model" /></label>
+    <p class="dialog-hint">Up to 25 MB total, including assets. Readers click to load the model; nothing 3D downloads during page load.</p>
+    <p class="dialog-hint">OBJ geometry only; companion MTL files and textures are not loaded.</p>
+    <div class="dialog-actions">
+      <button id="stlCancel">Cancel</button>
+      <button id="stlInsert" class="primary">Insert</button>
+    </div>
+  </dialog>
+
   <dialog id="tableDialog">
     <h3>Insert table</h3>
     <label>Rows <input type="number" id="tblRows" value="2" min="1" max="20" /></label>
@@ -144,6 +162,20 @@
       <button id="tblCancel">Cancel</button>
       <button id="tblInsert" class="primary">Insert</button>
     </div>
+  </dialog>
+
+  <dialog id="linkDialog">
+    <form id="linkForm">
+      <h3>Link selected text</h3>
+      <label>URL
+        <input type="text" id="linkUrl" placeholder="https://..." required />
+      </label>
+      <p class="dialog-hint">Web addresses, mailto:, tel:, relative paths, and #anchors are supported.</p>
+      <div class="dialog-actions">
+        <button id="linkCancel" type="button">Cancel</button>
+        <button type="submit" class="primary">Apply link</button>
+      </div>
+    </form>
   </dialog>
 
   <dialog id="footnoteDialog">

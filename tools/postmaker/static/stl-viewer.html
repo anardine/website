@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>3D STL / OBJ / USDZ / glTF viewer</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #f5f5f5; color: #222; font: 14px system-ui, sans-serif; }
+    #viewport { position: absolute; inset: 0 0 70px; }
+    canvas { display: block; width: 100%; height: 100%; touch-action: none; }
+    #controls { position: absolute; bottom: 0; width: 100%; padding: 8px; text-align: center; }
+    button { padding: 6px 12px; cursor: pointer; }
+    #status { margin: 4px 0 0; }
+  </style>
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.186.1/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.186.1/examples/jsm/",
+        "https://cdn.jsdelivr.net/npm/three@0.186.1/examples/jsm/loaders/usd/USDCParser.js": "./usdc-parser.js"
+      }
+    }
+  </script>
+  <script src="./stl-viewer.js" defer></script>
+</head>
+<body>
+  <div id="viewport" aria-label="Interactive 3D model"></div>
+  <div id="controls">
+    <button id="load" type="button">Load 3D model</button>
+    <button id="reset" type="button" hidden>Reset view</button>
+    <p id="status" role="status">Loads only when clicked. Drag to rotate; scroll or pinch to zoom.</p>
+  </div>
+</body>
+</html>

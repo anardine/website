@@ -7,10 +7,17 @@
         <link>https://amnardinelli.com</link>
         <description>Ale's Website Feed</description>
         <language>en-us</language>
-        <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
-        <lastBuildDate>Thu, 08 Oct 2026 00:00:00 GMT</lastBuildDate>
+        <pubDate>Fri, 16 Oct 2026 00:00:00 GMT</pubDate>
+        <lastBuildDate>Fri, 16 Oct 2026 00:00:00 GMT</lastBuildDate>
         <atom:link href="https://amnardinelli.com/rss.xml" rel="self" type="application/rss+xml"/>
 
+         <item>
+            <title>Opensource AI Notetaker - Track and sumarize conversations with an opensource hardware</title>
+            <link>https://amnardinelli.com/post/opensource-ai-notetaker-track-and-sumarize-conversations-with-an-opensource-hardware.html</link>
+            <description>in this article i describe the process of developing and AI notetaking device that sumarizes voices and conversations using LLMs</description>
+            <pubDate>Fri, 16 Oct 2026 00:00:00 GMT</pubDate>
+            <guid>https://amnardinelli.com/post/opensource-ai-notetaker-track-and-sumarize-conversations-with-an-opensource-hardware.html</guid>
+        </item>
          <item>
             <title>Setting up a Windows XP computer in 2026 - Part 2 - The Software</title>
             <link>https://amnardinelli.com/post/setting-up-a-windows-xp-computer-in-2026-part-2-the-software.html</link>

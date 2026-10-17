@@ -5,9 +5,12 @@ Then open http://127.0.0.1:5050 — localhost only, not meant to be exposed.
 """
 import json
 import re
+import struct
 import unicodedata
 from datetime import datetime
-from pathlib import Path
+from pathlib import Path, PurePosixPath
+from urllib.parse import unquote, urlsplit
+from uuid import uuid4
 
 from flask import Flask, jsonify, render_template, request, send_from_directory
 from PIL import Image
@@ -209,6 +212,11 @@ def site_images(filename):
     return send_from_directory(ROOT / "images", filename)
 
 
+@app.route("/tools/postmaker/static/<path:filename>")
+def viewer_assets(filename):
+    return send_from_directory(app.static_folder, filename)
+
+
 @app.route("/font/<path:filename>")
 def site_fonts(filename):
     # style.css references "./font/..." → "/font/..." here; serve them so the
@@ -266,6 +274,98 @@ def upload_image():
     img.save(out_path, format=ext.upper(), quality=82)
 
     return jsonify({"url": f"../images/posts_images/{slug}/{idx}.{ext}", "warning": warning})
+
+
+@app.route("/api/upload-stl", methods=["POST"])
+@app.route("/api/upload-model", methods=["POST"])
+def upload_model():
+    max_size = 25 * 1024 * 1024
+    if request.content_length and request.content_length > max_size + 1024 * 1024:
+        return jsonify({"error": "model file must be at most 25 MB"}), 413
+    slug = slugify(request.form.get("slug", ""))
+    if not slug:
+        return jsonify({"error": "slug is required"}), 400
+    file = request.files.get("file")
+    extension = Path(file.filename or "").suffix.lower() if file is not None else ""
+    if extension not in {".stl", ".obj", ".usdz", ".gltf", ".glb"}:
+        return jsonify({"error": "an STL, OBJ, USDZ, glTF, or GLB file is required"}), 400
+    content = file.stream.read(max_size + 1)
+    if not content:
+        return jsonify({"error": "model file is empty"}), 400
+    if len(content) > max_size:
+        return jsonify({"error": "model file must be at most 25 MB"}), 413
+
+    assets = {}
+    if extension in {".gltf", ".glb"}:
+        manifest_data = content
+        if extension == ".glb":
+            if (len(content) < 20 or struct.unpack_from("<III", content) != (0x46546C67, 2, len(content))):
+                return jsonify({"error": "invalid glTF 2.0 GLB header"}), 400
+            json_size, chunk_type = struct.unpack_from("<II", content, 12)
+            if chunk_type != 0x4E4F534A or json_size > len(content) - 20:
+                return jsonify({"error": "invalid GLB JSON chunk"}), 400
+            manifest_data = content[20:20 + json_size]
+        try:
+            manifest = json.loads(manifest_data)
+        except (json.JSONDecodeError, UnicodeDecodeError):
+            return jsonify({"error": "invalid glTF JSON"}), 400
+        if (not isinstance(manifest, dict) or not isinstance(manifest.get("asset"), dict)
+                or manifest["asset"].get("version") != "2.0"):
+            return jsonify({"error": "only glTF 2.0 models are supported"}), 400
+        uploads = {asset.filename: asset for asset in request.files.getlist("assets")}
+        total_size = len(content)
+        for field in ("buffers", "images"):
+            entries = manifest.get(field, [])
+            if not isinstance(entries, list):
+                return jsonify({"error": f"invalid glTF {field}"}), 400
+            for entry in entries:
+                if not isinstance(entry, dict):
+                    return jsonify({"error": f"invalid glTF {field} entry"}), 400
+                uri = entry.get("uri")
+                if uri is None:
+                    continue
+                if not isinstance(uri, str):
+                    return jsonify({"error": "invalid glTF asset URI"}), 400
+                if uri.startswith("data:"):
+                    continue
+                try:
+                    parsed = urlsplit(uri)
+                    asset_path = unquote(parsed.path, errors="strict")
+                except (ValueError, UnicodeDecodeError):
+                    return jsonify({"error": "invalid glTF asset URI"}), 400
+                path = PurePosixPath(asset_path)
+                if (parsed.scheme or parsed.netloc or parsed.query or parsed.fragment
+                        or not asset_path or path.is_absolute() or ".." in path.parts
+                        or "\\" in asset_path or "\0" in asset_path
+                        or path.suffix.lower() not in {".bin", ".png", ".jpg", ".jpeg", ".webp", ".avif", ".ktx2"}):
+                    return jsonify({"error": "glTF assets must be relative .bin or texture files inside the model folder"}), 400
+                name = path.as_posix()
+                if name in assets:
+                    continue
+                asset = uploads.get(name)
+                if asset is None:
+                    return jsonify({"error": f"missing glTF asset: {name}; select the folder containing the model"}), 400
+                data = asset.stream.read(max_size - total_size + 1)
+                total_size += len(data)
+                if total_size > max_size:
+                    return jsonify({"error": "model and assets must total at most 25 MB"}), 413
+                if not data:
+                    return jsonify({"error": f"glTF asset is empty: {name}"}), 400
+                assets[name] = data
+
+    folder = IMAGES_DIR / slug
+    name = f"model-{uuid4().hex}{extension}"
+    if extension in {".gltf", ".glb"}:
+        folder /= Path(name).stem
+        name = f"model{extension}"
+    folder.mkdir(parents=True, exist_ok=True)
+    for asset_name, data in assets.items():
+        asset_path = folder / asset_name
+        asset_path.parent.mkdir(parents=True, exist_ok=True)
+        asset_path.write_bytes(data)
+    (folder / name).write_bytes(content)
+    relative = (folder / name).relative_to(IMAGES_DIR).as_posix()
+    return jsonify({"url": f"../images/posts_images/{relative}"})
 
 
 def draft_path(draft_id):

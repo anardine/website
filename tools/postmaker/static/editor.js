@@ -347,6 +347,62 @@ document.getElementById('btnInlineCode').addEventListener('click', () => {
   range.insertNode(code);
 });
 
+// ---- link selected text ----
+const linkDialog = document.getElementById('linkDialog');
+const linkUrl = document.getElementById('linkUrl');
+let linkRange = null;
+
+document.getElementById('btnLink').addEventListener('click', () => {
+  const range = activeRange();
+  if (!range || range.collapsed || !range.toString().trim()) {
+    alert('Select the text you want to link first.');
+    return;
+  }
+  linkRange = range.cloneRange();
+  const node = range.commonAncestorContainer;
+  const element = node.nodeType === Node.ELEMENT_NODE ? node : node.parentElement;
+  linkUrl.value = element.closest('a[href]')?.getAttribute('href') || '';
+  linkUrl.setCustomValidity('');
+  linkDialog.showModal();
+  linkUrl.focus();
+  linkUrl.select();
+});
+document.getElementById('linkCancel').addEventListener('click', () => linkDialog.close());
+linkDialog.addEventListener('close', () => { linkRange = null; });
+linkUrl.addEventListener('input', () => linkUrl.setCustomValidity(''));
+document.getElementById('linkForm').addEventListener('submit', (event) => {
+  event.preventDefault();
+  const url = linkUrl.value.trim();
+  let valid = false;
+  try {
+    valid = !!url && ['http:', 'https:', 'mailto:', 'tel:'].includes(new URL(url, location.href).protocol);
+  } catch (error) {
+    if (!(error instanceof TypeError)) throw error;
+  }
+  if (!valid) {
+    linkUrl.setCustomValidity('Enter a valid web address, email/phone link, relative path, or #anchor.');
+    linkUrl.reportValidity();
+    return;
+  }
+  if (!linkRange || !canvas.contains(linkRange.commonAncestorContainer)) {
+    alert('The selection is no longer available. Select the text again.');
+    return;
+  }
+  const range = linkRange.cloneRange();
+  linkDialog.close();
+  canvas.focus();
+  const selection = window.getSelection();
+  selection.removeAllRanges();
+  selection.addRange(range);
+  if (!document.execCommand('createLink', false, url)) {
+    alert('Could not apply the link to this selection.');
+    return;
+  }
+  savedRange = selection.getRangeAt(0).cloneRange();
+  markDirty();
+  statusMsg.textContent = 'Link applied';
+});
+
 // ---- clear inline formatting (bold, italic, inline code, links, colours) ----
 document.getElementById('btnClearFormat').addEventListener('click', () => {
   canvas.focus();
@@ -584,6 +640,97 @@ function buildFiguresRowHtml(items) {
     .join('');
   return `<div style="display: flex; justify-content: center; gap: 2ch;">${figs}</div><br>`;
 }
+
+// ---- 3D viewer dialog ----
+const stlDialog = document.getElementById('stlDialog');
+document.getElementById('btnStl').addEventListener('click', () => stlDialog.showModal());
+document.getElementById('stlCancel').addEventListener('click', () => stlDialog.close());
+document.getElementById('stlInsert').addEventListener('click', async (event) => {
+  const file = document.getElementById('stlFile').files[0];
+  const slug = slugInput.value.trim() || simpleSlug(titleInput.value);
+  if (!slug) {
+    alert('Set a title/slug before adding a model.');
+    return;
+  }
+  if (!file || !/\.(stl|obj|usdz|gltf|glb)$/i.test(file.name)) {
+    alert('Choose an STL, OBJ, USDZ, glTF, or GLB file first.');
+    return;
+  }
+  if (file.size > 25 * 1024 * 1024) {
+    alert('Choose a model file no larger than 25 MB.');
+    return;
+  }
+  const button = event.currentTarget;
+  button.disabled = true;
+  statusMsg.textContent = 'Uploading 3D model...';
+  try {
+    const form = new FormData();
+    form.append('file', file);
+    form.append('slug', slug);
+    if (/\.(gltf|glb)$/i.test(file.name)) {
+      let json;
+      if (/\.glb$/i.test(file.name)) {
+        const buffer = await file.arrayBuffer();
+        const view = new DataView(buffer);
+        if (buffer.byteLength < 20 || view.getUint32(0, true) !== 0x46546c67 ||
+            view.getUint32(4, true) !== 2 || view.getUint32(8, true) !== buffer.byteLength ||
+            view.getUint32(16, true) !== 0x4e4f534a ||
+            view.getUint32(12, true) > buffer.byteLength - 20) {
+          throw new Error('Invalid glTF 2.0 GLB header.');
+        }
+        json = JSON.parse(new TextDecoder().decode(new Uint8Array(buffer, 20, view.getUint32(12, true))));
+      } else {
+        json = JSON.parse(await file.text());
+      }
+      const assets = new Map([...document.getElementById('gltfAssets').files].map((asset) => [
+        asset.webkitRelativePath.split('/').slice(1).join('/'), asset,
+      ]));
+      const uris = new Set([...(json.buffers || []), ...(json.images || [])]
+        .map((entry) => entry.uri).filter((uri) => typeof uri === 'string' && !uri.startsWith('data:')));
+      let totalSize = file.size;
+      const added = new Set();
+      for (const uri of uris) {
+        const name = decodeURIComponent(uri).replace(/^(\.\/)+/, '');
+        if (added.has(name)) continue;
+        const asset = assets.get(name);
+        if (!asset) throw new Error(`Missing glTF asset: ${name}. Select the folder containing the model.`);
+        totalSize += asset.size;
+        if (totalSize > 25 * 1024 * 1024) throw new Error('Model and assets must total no more than 25 MB.');
+        form.append('assets', asset, name);
+        added.add(name);
+      }
+    }
+    const response = await fetch('/api/upload-model', { method: 'POST', body: form });
+    const data = await response.json();
+    if (!response.ok) throw new Error(data.error || 'upload failed');
+    const title = document.getElementById('stlTitle').value.trim() || file.name;
+    const viewerUrl = '../tools/postmaker/static/stl-viewer.html?model=' + encodeURIComponent(data.url);
+    const wrapper = document.createElement('div');
+    wrapper.contentEditable = 'false';
+    const frame = document.createElement('iframe');
+    frame.src = viewerUrl;
+    frame.title = title;
+    frame.loading = 'lazy';
+    frame.style.cssText = 'width:100%;height:420px;border:1px solid grey;display:block;';
+    wrapper.appendChild(frame);
+    const link = document.createElement('a');
+    link.href = data.url;
+    link.textContent = `Download ${file.name.split('.').pop().toUpperCase()}: ${title}`;
+    wrapper.appendChild(link);
+    stlDialog.close();
+    insertHtmlAtCaret(wrapper.outerHTML + '<p><br></p>');
+    markDirty();
+    statusMsg.textContent = 'Inserted lazy 3D viewer';
+    document.getElementById('stlFile').value = '';
+    document.getElementById('stlTitle').value = '';
+    document.getElementById('gltfAssets').value = '';
+  } catch (err) {
+    statusMsg.textContent = '';
+    alert('Model upload failed: ' + err.message);
+  } finally {
+    button.disabled = false;
+  }
+});
 
 // ---- table dialog ----
 const tableDialog = document.getElementById('tableDialog');
